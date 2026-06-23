@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio</title>
+  <style>
+    body {
+      margin: 50px 100px; 
+      font-family: 'Segoe UI', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-mode {
+      background-color: white;
+      color: black;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .header-principal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .logo-pequeno {
+      width: 40px; 
+      height: auto; 
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 1rem 0;
+      position: relative;
+      transition: background-color 0.3s ease;
+      border-radius: 8px;
+    }
+
+    body.light-mode nav { background-color: black; }
+    body.dark-mode nav { background-color: white; }
+
+    nav a {
+      text-decoration: none;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    body.light-mode nav a { color: white; }
+    body.dark-mode nav a { color: black; }
+
+    body.light-mode nav a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    body.dark-mode nav a:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .dropdown { position: relative; }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%; 
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: column;
+      min-width: 160px;
+      z-index: 10;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    body.light-mode .dropdown-content { background-color: black; }
+    body.dark-mode .dropdown-content { background-color: white; }
+
+    .dropdown-content a {
+      padding: 10px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .dropdown:hover .dropdown-content { display: flex; }
+
+    .toggle-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      z-index: 999;
+      transition: background-color 0.3s, color 0.3s;
+      border-radius: 5px;
+    }
+
+    .light-mode .toggle-button {
+      background: white;
+      color: black;
+      border: 1px solid black;
+    }
+
+    /* --- Sección Hero --- */
+    .hero-section {
+      margin-top: 40px; 
+      height: 60vh; 
+      background-image: url('C:\\Users\\eduar\\Desktop\\NegociosI\\Imagenes/687ef8134c6df.webp'); 
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border-radius: 10px;
+    }
+
+    .btn-central {
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s, background-color 0.3s;
+      border-radius: 5px;
+    }
+
+    body.light-mode .btn-central {
+      background-color: black;
+      color: white;
+    }
+
+    body.dark-mode .btn-central {
+      background-color: white;
+      color: black;
+    }
+
+    .btn-central:hover {
+      transform: scale(1.05); 
+    }
+    
+    body.light-mode .btn-central:hover { background-color: #333; }
+    body.dark-mode .btn-central:hover { background-color: #ddd; }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 50px;
+      flex-wrap: wrap; 
+    }
+
+    .caja-info {
+      flex: 1;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    body.light-mode .caja-info {
+      background-color: #f4f4f4;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+    }
+
+    body.dark-mode .caja-info {
+      background-color: #1e1e1e;
+      box-shadow: 0 4px 10px rgba(255,255,255,0.05);
+      border: 1px solid #333;
+    }
+
+    .caja-info h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .caja-info p {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    .redes-sociales {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .red-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .red-item h4 {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: normal;
+    }
+
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <a href="#home">Inicio</a>
+    <div class="dropdown">
+      <a href="C:/Users/eduar/Desktop/formulario.html">Catálogo</a>
+    </div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
+    </div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
+    </div>
+    <div class="dropdown">
+      <a href="C:\Users\eduar\Desktop\Programacion Web/peliculas2.html">Iniciar sesión</a>
+    </div>
+  </nav>
+
+  <div class="hero-section">
+    <a href="C:/Users/eduar/Desktop/formulario.html" class="btn-central">Ver Productos</a>
+  </div>
+
+  <div class="footer-container">
+    
+     <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
+      Fracc. Bona Gens, C.P. 20256<br>
+      Aguascalientes, Ags., México</p>
+        
+          <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram" class="logo-pequeno">
+          <h4>@tekila</h4>
+      
+     
+          <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook" class="logo-pequeno">
+          <h4>@tekila</h4>
+     
+      
+          <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok" class="logo-pequeno">
+          <h4>@tekila</h4>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+
+</body>
+</html>

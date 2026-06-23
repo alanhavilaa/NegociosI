@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nosotros - TEKILA</title>
+  <style>
+    body {
+      margin: 50px 100px; 
+      font-family: 'Segoe UI', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-mode {
+      background-color: white;
+      color: black;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .header-principal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .logo-pequeno {
+      width: 40px; 
+      height: auto; 
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 1rem 0;
+      position: relative;
+      transition: background-color 0.3s ease;
+      border-radius: 8px;
+    }
+
+    body.light-mode nav { background-color: black; }
+    body.dark-mode nav { background-color: white; }
+
+    nav a {
+      text-decoration: none;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    body.light-mode nav a { color: white; }
+    body.dark-mode nav a { color: black; }
+
+    body.light-mode nav a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    body.dark-mode nav a:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .dropdown { position: relative; }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%; 
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: column;
+      min-width: 160px;
+      z-index: 10;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    body.light-mode .dropdown-content { background-color: black; }
+    body.dark-mode .dropdown-content { background-color: white; }
+
+    .dropdown-content a {
+      padding: 10px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .dropdown:hover .dropdown-content { display: flex; }
+
+    .toggle-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      z-index: 999;
+      transition: background-color 0.3s, color 0.3s;
+      border-radius: 5px;
+    }
+
+    .light-mode .toggle-button {
+      background: white;
+      color: black;
+      border: 1px solid black;
+    }
+
+    .nosotros-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    body.light-mode .nosotros-container {
+      background-color: #f4f4f4;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+    }
+
+    body.dark-mode .nosotros-container {
+      background-color: #1e1e1e;
+      box-shadow: 0 4px 10px rgba(255,255,255,0.05);
+      border: 1px solid #333;
+    }
+
+    .nosotros-container h1 {
+      margin-top: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .nosotros-container p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: center; 
+      margin-top: 50px;
+    }
+
+    .caja-info {
+      width: 100%;
+      max-width: 800px;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    body.light-mode .caja-info {
+      background-color: #f4f4f4;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+    }
+
+    body.dark-mode .caja-info {
+      background-color: #1e1e1e;
+      box-shadow: 0 4px 10px rgba(255,255,255,0.05);
+      border: 1px solid #333;
+    }
+
+    .caja-info h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .caja-info p {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="C:/Users/eduar/Desktop/Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
+    <div class="dropdown">
+      <a href="C:/Users/eduar/Desktop/formulario.html">Catálogo</a>
+    </div>
+    <div class="dropdown">
+      <a href="C:\Users\eduar\Desktop\Programacion Web/peliculas2.html">Nosotros</a>
+    </div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
+    </div>
+    <div class="dropdown">
+      <a href="C:\Users\eduar\Desktop\Programacion Web/peliculas2.html">Iniciar sesión</a>
+    </div>
+  </nav>
+
+  <div class="nosotros-container">
+    <h1>Nosotros</h1>
+    <p>
+      Fundada en 2020 por el señor Victor Corleone y Roberto Deniro en el estado de Aguascalientes, 
+      somos una empresa dedicada a la exportación y venta de productos destilados de agave. 
+      Nos dedicamos a exportar productos de la más alta calidad a México y a todo el mundo.
+    </p>
+  </div>
+   
+ <div class="footer-container">
+    
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
+      Fracc. Bona Gens, C.P. 20256<br>
+      Aguascalientes, Ags., México</p>
+        
+          <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram" class="logo-pequeno">
+          <h4>@tekila</h4>
+      
+     
+          <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook" class="logo-pequeno">
+          <h4>@tekila</h4>
+     
+      
+          <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok" class="logo-pequeno">
+          <h4>@tekila</h4>
+    </div>
+
+  
+
+  </div>
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+
+</body>
+</html>
