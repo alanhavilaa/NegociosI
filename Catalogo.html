@@ -2,12 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Nosotros - TEKILA</title>
+  <title>Catálogo - TEKILA</title>
   <style>
     body {
       margin: 50px 100px; 
       font-family: 'Segoe UI', sans-serif;
-      transition: background-color 0.3s, color 0.3s;
     }
 
     body.light-mode {
@@ -39,7 +38,6 @@
       gap: 40px;
       padding: 1rem 0;
       position: relative;
-      transition: background-color 0.3s ease;
       border-radius: 8px;
     }
 
@@ -51,7 +49,6 @@
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: color 0.3s ease, background-color 0.3s ease;
       padding: 8px 12px;
       border-radius: 4px;
     }
@@ -80,8 +77,6 @@
       flex-direction: column;
       min-width: 160px;
       z-index: 10;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
 
     body.light-mode .dropdown-content { background-color: black; }
@@ -105,7 +100,6 @@
       padding: 10px 20px;
       cursor: pointer;
       z-index: 999;
-      transition: background-color 0.3s, color 0.3s;
       border-radius: 5px;
     }
 
@@ -115,45 +109,55 @@
       border: 1px solid black;
     }
 
-    .nosotros-container {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 40px;
-      border-radius: 10px;
+    .catalogo-vertical {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px; 
+      margin-top: 50px;
+    }
+
+    .producto-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px; 
       text-align: center;
-      transition: background-color 0.3s, box-shadow 0.3s;
     }
 
-    body.light-mode .nosotros-container {
-      background-color: #f4f4f4;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border: 1px solid #e0e0e0;
-    }
-
-    body.dark-mode .nosotros-container {
-      background-color: #1e1e1e;
-      box-shadow: 0 4px 10px rgba(255,255,255,0.05);
-      border: 1px solid #333;
-    }
-
-    .nosotros-container h1 {
-      margin-top: 0;
+    .producto-card h3 {
+      margin: 0 0 15px 0;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
+      font-size: 1.2rem;
     }
 
-    .nosotros-container p {
+    .imagenproducto {
+      width: 120px; 
+      height: 150px; 
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .producto-card p {
       font-size: 1.2rem;
-      line-height: 1.8;
-      font-weight: normal;
-      margin: 0;
+      margin: 0 0 15px 0;
+    }
+
+    .btn-detalle {
+        background: white;
+      color: black;
+      border: 1px solid black;
+      padding: 10px 24px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      cursor: pointer;
     }
 
     .footer-container {
       display: flex;
       justify-content: center; 
-      margin-top: 50px;
+      margin-top: 60px;
+      margin-bottom: 40px;
     }
 
     .caja-info {
@@ -162,18 +166,15 @@
       padding: 25px;
       border-radius: 10px;
       text-align: center;
-      transition: background-color 0.3s, box-shadow 0.3s;
     }
 
     body.light-mode .caja-info {
       background-color: #f4f4f4;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       border: 1px solid #e0e0e0;
     }
 
     body.dark-mode .caja-info {
       background-color: #1e1e1e;
-      box-shadow: 0 4px 10px rgba(255,255,255,0.05);
       border: 1px solid #333;
     }
 
@@ -181,7 +182,6 @@
       margin-top: 0;
       margin-bottom: 20px;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     .caja-info p {
@@ -217,7 +217,7 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      border-radius: 0;
+      border-radius: 0; 
     }
 
     body.light-mode .contenedor-iconos a {
@@ -274,28 +274,44 @@
       <a href="C:\Users\eduar\Desktop\Programacion Web/peliculas2.html">Iniciar sesión</a>
     </div>
   </nav>
-  <div class="nosotros-container">
-    <h1>Nosotros</h1>
-    <p>
-      Fundada en 2020 por el señor Victor Corleone y Roberto Deniro en el estado de Aguascalientes, 
-      somos una empresa dedicada a la exportación y venta de productos destilados de agave. 
-      Nos dedicamos a exportar productos de la más alta calidad a México y a todo el mundo.
-    </p>
-     <h1>Mision</h1>
-    <p>
-      Entregar el mejor producto de destilado de agave a las clientes mas exclusivos de México y el mundo.
-    </p>
-    <h1>Vision</h1>
-    <p>
-      Consolidarnos como la empresa lider en el mercado de comercio de destilados de agave.
-    </p>
-    <h1>Valores</h1>
-    <p>
-      Compromiso: Hacer cada una de nuestras operaciones con entrega y dedicación<br>
-      Respeto: Hacer de nuestra comunidad un lugar seguro e integro<br>
-      Honestidad: Crear las mejores relaciones con nuestros colaboradores y clientes
-    </p>
-  </div>
+  <div class="catalogo-vertical">
+    
+    <div class="producto-card">
+      <h3>Don Julio Reposado</h3>
+      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/donjulioreposado.jpeg" alt="DonJulioRep" class="imagenproducto">
+      <p>$1500.00</p> 
+      <button class="btn-detalle">VER DETALLE</button>
+    </div>
+
+    <div class="producto-card">
+      <h3>Jose Cuervo</h3>
+      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/josecuervo.jpg" alt="JoseCuervo" class="imagenproducto">
+      <p>$1500.00</p> 
+      <button class="btn-detalle">VER DETALLE</button>
+    </div>
+
+    <div class="producto-card">
+      <h3>Campo Azul</h3>
+      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/campoazul.jpg" alt="CampoAz" class="imagenproducto">
+      <p>$1500.00</p> 
+    <a href="file:///C:/Users/eduar/Desktop/NegociosI/Productos/DonJulioRep.html" class="btn-detalle">VER DETALLE</a>
+    </div>
+
+    <div class="producto-card">
+      <h3>1800 Cristal</h3>
+      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/1800cristal.webp" alt="1800cristal" class="imagenproducto">
+      <p>$1500.00</p> 
+      <button class="btn-detalle">VER DETALLE</button>
+    </div>
+
+    <div class="producto-card">
+      <h3>1800</h3>
+      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/1800.jpg" alt="1800" class="imagenproducto">
+      <p>$1800.00</p> 
+      <button class="btn-detalle">VER DETALLE</button>
+    </div>
+
+  </div> 
    
   <div class="footer-container">
     <div class="caja-info">
