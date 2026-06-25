@@ -43,25 +43,8 @@
       max-width: 800px;
       padding: 25px;
       border-radius: 10px;
-      transition: background-color 0.3s, box-shadow 0.3s;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 4px;
-    }
-
-    .caja-info {
-      width: 100%;
-      max-width: 800px;
-      padding: 25px;
-      border-radius: 10px;
       text-align: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
     }
 
     body.light-mode .caja-info {
@@ -83,6 +66,16 @@
     .caja-info p {
       margin: 8px 0;
       line-height: 1.5;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 4px;
     }
 
     body.light-mode nav a { color: white; }
@@ -136,7 +129,14 @@
       z-index: 999;
       transition: background-color 0.3s, color 0.3s;
     }
- .redes-flotantes {
+    
+    .light-mode .toggle-button {
+      background: white;
+      color: black;
+      border: 1px solid black;
+    }
+
+    .redes-flotantes {
       position: fixed; 
       bottom: 20px;
       right: 20px;
@@ -177,17 +177,13 @@
       height: 25px;
       object-fit: contain;
     }
-    .light-mode .toggle-button {
-      background: white;
-      color: black;
-      border: 1px solid black;
-    }
     
     .logo-pequeno {
       width: 40px; 
       height: auto; 
     }
-     .header-principal {
+
+    .header-principal {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -195,44 +191,21 @@
       margin-bottom: 20px;
     }
 
-    .hero-section {
-      margin-top: 40px; 
-      height: 60vh; 
-      background-image: url('C:/Users/eduar/Desktop/Imagenes/687ef8134c6df.webp'); 
-      background-size: cover; 
-      background-position: center; 
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-
-    .btn-central {
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      text-decoration: none;
-      transition: transform 0.2s, background-color 0.3s;
-    }
-
-    body.light-mode .btn-central {
+    .btn-detalle {
+      padding: 10px 20px;
       background-color: black;
       color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-transform: uppercase;
     }
 
-    body.dark-mode .btn-central {
+    body.dark-mode .btn-detalle {
       background-color: white;
       color: black;
     }
-
-    .btn-central:hover {
-      transform: scale(1.05); 
-    }
-    
-    body.light-mode .btn-central:hover { background-color: #333; }
-    body.dark-mode .btn-central:hover { background-color: #ddd; }
   </style>
 </head>
 
@@ -248,52 +221,45 @@
   <div class="redes-flotantes">
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram">
-      </a>
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook">
-      </a>
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok">
-      </a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok"></a>
     </div>
   </div>
 
   <nav>
-    <div>
-    <a href="C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catalogo</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
-    </div>
+    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catalogo</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a></div>
   </nav>
- <div class="footer-container">
+
+  <div class="footer-container">
     <div class="caja-info">
-  <section>
-    <h2>Formulario de Registro</h2>
-    <form onsubmit="enviarFormulario(event)">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required><br><br>
+      <section>
+        <h2>INICIAR SESION</h2>
+        <form onsubmit="enviarFormulario(event)">
 
-      <label for="correo">Correo electrónico:</label>
-      <input type="email" id="correo" name="correo" required><br><br>
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo" required><br><br>
+          
+          <label for="contrasena">Contraseña:</label>
+          <input type="password" id="contrasena" name="contrasena" required><br><br>
+            <div>
+          <input type="checkbox" id="acepto" name="acepto" required>
+        
+    <label for="acepto">Recordar Contraseña</label>
+</div>
 
-      <input type="submit" value="Enviar">
-    </form>
-  </section>
-     </div>
+          <button type="submit" class="btn-detalle">ENTRAR</button>
+              <a href="C:/Users/eduar/Desktop/NegociosI/Registro.html" class="btn-detalle">Registrarme</a>
+            
+
+        </form>
+      </section>
+    </div>
   </div>
- 
 
   <div class="footer-container">
     <div class="caja-info">
@@ -313,7 +279,7 @@
 
     function enviarFormulario(event) {
       event.preventDefault(); 
-      alert('Enviado'); 
+      window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
     }
   </script>
 
