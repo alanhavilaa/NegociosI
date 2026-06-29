@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing TEKILA</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            background-image: url('./Imagenes/fondo.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            background-color: #ffffff; 
+            overflow: hidden; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #landin-content {
+            position: relative;
+            width: 65vw; 
+            height: auto; 
+            max-height: 80vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            box-sizing: border-box; 
+            border-radius: 10px; 
+            overflow: hidden; 
+        }
+
+        #landin-content img.landing-graphic {
+            width: 100%; 
+            height: auto;
+            display: block; 
+        }
+
+        #gold-btn {
+            position: absolute; 
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 15; 
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            left: 50%; 
+            top: 50%; 
+            transform: translate(-50%, -50%); 
+        }
+
+        #gold-btn:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #000000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+        }
+
+        .particle {
+            position: absolute;
+            background-color: #FFD700; 
+            border-radius: 50%;
+            pointer-events: none; 
+            opacity: 0;
+            z-index: 10; 
+            animation: float-away 0.8s ease-out forwards;
+            box-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700; 
+        }
+
+        @keyframes float-away {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .footer-container {
+            position: absolute;
+            bottom: 30px; 
+            width: 100%;
+            display: flex;
+            justify-content: center; 
+            z-index: 15;
+        }
+
+        .caja-info {
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 10px 25px;
+            border-radius: 50px;
+        }
+
+        .logo-pequeno {
+            width: 40px; 
+            height: auto;
+        }
+
+        .caja-info h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="landin-content">
+        <img src="./Imagenes/fondolandin.jpeg" alt="Gráfico de Landing" class="landing-graphic">
+        <button id="gold-btn">DESCUBRIR MAS</button>
+    </div>
+
+    <div class="footer-container">
+        <div class="caja-info">
+            <img src="./Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">    
+            <h1>TEKILA</h1>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('gold-btn');
+        let particleInterval;
+
+        btn.addEventListener('mouseenter', () => {
+            createParticles(15);
+            particleInterval = setInterval(() => createParticles(4), 100);
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            clearInterval(particleInterval);
+        });
+
+        function createParticles(amount) {
+            for (let i = 0; i < amount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 4 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                const rect = btn.getBoundingClientRect();
+                const startX = rect.left + (Math.random() * rect.width);
+                const startY = rect.top + (Math.random() * rect.height);
+                
+                particle.style.left = `${startX}px`;
+                particle.style.top = `${startY}px`;
+                
+                const tx = (Math.random() - 0.5) * 200; 
+                const ty = (Math.random() - 0.5) * 200; 
+                
+                particle.style.setProperty('--tx', `${tx}px`);
+                particle.style.setProperty('--ty', `${ty}px`);
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 800);
+            }
+        }
+    </script>
+</body>
+</html>
