@@ -44,6 +44,7 @@
       padding: 25px;
       border-radius: 10px;
       transition: background-color 0.3s, box-shadow 0.3s;
+      text-align: center;
     }
 
     nav a {
@@ -54,14 +55,6 @@
       transition: color 0.3s ease, background-color 0.3s ease;
       padding: 8px 12px;
       border-radius: 4px;
-    }
-
-    .caja-info {
-      width: 100%;
-      max-width: 800px;
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
     }
 
     body.light-mode .caja-info {
@@ -136,7 +129,8 @@
       z-index: 999;
       transition: background-color 0.3s, color 0.3s;
     }
- .redes-flotantes {
+
+    .redes-flotantes {
       position: fixed; 
       bottom: 20px;
       right: 20px;
@@ -177,6 +171,7 @@
       height: 25px;
       object-fit: contain;
     }
+    
     .light-mode .toggle-button {
       background: white;
       color: black;
@@ -187,6 +182,7 @@
       width: 40px; 
       height: auto; 
     }
+    
      .header-principal {
       display: flex;
       align-items: center;
@@ -233,6 +229,28 @@
     
     body.light-mode .btn-central:hover { background-color: #333; }
     body.dark-mode .btn-central:hover { background-color: #ddd; }
+
+    .mensaje-exito {
+      display: none; 
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      transition: opacity 0.3s ease;
+    }
+
+    body.light-mode .mensaje-exito {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    body.dark-mode .mensaje-exito {
+      background-color: #1e4620;
+      color: #a3cfbb;
+      border: 1px solid #198754;
+    }
   </style>
 </head>
 
@@ -277,23 +295,27 @@
       <a href="C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
     </div>
   </nav>
- <div class="footer-container">
+
+  <div class="footer-container">
     <div class="caja-info">
-  <section>
-    <h2>Formulario de Registro</h2>
-    <form onsubmit="enviarFormulario(event)">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required><br><br>
+      <section>
+        <h2>Formulario de Registro</h2>
+        <form id="miFormulario" onsubmit="enviarFormulario(event)">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required><br><br>
 
-      <label for="correo">Correo electrónico:</label>
-      <input type="email" id="correo" name="correo" required><br><br>
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo" required><br><br>
 
-      <input type="submit" value="Enviar">
-    </form>
-  </section>
-     </div>
+          <input type="submit" value="Enviar">
+        </form>
+
+        <div id="mensaje-exito" class="mensaje-exito">Enviado
+        </div>
+
+      </section>
+    </div>
   </div>
- 
 
   <div class="footer-container">
     <div class="caja-info">
@@ -302,6 +324,7 @@
       <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
       Fracc. Bona Gens, C.P. 20256<br>
       Aguascalientes, Ags., México</p>
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs<br>
     </div>
   </div>
 
@@ -313,7 +336,14 @@
 
     function enviarFormulario(event) {
       event.preventDefault(); 
-      alert('Enviado'); 
+      
+      document.getElementById('mensaje-exito').style.display = 'block';
+      
+      document.getElementById('miFormulario').reset();
+
+      setTimeout(() => {
+        document.getElementById('mensaje-exito').style.display = 'none';
+      }, 4000);
     }
   </script>
 

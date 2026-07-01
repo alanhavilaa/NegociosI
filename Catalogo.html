@@ -3,240 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Catálogo - TEKILA</title>
-  <style>
-    body {
-      margin: 50px 100px; 
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body.light-mode {
-      background-color: white;
-      color: black;
-    }
-
-    body.dark-mode {
-      background-color: #121212;
-      color: white;
-    }
-
-    .header-principal {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .logo-pequeno {
-      width: 40px; 
-      height: auto; 
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 1rem 0;
-      position: relative;
-      border-radius: 8px;
-    }
-
-    body.light-mode nav { background-color: black; }
-    body.dark-mode nav { background-color: white; }
-
-    nav a {
-      text-decoration: none;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 8px 12px;
-      border-radius: 4px;
-    }
-
-    body.light-mode nav a { color: white; }
-    body.dark-mode nav a { color: black; }
-
-    body.light-mode nav a:hover {
-      background-color: white;
-      color: black;
-    }
-
-    body.dark-mode nav a:hover {
-      background-color: black;
-      color: white;
-    }
-
-    .dropdown { position: relative; }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%; 
-      left: 50%;
-      transform: translateX(-50%);
-      flex-direction: column;
-      min-width: 160px;
-      z-index: 10;
-    }
-
-    body.light-mode .dropdown-content { background-color: black; }
-    body.dark-mode .dropdown-content { background-color: white; }
-
-    .dropdown-content a {
-      padding: 10px;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .dropdown:hover .dropdown-content { display: flex; }
-
-    .toggle-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: black;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      z-index: 999;
-      border-radius: 5px;
-    }
-
-    .light-mode .toggle-button {
-      background: white;
-      color: black;
-      border: 1px solid black;
-    }
-
-    .catalogo-vertical {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 50px; 
-      margin-top: 50px;
-    }
-
-    .producto-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 300px; 
-      text-align: center;
-    }
-
-    .producto-card h3 {
-      margin: 0 0 15px 0;
-      text-transform: uppercase;
-      font-size: 1.2rem;
-    }
-
-    .imagenproducto {
-      width: 120px; 
-      height: 150px; 
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-
-    .producto-card p {
-      font-size: 1.2rem;
-      margin: 0 0 15px 0;
-    }
-
-    .btn-detalle {
-        background: white;
-      color: black;
-      border: 1px solid black;
-      padding: 10px 24px;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    .footer-container {
-      display: flex;
-      justify-content: center; 
-      margin-top: 60px;
-      margin-bottom: 40px;
-    }
-
-    .caja-info {
-      width: 100%;
-      max-width: 800px;
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    body.light-mode .caja-info {
-      background-color: #f4f4f4;
-      border: 1px solid #e0e0e0;
-    }
-
-    body.dark-mode .caja-info {
-      background-color: #1e1e1e;
-      border: 1px solid #333;
-    }
-
-    .caja-info h3 {
-      margin-top: 0;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    .caja-info p {
-      margin: 8px 0;
-      line-height: 1.5;
-    }
-
-    .redes-flotantes {
-      position: fixed; 
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center; 
-      gap: 10px; 
-      z-index: 999;
-    }
-
-    .redes-flotantes h4 {
-      margin: 0; 
-    }
-
-    .contenedor-iconos {
-      display: flex;
-      gap: 10px; 
-    }
-
-    .contenedor-iconos a {
-      background-color: black;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      border-radius: 0; 
-    }
-
-    body.light-mode .contenedor-iconos a {
-      background-color: white;
-      border: 1px solid black;
-    }
-
-    .contenedor-iconos a img {
-      width: 25px;
-      height: 25px;
-      object-fit: contain;
-    }
-
-  </style>
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body class="light-mode">
 
   <header class="header-principal">
-    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
     <h1>TEKILA</h1>
   </header>
 
@@ -244,13 +16,13 @@
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
       <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram">
+        <img src="Imagenes/instagram.jpg" alt="Instagram">
       </a>
       <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook">
+        <img src="Imagenes/facebook.webp" alt="Facebook">
       </a>
       <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok">
+        <img src="Imagenes/tiktok.png" alt="TikTok">
       </a>
     </div>
   </div>
@@ -259,56 +31,92 @@
 
   <nav>
     <div>
-    <a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
+      <a href="Inicio.html">Inicio</a>
     </div>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catalogo</a>
+      <a href="Catalogo.html">Catálogo</a>
     </div>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
+      <a href="Nosotros.html">Nosotros</a>
     </div>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
+      <a href="Contacto.html">Contacto</a>
     </div>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
+      <a href="Login.html">Iniciar sesión</a>
     </div>
   </nav>
-  <div class="catalogo-vertical">
+
+  <div class="controles-busqueda">
+    <input type="text" id="buscador" placeholder="Buscar" onkeyup="filtrarYOrdenar()">
+    
+    <select id="orden-precio" onchange="filtrarYOrdenar()">
+      <option value="default">Filtrar</option>
+      <option value="asc">Menor precio</option>
+      <option value="desc">Mayor precio</option>
+    </select>
+  </div>
+
+  <div class="catalogo-vertical" id="catalogo-productos">
     
     <div class="producto-card">
       <h3>Don Julio Reposado</h3>
-      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/donjulioreposado.jpeg" alt="DonJulioRep" class="imagenproducto">
-      <p>$1500.00</p> 
-    <a href="file:///C:/Users/eduar/Desktop/NegociosI/Productos/DonJulioRep.html" class="btn-detalle">VER DETALLE</a>
+      <img src="Imagenes/donjulioreposado.jpeg" alt="Don Julio Reposado" class="imagenproducto">
+      <p class="precio-item">$1500.00</p> 
+      <a href="Productos/DonJulioRep.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
     <div class="producto-card">
       <h3>Jose Cuervo</h3>
-      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/josecuervo.jpg" alt="JoseCuervo" class="imagenproducto">
-      <p>$1500.00</p> 
-    <a href="file:///C:/Users/eduar/Desktop/NegociosI/Productos/JoseCuervo.html" class="btn-detalle">VER DETALLE</a>
+      <img src="Imagenes/josecuervo.jpg" alt="Jose Cuervo" class="imagenproducto">
+      <p class="precio-item">$1300.00</p> 
+      <a href="Productos/JoseCuervo.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
     <div class="producto-card">
       <h3>Campo Azul</h3>
-      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/campoazul.jpg" alt="CampoAz" class="imagenproducto">
-      <p>$1500.00</p> 
-    <a href="file:///C:/Users/eduar/Desktop/NegociosI/Productos/CampoAzul.html" class="btn-detalle">VER DETALLE</a>
+      <img src="Imagenes/campoazul.jpg" alt="Campo Azul" class="imagenproducto">
+      <p class="precio-item">$1200.00</p> 
+      <a href="Productos/CampoAzul.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
     <div class="producto-card">
       <h3>1800 Cristal</h3>
-      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/1800cristal.webp" alt="1800cristal" class="imagenproducto">
-      <p>$1500.00</p> 
-    <a href="file:///C:/Users/eduar/Desktop/NegociosI/Productos/1800cristal.html" class="btn-detalle">VER DETALLE</a>
+      <span class="etiqueta-oferta">Precio en oferta</span>
+      <img src="Imagenes/1800cristal.webp" alt="1800 Cristal" class="imagenproducto">
+      <p class="precio-item">$1550.00</p> 
+      <a href="Productos/1800cristal.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
     <div class="producto-card">
       <h3>1800</h3>
-      <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/1800.jpg" alt="1800" class="imagenproducto">
-      <p>$1800.00</p> 
-    <a href="file:///C:/Users/eduar/Desktop/NegociosI/Productos/1800.html" class="btn-detalle">VER DETALLE</a>
+      <img src="Imagenes/1800.jpg" alt="1800" class="imagenproducto">
+      <p class="precio-item">$1800.00</p> 
+      <a href="Productos/1800.html" class="btn-detalle">VER DETALLE</a>
+    </div>
+
+    <div class="producto-card">
+      <h3>Circulo</h3>
+      <span class="etiqueta-nuevo">Producto nuevo</span>
+      <img src="Imagenes/Circulo.webp" alt="Circulo" class="imagenproducto">
+      <p class="precio-item">$2100.00</p> 
+      <a href="Productos/Circulo.html" class="btn-detalle">VER DETALLE</a>
+    </div>
+
+    <div class="producto-card">
+      <h3>Don Julio Ultima Reserva</h3>
+      <span class="etiqueta-nuevo">Producto nuevo</span>
+      <img src="Imagenes/DonJulioUltima.webp" alt="Don Julio Ultima Reserva" class="imagenproducto">
+      <p class="precio-item">$4500.00</p> 
+      <a href="Productos/DonJulioUltima.html" class="btn-detalle">VER DETALLE</a>
+    </div>
+
+    <div class="producto-card">
+      <h3>Ley .925</h3>
+      <span class="etiqueta-nuevo">Producto nuevo</span>
+      <img src="Imagenes/Ley925.jpg" alt="Ley .925" class="imagenproducto">
+      <p class="precio-item">$2500.00</p> 
+      <a href="Productos/Ley925.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
   </div> 
@@ -320,6 +128,7 @@
       <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
       Fracc. Bona Gens, C.P. 20256<br>
       Aguascalientes, Ags., México</p>
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
     </div>
   </div>
 
@@ -327,6 +136,40 @@
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
       document.body.classList.toggle("light-mode");
+    }
+
+    function filtrarYOrdenar() {
+      const textoBusqueda = document.getElementById("buscador").value.toLowerCase();
+      const ordenSeleccionado = document.getElementById("orden-precio").value;
+      const contenedor = document.getElementById("catalogo-productos");
+      
+      let productos = Array.from(contenedor.querySelectorAll(".producto-card"));
+
+      productos.forEach(producto => {
+        const nombreProducto = producto.querySelector("h3").innerText.toLowerCase();
+        if (nombreProducto.includes(textoBusqueda)) {
+          producto.style.display = ""; 
+        } else {
+          producto.style.display = "none";
+        }
+      });
+
+      if (ordenSeleccionado === "asc" || ordenSeleccionado === "desc") {
+        productos.sort((a, b) => {
+          const precioA = parseFloat(a.querySelector(".precio-item").innerText.replace('$', ''));
+          const precioB = parseFloat(b.querySelector(".precio-item").innerText.replace('$', ''));
+
+          if (ordenSeleccionado === "asc") {
+            return precioA - precioB; 
+          } else {
+            return precioB - precioA;
+          }
+        });
+
+        productos.forEach(producto => {
+          contenedor.appendChild(producto);
+        });
+      }
     }
   </script>
 

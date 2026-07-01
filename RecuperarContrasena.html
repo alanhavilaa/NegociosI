@@ -2,240 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Inicio - TEKILA</title>
-  <style>
-    body {
-      margin: 50px 100px; 
-      font-family: 'Segoe UI', sans-serif;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    body.light-mode {
-      background-color: white;
-      color: black;
-    }
-
-    body.dark-mode {
-      background-color: #121212;
-      color: white;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 1rem 0;
-      position: relative;
-      transition: background-color 0.3s ease;
-    }
-
-    body.light-mode nav { background-color: black; }
-    body.dark-mode nav { background-color: white; }
-
-    .footer-container {
-      display: flex;
-      justify-content: center; 
-      margin-top: 50px;
-    }
-
-    .caja-info {
-      width: 100%;
-      max-width: 800px;
-      padding: 25px;
-      border-radius: 10px;
-      transition: background-color 0.3s, box-shadow 0.3s;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 4px;
-    }
-
-    .caja-info {
-      width: 100%;
-      max-width: 800px;
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    body.light-mode .caja-info {
-      background-color: #f4f4f4;
-      border: 1px solid #e0e0e0;
-    }
-
-    body.dark-mode .caja-info {
-      background-color: #1e1e1e;
-      border: 1px solid #333;
-    }
-
-    .caja-info h3 {
-      margin-top: 0;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    .caja-info p {
-      margin: 8px 0;
-      line-height: 1.5;
-    }
-
-    body.light-mode nav a { color: white; }
-    body.dark-mode nav a { color: black; }
-
-    body.light-mode nav a:hover {
-      background-color: white;
-      color: black;
-    }
-
-    body.dark-mode nav a:hover {
-      background-color: black;
-      color: white;
-    }
-
-    .dropdown { position: relative; }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%; 
-      left: 50%;
-      transform: translateX(-50%);
-      flex-direction: column;
-      min-width: 160px;
-      z-index: 10;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-
-    body.light-mode .dropdown-content { background-color: black; }
-    body.dark-mode .dropdown-content { background-color: white; }
-
-    .dropdown-content a {
-      padding: 10px;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .dropdown:hover .dropdown-content { display: flex; }
-
-    .toggle-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: black;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      z-index: 999;
-      transition: background-color 0.3s, color 0.3s;
-    }
- .redes-flotantes {
-      position: fixed; 
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center; 
-      gap: 10px; 
-      z-index: 999;
-    }
-
-    .redes-flotantes h4 {
-      margin: 0; 
-    }
-
-    .contenedor-iconos {
-      display: flex;
-      gap: 10px; 
-    }
-
-    .contenedor-iconos a {
-      background-color: black;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      border-radius: 0; 
-    }
-
-    body.light-mode .contenedor-iconos a {
-      background-color: white;
-      border: 1px solid black;
-    }
-
-    .contenedor-iconos a img {
-      width: 25px;
-      height: 25px;
-      object-fit: contain;
-    }
-    .light-mode .toggle-button {
-      background: white;
-      color: black;
-      border: 1px solid black;
-    }
-    
-    .logo-pequeno {
-      width: 40px; 
-      height: auto; 
-    }
-     .header-principal {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .hero-section {
-      margin-top: 40px; 
-      height: 60vh; 
-      background-image: url('C:/Users/eduar/Desktop/Imagenes/687ef8134c6df.webp'); 
-      background-size: cover; 
-      background-position: center; 
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-
-    .btn-central {
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      text-decoration: none;
-      transition: transform 0.2s, background-color 0.3s;
-    }
-
-    body.light-mode .btn-central {
-      background-color: black;
-      color: white;
-    }
-
-    body.dark-mode .btn-central {
-      background-color: white;
-      color: black;
-    }
-
-    .btn-central:hover {
-      transform: scale(1.05); 
-    }
-    
-    body.light-mode .btn-central:hover { background-color: #333; }
-    body.dark-mode .btn-central:hover { background-color: #ddd; }
-  </style>
+  <title>Recuperar contraseña - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
 </head>
-
 <body class="light-mode">
 
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
@@ -248,49 +17,35 @@
   <div class="redes-flotantes">
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram">
-      </a>
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook">
-      </a>
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok">
-      </a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok"></a>
     </div>
   </div>
 
   <nav>
-    <div>
-    <a href="C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catalogo</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
-    </div>
+    <div><a href="C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catalogo</a></div>
+    <div class="dropdown"><a href="C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a></div>
+    <div class="dropdown"><a href="C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a></div>
   </nav>
- <div class="footer-container">
-    <div class="caja-info">
-  <section>
-    <h2>Recuperar Contraseña</h2>
-    <form onsubmit="enviarFormulario(event)">
-      <label for="correo">Correo electrónico registrado:</label>
-      <input type="email" id="correo" name="correo" required><br><br>
 
-      <input type="submit" value="Enviar">
-    </form>
-  </section>
-     </div>
+  <div class="footer-container">
+    <div class="caja-info">
+      <section>
+        <h2>Recuperar Contraseña</h2>
+        <form id="form-recuperar" onsubmit="enviarFormulario(event)">
+          <label for="correo">Correo electrónico registrado:</label>
+          <input type="email" id="correo" name="correo" required><br><br>
+          
+          <input type="submit" value="Enviar" class="btn-detalle">
+        </form>
+
+        <div id="mensaje-respuesta" class="mensaje-exito">Solicitud enviada</div>
+      </section>
+    </div>
   </div>
- 
 
   <div class="footer-container">
     <div class="caja-info">
@@ -299,6 +54,7 @@
       <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
       Fracc. Bona Gens, C.P. 20256<br>
       Aguascalientes, Ags., México</p>
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
     </div>
   </div>
 
@@ -310,7 +66,18 @@
 
     function enviarFormulario(event) {
       event.preventDefault(); 
-      alert('Solicitud de recuperar contraseña enviada'); 
+
+      document.getElementById('mensaje-respuesta').style.display = 'block';
+      
+      document.getElementById('correo').value = '';
+
+      const botonSubmit = event.target.querySelector('input[type="submit"]');
+      botonSubmit.disabled = true;
+      botonSubmit.value = "Enviando...";
+
+      setTimeout(function() {
+        window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/Login.html";
+      }, 2000); 
     }
   </script>
 
