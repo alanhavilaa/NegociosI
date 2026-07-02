@@ -8,6 +8,28 @@ body.light-mode {
   background-color: white;
   color: black;
 }
+.contenedor-etiquetas {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tag {
+      background-color: #e0e0e0;
+      color: #333;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    body.dark-mode .tag {
+      background-color: #333;
+      color: #ddd;
+    }
 
 body.dark-mode {
   background-color: #121212;
@@ -456,4 +478,74 @@ body.dark-mode .mensaje-exito {
 form input[type="submit"] {
   cursor: pointer;
   font-family: 'Segoe UI', sans-serif;
+}
+.producto-detalle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.imagen-detalle {
+  width: 300px; 
+  height: 500px; 
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.btn-cantidad {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.input-cantidad {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid gray;
+}
+
+body.light-mode .btn-cantidad {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+
+body.dark-mode .btn-cantidad {
+  background-color: white;
+  color: black;
+  border: 2px solid white;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.seccion-relacionados {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+body.dark-mode .seccion-relacionados {
+  border-top: 1px solid #333;
+}
+
+.seccion-relacionados h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.catalogo-horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap; 
 }

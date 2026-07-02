@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Catálogo - TEKILA</title>
   <link rel="stylesheet" href="estilo.css">
+  
 </head>
 <body class="light-mode">
 
@@ -15,43 +16,27 @@
   <div class="redes-flotantes">
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
-      <a href="#">
-        <img src="Imagenes/instagram.jpg" alt="Instagram">
-      </a>
-      <a href="#">
-        <img src="Imagenes/facebook.webp" alt="Facebook">
-      </a>
-      <a href="#">
-        <img src="Imagenes/tiktok.png" alt="TikTok">
-      </a>
+      <a href="#"><img src="Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="Imagenes/tiktok.png" alt="TikTok"></a>
     </div>
   </div>
 
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
   <nav>
-    <div>
-      <a href="Inicio.html">Inicio</a>
-    </div>
-    <div class="dropdown">
-      <a href="Catalogo.html">Catálogo</a>
-    </div>
-    <div class="dropdown">
-      <a href="Nosotros.html">Nosotros</a>
-    </div>
-    <div class="dropdown">
-      <a href="Contacto.html">Contacto</a>
-    </div>
-    <div class="dropdown">
-      <a href="Login.html">Iniciar sesión</a>
-    </div>
+    <div><a href="Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="Catalogo.html">Catálogo</a></div>
+    <div class="dropdown"><a href="Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="Contacto.html">Contacto</a></div>
+    <div class="dropdown"><a href="Login.html">Iniciar sesión</a></div>
   </nav>
 
   <div class="controles-busqueda">
-    <input type="text" id="buscador" placeholder="Buscar" onkeyup="filtrarYOrdenar()">
+    <input type="text" id="buscador" placeholder="Buscar por nombre o tipo..." onkeyup="filtrarYOrdenar()">
     
     <select id="orden-precio" onchange="filtrarYOrdenar()">
-      <option value="default">Filtrar</option>
+      <option value="default">Filtrar por Precio</option>
       <option value="asc">Menor precio</option>
       <option value="desc">Mayor precio</option>
     </select>
@@ -59,28 +44,28 @@
 
   <div class="catalogo-vertical" id="catalogo-productos">
     
-    <div class="producto-card">
+    <div class="producto-card" data-etiquetas="reposado don-julio">
       <h3>Don Julio Reposado</h3>
       <img src="Imagenes/donjulioreposado.jpeg" alt="Don Julio Reposado" class="imagenproducto">
       <p class="precio-item">$1500.00</p> 
       <a href="Productos/DonJulioRep.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
-    <div class="producto-card">
+    <div class="producto-card" data-etiquetas="reposado jose-cuervo">
       <h3>Jose Cuervo</h3>
       <img src="Imagenes/josecuervo.jpg" alt="Jose Cuervo" class="imagenproducto">
       <p class="precio-item">$1300.00</p> 
       <a href="Productos/JoseCuervo.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
-    <div class="producto-card">
+    <div class="producto-card" data-etiquetas="blanco campo-azul">
       <h3>Campo Azul</h3>
       <img src="Imagenes/campoazul.jpg" alt="Campo Azul" class="imagenproducto">
       <p class="precio-item">$1200.00</p> 
       <a href="Productos/CampoAzul.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
-    <div class="producto-card">
+    <div class="producto-card" data-etiquetas="cristalino añejo 1800">
       <h3>1800 Cristal</h3>
       <span class="etiqueta-oferta">Precio en oferta</span>
       <img src="Imagenes/1800cristal.webp" alt="1800 Cristal" class="imagenproducto">
@@ -88,14 +73,14 @@
       <a href="Productos/1800cristal.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
-    <div class="producto-card">
+    <div class="producto-card" data-etiquetas="reposado 1800">
       <h3>1800</h3>
       <img src="Imagenes/1800.jpg" alt="1800" class="imagenproducto">
       <p class="precio-item">$1800.00</p> 
       <a href="Productos/1800.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
-    <div class="producto-card">
+    <div class="producto-card" data-etiquetas="blanco circulo">
       <h3>Circulo</h3>
       <span class="etiqueta-nuevo">Producto nuevo</span>
       <img src="Imagenes/Circulo.webp" alt="Circulo" class="imagenproducto">
@@ -103,7 +88,7 @@
       <a href="Productos/Circulo.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
-    <div class="producto-card">
+    <div class="producto-card" data-etiquetas="extra-añejo don-julio premium">
       <h3>Don Julio Ultima Reserva</h3>
       <span class="etiqueta-nuevo">Producto nuevo</span>
       <img src="Imagenes/DonJulioUltima.webp" alt="Don Julio Ultima Reserva" class="imagenproducto">
@@ -111,7 +96,7 @@
       <a href="Productos/DonJulioUltima.html" class="btn-detalle">VER DETALLE</a>
     </div>
 
-    <div class="producto-card">
+    <div class="producto-card" data-etiquetas="blanco premium ley-925">
       <h3>Ley .925</h3>
       <span class="etiqueta-nuevo">Producto nuevo</span>
       <img src="Imagenes/Ley925.jpg" alt="Ley .925" class="imagenproducto">
@@ -147,7 +132,9 @@
 
       productos.forEach(producto => {
         const nombreProducto = producto.querySelector("h3").innerText.toLowerCase();
-        if (nombreProducto.includes(textoBusqueda)) {
+        const etiquetasProducto = producto.getAttribute("data-etiquetas") ? producto.getAttribute("data-etiquetas").toLowerCase() : "";
+        
+        if (nombreProducto.includes(textoBusqueda) || etiquetasProducto.includes(textoBusqueda)) {
           producto.style.display = ""; 
         } else {
           producto.style.display = "none";
