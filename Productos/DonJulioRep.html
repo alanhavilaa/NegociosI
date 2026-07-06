@@ -24,11 +24,13 @@
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
   <nav>
-    <div><a href="Inicio.html">Inicio</a></div>
+    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catálogo</a></div>
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a></div>
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a></div>
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
+
   </nav>
   
   <main>
@@ -99,6 +101,25 @@
       const mensaje = document.getElementById('mensaje-exito');
       let cantidad = parseInt(input.value) || 1;
 
+      const producto = {
+        id: 1, 
+        nombre: 'Don Julio Reposado',
+        precio: 1500.00,
+        cantidad: cantidad,
+        imagen: 'file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/donjulioreposado.jpeg'
+      };
+
+      let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
+
+      const productoExistente = carrito.find(item => item.id === producto.id);
+      if (productoExistente) {
+        productoExistente.cantidad += cantidad;
+      } else {
+        carrito.push(producto);
+      }
+
+      localStorage.setItem('carritoTekila', JSON.stringify(carrito));
+
       if (cantidad === 1) {
         mensaje.textContent = "¡1 botella agregada al carrito!";
       } else {
@@ -111,8 +132,6 @@
       setTimeout(() => {
         mensaje.style.display = 'none';
       }, 3000);
-
-
     }
 
     function cargarSimilares(idProductoActual, etiquetasBuscadas) {

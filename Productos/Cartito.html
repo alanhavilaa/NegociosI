@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>1800 Cristal - TEKILA</title>
+  <title>1800 - TEKILA</title>
   <link rel="stylesheet" href="file:///C:/Users/eduar/Desktop/NegociosI/estilo.css">
 </head>
 <body class="light-mode">
@@ -29,14 +29,12 @@
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a></div>
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a></div>
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a></div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
-
   </nav>
   
   <main>
     <div class="producto-detalle-container">
-      <h2>1800 Cristal</h2>
-      <img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/1800cristal.webp" alt="1800 Cristal" class="imagen-detalle">
+      <h2>1800</h2>
+      <img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/1800.jpg" alt="1800" class="imagen-detalle">
     </div>
     
     <div class="producto-detalle-container">
@@ -78,6 +76,7 @@
   <script src="file:///C:/Users/eduar/Desktop/NegociosI/productos.js"></script>
 
   <script>
+    
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
       document.body.classList.toggle("light-mode");
@@ -94,29 +93,10 @@
       input.value = nuevoValor;
     }
 
-      function agregarAlCarrito() {
+    function agregarAlCarrito() {
       const input = document.getElementById('cantidad');
       const mensaje = document.getElementById('mensaje-exito');
       let cantidad = parseInt(input.value) || 1;
-
-      const producto = {
-        id: 4, 
-        nombre: "1800 Cristal", 
-        precio: 1550.00, 
-        imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/1800cristal.webp" 
-      };
-
-      
-      let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
-
-      const productoExistente = carrito.find(item => item.id === producto.id);
-      if (productoExistente) {
-        productoExistente.cantidad += cantidad;
-      } else {
-        carrito.push(producto);
-      }
-
-      localStorage.setItem('carritoTekila', JSON.stringify(carrito));
 
       if (cantidad === 1) {
         mensaje.textContent = "¡1 botella agregada al carrito!";
@@ -129,36 +109,37 @@
 
       setTimeout(() => {
         mensaje.style.display = 'none';
-      }, 100);
+      }, 3000);
     }
 
     function cargarSimilares(idProductoActual, etiquetasBuscadas) {
-      const contenedor = document.getElementById('contenedor-similares');
-      contenedor.innerHTML = ''; 
-      
-      const productosSimilares = inventario.filter(producto => 
-        producto.id !== idProductoActual && 
-        producto.etiquetas.some(etiqueta => etiquetasBuscadas.includes(etiqueta))
-      );
+    const contenedor = document.getElementById('contenedor-similares');
+    contenedor.innerHTML = ''; 
+    
+    const productosSimilares = inventario.filter(producto => 
+      producto.id !== idProductoActual && 
+      producto.etiquetas.some(etiqueta => etiquetasBuscadas.includes(etiqueta))
+    );
 
-      const maximoMostrar = productosSimilares.slice(0, 3);
+    const maximoMostrar = productosSimilares.slice(0, 3);
 
-      maximoMostrar.forEach(prod => {
-        const tarjetaHTML = `
-          <div class="producto-card">
-            <h3>${prod.nombre}</h3>
-            <img src="${prod.imagen}" alt="${prod.nombre}" class="imagenproducto" style="height: 350px;">
-            <p>$${prod.precio.toFixed(2)}</p>
-            <a href="${prod.url}" class="btn-detalle">VER DETALLE</a>
-          </div>
-        `;
-        contenedor.innerHTML += tarjetaHTML;
-      });
-    }
+    maximoMostrar.forEach(prod => {
+      const tarjetaHTML = `
+        <div class="producto-card">
+          <h3>${prod.nombre}</h3>
+          <img src="${prod.imagen}" alt="${prod.nombre}" class="imagenproducto" style="height: 350px;">
+          <p>$${prod.precio.toFixed(2)}</p>
+          <a href="${prod.url}" class="btn-detalle">VER DETALLE</a>
+        </div>
+      `;
+      contenedor.innerHTML += tarjetaHTML;
+    });
+  }
 
-    window.onload = function() {
-      cargarSimilares(4, ['1800', 'cristalino', 'añejo']);
-    };
+  window.onload = function() {
+   
+    cargarSimilares(3, ['1800', 'tequila']);
+  };
   </script>
 
 </body>

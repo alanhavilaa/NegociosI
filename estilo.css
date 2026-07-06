@@ -549,3 +549,98 @@ body.dark-mode .seccion-relacionados {
   gap: 40px;
   flex-wrap: wrap; 
 }
+.item-carrito {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      padding: 15px 0;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .item-carrito img {
+      height: 100px;
+      width: auto;
+      border-radius: 8px;
+    }
+    .item-info {
+      flex: 1;
+      margin-left: 20px;
+    }
+    .controles-cantidad {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .btn-cant {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .btn-cant:hover {
+      background-color: #555;
+    }
+    .btn-eliminar {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .btn-eliminar:hover {
+      background-color: #c9302c;
+    }
+    .resumen-carrito {
+      margin-top: 30px;
+      text-align: right;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.05); 
+      border-radius: 8px;
+    }
+    .resumen-carrito p {
+      margin: 5px 0;
+      font-size: 1.1em;
+    }
+    .acciones-carrito {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .modal-overlay {
+      display: none; 
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .dark-mode .modal-content {
+      background: #222;
+      color: #fff;
+    }
+    .modal-botones {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }

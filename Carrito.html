@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Carrito - TEKILA</title>
+  <link rel="stylesheet" href="file:///C:/Users/eduar/Desktop/NegociosI/estilo.css">
+  <style>
+    .item-carrito {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      padding: 15px 0;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .item-carrito img {
+      height: 100px;
+      width: auto;
+      border-radius: 8px;
+    }
+    .item-info {
+      flex: 1;
+      margin-left: 20px;
+    }
+    .controles-cantidad {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .btn-cant {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .btn-cant:hover {
+      background-color: #555;
+    }
+    .btn-eliminar {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .btn-eliminar:hover {
+      background-color: #c9302c;
+    }
+    .resumen-carrito {
+      margin-top: 30px;
+      text-align: right;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.05); 
+      border-radius: 8px;
+    }
+    .resumen-carrito p {
+      margin: 5px 0;
+      font-size: 1.1em;
+    }
+    .acciones-carrito {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .mensaje-flotante {
+      display: none; 
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-weight: bold;
+      animation: aparecer 0.3s ease-out;
+    }
+    .mensaje-flotante.exito {
+      border-left: 5px solid #5cb85c;
+    }
+    .mensaje-flotante.alerta {
+      border-left: 5px solid #d9534f;
+    }
+
+    @keyframes aparecer {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+
+  <div class="redes-flotantes">
+    <h4>@tekila</h4>
+    <div class="contenedor-iconos">
+      <a href="#"><img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/tiktok.png" alt="TikTok"></a>
+    </div>
+  </div>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catálogo</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
+  </nav>
+  
+  <main style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+    
+    <div class="caja-info">
+      <h2 style="text-align: center; margin-bottom: 20px;">Tu Carrito de Compras</h2>
+      
+      <div id="contenedor-carrito">
+      </div>
+
+      <div class="resumen-carrito" id="seccion-resumen">
+        <p>Subtotal: $<span id="subtotal-carrito">0.00</span></p>
+        <p>IVA (16%): $<span id="iva-carrito">0.00</span></p>
+        <p style="color: green;">Descuentos: -$<span id="descuento-carrito">0.00</span></p>
+        <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ccc;">
+        <h3>Total a Pagar: $<span id="total-carrito">0.00</span></h3>
+        
+        <div class="acciones-carrito">
+          <button class="btn-detalle" style="background-color: #555;" onclick="vaciarCarrito()">Vaciar Carrito</button>
+          <button class="btn-detalle" onclick="procesarCompra()">Proceder al Pago</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-container">
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
+      Fracc. Bona Gens, C.P. 20256<br>
+      Aguascalientes, Ags., México</p>
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
+    </div>
+  </footer>
+
+  <div id="mensaje-flotante" class="mensaje-flotante"></div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function renderizarCarrito() {
+      const contenedor = document.getElementById('contenedor-carrito');
+      let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
+      let subtotalGeneral = 0;
+
+      contenedor.innerHTML = '';
+
+      if (carrito.length === 0) {
+        contenedor.innerHTML = '<p style="text-align: center; font-size: 1.2em; padding: 20px;">Carrito vacío. <br><br> <a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html" class="btn-detalle">Ir al Catálogo</a></p>';
+        document.getElementById('seccion-resumen').style.display = 'none'; 
+        return;
+      }
+
+      document.getElementById('seccion-resumen').style.display = 'block';
+
+      carrito.forEach((producto, index) => {
+        const subtotalProducto = producto.precio * producto.cantidad;
+        subtotalGeneral += subtotalProducto;
+
+        const itemHTML = `
+          <div class="item-carrito">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <div class="item-info">
+              <p><strong>${producto.nombre}</strong></p>
+              <p>Precio unitario: $${producto.precio.toFixed(2)}</p>
+              <div class="controles-cantidad">
+                <span>${producto.cantidad}</span>
+                <button class="btn-cant" onclick="modificarCantidadItem(${index}, -1)">-</button>
+              </div>
+            </div>
+            <div style="text-align: right; margin-right: 20px;">
+              <p><strong>Importe: $${subtotalProducto.toFixed(2)}</strong></p>
+            </div>
+            <button class="btn-eliminar" onclick="eliminarProducto(${index})">Quitar todo</button>
+          </div>
+        `;
+        contenedor.innerHTML += itemHTML;
+      });
+
+      const iva = subtotalGeneral * 0.16; 
+      const descuento = 0; 
+      const total = subtotalGeneral + iva - descuento;
+
+      document.getElementById('subtotal-carrito').textContent = subtotalGeneral.toFixed(2);
+      document.getElementById('iva-carrito').textContent = iva.toFixed(2);
+      document.getElementById('descuento-carrito').textContent = descuento.toFixed(2);
+      document.getElementById('total-carrito').textContent = total.toFixed(2);
+    }
+
+    function modificarCantidadItem(index, cambio) {
+      let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
+      
+      if (carrito[index]) {
+        carrito[index].cantidad += cambio;
+        
+        if (carrito[index].cantidad <= 0) {
+          carrito.splice(index, 1);
+        }
+        
+        localStorage.setItem('carritoTekila', JSON.stringify(carrito));
+        renderizarCarrito(); 
+      }
+    }
+
+    function eliminarProducto(index) {
+      let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
+      carrito.splice(index, 1); 
+      localStorage.setItem('carritoTekila', JSON.stringify(carrito));
+      renderizarCarrito(); 
+    }
+
+    function mostrarNotificacion(texto, tipoClase) {
+      const mensaje = document.getElementById('mensaje-flotante');
+      mensaje.textContent = texto;
+      mensaje.className = `mensaje-flotante ${tipoClase}`; 
+      mensaje.style.display = 'block';
+
+      setTimeout(() => {
+        mensaje.style.display = 'none';
+      }, 3000);
+    }
+
+    function vaciarCarrito() {
+      localStorage.removeItem('carritoTekila');
+      renderizarCarrito();
+      mostrarNotificacion("Vació Carrito", "alerta");
+    }
+
+    function procesarCompra() {
+      let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
+      if (carrito.length > 0) {
+        mostrarNotificacion("Continuando al pago", "exito");
+        
+        setTimeout(() => {
+          localStorage.removeItem('carritoTekila'); 
+          window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/Pago.html"; 
+        }, 2000);
+      }
+    }
+
+    window.onload = function() {
+      renderizarCarrito();
+    };
+  </script>
+
+</body>
+</html>

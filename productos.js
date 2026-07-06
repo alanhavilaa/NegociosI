@@ -51,16 +51,16 @@ const inventario = [
     id: 7, 
     nombre: "Don Julio Ultima Reserva", 
     precio: 4500.00, 
-    imagen: "../Imagenes/DonJulioUltima.webp", 
-    url: "DonJulioUltima.html", 
+    imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/DonJulioUltima.webp", 
+    url: "UltimaReserva.html", 
     etiquetas: ["extra-añejo", "don-julio", "premium"] 
   },
   { 
     id: 8, 
     nombre: "Ley .925", 
     precio: 2500.00, 
-    imagen: "../Imagenes/Ley925.jpg", 
-    url: "Ley925.html", 
+    imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/Ley925.jpg", 
+    url: "Ley095.html", 
     etiquetas: ["blanco", "premium", "ley-925"] 
   }
 ];
