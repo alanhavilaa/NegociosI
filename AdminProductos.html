@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Productos - TEKILA ADMIN</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .admin-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .admin-sidebar {
+      width: 250px;
+      background-color: rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      border-radius: 8px;
+      height: fit-content;
+    }
+    .dark-mode .admin-sidebar { background-color: rgba(255, 255, 255, 0.05); }
+    .admin-sidebar h3 { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+    .admin-sidebar ul { list-style: none; padding: 0; }
+    .admin-sidebar li { margin-bottom: 10px; }
+    .admin-sidebar a { display: block; padding: 12px; border-radius: 5px; text-decoration: none; color: inherit; font-weight: bold; transition: background 0.3s, color 0.3s; }
+    .admin-sidebar a:hover, .admin-sidebar a.activo { background-color: #333; color: #fff; }
+    .dark-mode .admin-sidebar a:hover, .dark-mode .admin-sidebar a.activo { background-color: #fff; color: #333; }
+    .admin-content { flex: 1; min-width: 300px; }
+
+    .controles-tabla {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+      background-color: rgba(0, 0, 0, 0.02);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dark-mode .controles-tabla { background-color: rgba(255,255,255,0.02); border-color: #444; }
+    .filtros { display: flex; gap: 10px; flex-wrap: wrap; flex: 1; }
+    .input-filtro { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+    .dark-mode .input-filtro { background-color: #333; color: #fff; border-color: #555; }
+
+    .contenedor-tabla { overflow-x: auto; }
+    .tabla-admin { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .dark-mode .tabla-admin { background: #222; }
+    .tabla-admin th, .tabla-admin td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+    .dark-mode .tabla-admin th, .dark-mode .tabla-admin td { border-color: #444; }
+    .tabla-admin th { background-color: #333; color: #fff; text-transform: uppercase; font-size: 14px; }
+    .tabla-admin img { height: 40px; width: 40px; object-fit: cover; border-radius: 4px; }
+    
+    .badge { padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: bold; color: white; }
+    .badge.disponible { background-color: #767676; }
+    .badge.agotado { background-color: #faf9f9; }
+
+    .btn-accion { border: none; padding: 6px 10px; margin-right: 5px; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; font-size: 12px; }
+    .btn-editar { background-color: #aaa9a9; }
+    .btn-eliminar { background-color: #616060; }
+    .btn-ver { background-color: #272828; }
+    
+    .paginacion-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 20px; }
+    .btn-pagina { background-color: #333; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .btn-pagina:disabled { background-color: #999; cursor: not-allowed; }
+    .info-pagina { font-weight: bold; }
+
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 1000; }
+    .modal-content { background: #fff; padding: 25px; border-radius: 8px; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; }
+    .dark-mode .modal-content { background: #222; color: #fff; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    .dark-mode .form-group input, .dark-mode .form-group select, .dark-mode .form-group textarea { background: #333; color: #fff; border-color: #555; }
+    .modal-botones { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+
+  
+    .toast-confirmacion {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: -400px; 
+      z-index: 2000;
+      background-color: #fff;
+      color: #333;
+      width: 320px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      border-left: 5px solid #d9534f;
+      transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast-confirmacion.mostrar {
+      display: flex;
+      right: 20px; 
+    }
+
+    .dark-mode .toast-confirmacion {
+      background-color: #2a2a2a;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .toast-confirmacion h4 {
+      margin: 0;
+      color: #cc0000;
+      font-size: 16px;
+    }
+    
+    .dark-mode .toast-confirmacion h4 {
+      color: #ff4d4d;
+    }
+
+    .toast-confirmacion p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .toast-botones {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 5px;
+    }
+
+    .toast-botones button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background 0.2s;
+    }
+
+    .btn-toast-cancelar {
+      background-color: #e0e0e0;
+      color: #333;
+    }
+    .btn-toast-cancelar:hover { background-color: #d5d5d5; }
+
+    .btn-toast-eliminar {
+      background-color: #d9534f;
+      color: white;
+    }
+    .btn-toast-eliminar:hover { background-color: #c9302c; }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+    <h2>ADMIN</h2>
+  </header>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html">Cerrar sesión</a></div>
+  </nav>
+  
+  <div class="admin-layout">
+    
+    <aside class="admin-sidebar">
+      <h3>Panel Admin</h3>
+      <ul>
+        <li><a href="PerfilAdmin.html">Dashboard</a></li>
+        <li><a href="#" class="activo">Productos</a></li>
+        <li><a href="#">Pedidos</a></li>
+        <li><a href="#">Promociones</a></li>
+        <li><a href="#">Clientes</a></li>
+        <li><a href="#">Reportes</a></li>
+      </ul>
+      <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+      <button class="btn-detalle" style="width: 100%; background-color: #0e0e0e;" onclick="cerrarSesion()">Cerrar sesión</button>
+    </aside>
+
+    <main class="admin-content">
+      
+      <h2 style="margin-top: 0;">Gestión de Productos</h2>
+
+      <div class="controles-tabla">
+        <div class="filtros">
+          <input type="text" id="buscarNombre" class="input-filtro" placeholder="Buscar por nombre..." oninput="filtrarTabla()">
+          
+          <select id="filtroCategoria" class="input-filtro" onchange="filtrarTabla()">
+            <option value="Todas">Todas las Categorías</option>
+            <option value="Reposado">Reposado</option>
+            <option value="Blanco">Blanco</option>
+            <option value="Añejo">Añejo</option>
+            <option value="Premium">Premium</option>
+          </select>
+
+          <select id="filtroEstado" class="input-filtro" onchange="filtrarTabla()">
+            <option value="Todos">Todos los Estados</option>
+            <option value="Activo">Disponible</option>
+            <option value="Inactivo">Agotado</option>
+          </select>
+        </div>
+        <button class="btn-detalle" onclick="window.location.href='AdminAgregarProducto.html'">Agregar Producto</button>
+      </div>
+
+      <div class="contenedor-tabla">
+        <table class="tabla-admin">
+          <thead>
+            <tr>
+              <th>Img</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Existencia</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpoTabla">
+            </tbody>
+        </table>
+      </div>
+
+      <div class="paginacion-container" id="controles-paginacion">
+        <button class="btn-pagina" id="btnAnterior" onclick="cambiarPagina(-1)">Anterior</button>
+        <span class="info-pagina" id="infoPagina">Página 1</span>
+        <button class="btn-pagina" id="btnSiguiente" onclick="cambiarPagina(1)">Siguiente</button>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="modalProducto" class="modal-overlay">
+    <div class="modal-content">
+      <h3 id="modalTitulo" style="margin-top: 0; border-bottom: 1px solid #ccc; padding-bottom: 10px;">Editar Producto</h3>
+      
+      <form id="formularioProducto" onsubmit="guardarEdicion(event)">
+        <input type="hidden" id="prodId">
+        
+        <div class="form-group">
+          <label>Nombre del Producto:</label>
+          <input type="text" id="prodNombre" required>
+        </div>
+        
+        <div style="display: flex; gap: 15px;">
+          <div class="form-group" style="flex: 1;">
+            <label>Precio ($):</label>
+            <input type="number" id="prodPrecio" step="0.01" min="0" required>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label>Existencia (Unidades):</label>
+            <input type="number" id="prodStock" min="0" required>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 15px;">
+          <div class="form-group" style="flex: 1;">
+            <label>Categoría:</label>
+            <select id="prodCategoria" required>
+              <option value="Reposado">Reposado</option>
+              <option value="Blanco">Blanco</option>
+              <option value="Añejo">Añejo</option>
+              <option value="Premium">Premium</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label>Estado:</label>
+            <select id="prodEstado" required>
+              <option value="Activo">Disponible</option>
+              <option value="Inactivo">Agotado</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>URL de la Imagen:</label>
+          <input type="text" id="prodImagen" required>
+        </div>
+
+        <div class="form-group">
+          <label>Descripción:</label>
+          <textarea id="prodDescripcion" rows="3"></textarea>
+        </div>
+
+        <div class="modal-botones">
+          <button type="button" class="btn-detalle" style="background-color: #555;" onclick="cerrarModal()">Cancelar</button>
+          <button type="submit" class="btn-detalle" id="btnGuardarForm">Guardar Cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toastConfirmacionBorrar" class="toast-confirmacion">
+    <div>
+      <h4>ELIMINAR PRODUCTO</h4>
+      <p id="toastTextoProducto">¿Estás seguro de eliminar este producto?</p>
+    </div>
+    <div class="toast-botones">
+      <button id="btnCancelarToast" class="btn-toast-cancelar">CANCELAR</button>
+      <button id="btnConfirmarToast" class="btn-toast-eliminar">ELIMINAR</button>
+    </div>
+  </div>
+   
+  <script src="productos.js"></script>
+  
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function cerrarSesion() {
+      window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html";
+    }
+
+    let productosSimulados = [];
+    let paginaActual = 1;
+    const productosPorPagina = 4;
+    let datosFiltradosActuales = [];
+    let idProductoAEliminar = null; 
+
+    function cargarDatos() {
+      const datosGuardados = localStorage.getItem('inventarioAdminV2');
+      if (datosGuardados) {
+        productosSimulados = JSON.parse(datosGuardados);
+      } else {
+        productosSimulados = inventario.map(prod => {
+          let cat = "Premium";
+          if(prod.etiquetas.includes("reposado")) cat = "Reposado";
+          if(prod.etiquetas.includes("blanco")) cat = "Blanco";
+          if(prod.etiquetas.includes("añejo") || prod.etiquetas.includes("extra-añejo")) cat = "Añejo";
+          
+          let rutaImagen = prod.imagen;
+          if (rutaImagen.startsWith('../Imagenes/')) {
+            rutaImagen = rutaImagen.replace('../Imagenes/', 'file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/');
+          }
+
+          return {
+            id: prod.id,
+            nombre: prod.nombre,
+            precio: prod.precio,
+            imagen: rutaImagen,
+            categoria: cat,
+            existencia: Math.floor(Math.random() * 50) + 5, 
+            estado: "Activo",
+            descripcion: "Descripción simulada para " + prod.nombre
+          };
+        });
+        localStorage.setItem('inventarioAdminV2', JSON.stringify(productosSimulados));
+      }
+      
+      filtrarTabla(); 
+    }
+
+    function renderizarTabla(arregloDatos) {
+      datosFiltradosActuales = arregloDatos;
+      const cuerpo = document.getElementById('cuerpoTabla');
+      const controlesPagina = document.getElementById('controles-paginacion');
+      cuerpo.innerHTML = '';
+
+      if (arregloDatos.length === 0) {
+        cuerpo.innerHTML = '<tr><td colspan="7" style="text-align: center;">No se encontraron productos.</td></tr>';
+        controlesPagina.style.display = 'none';
+        return;
+      }
+
+      controlesPagina.style.display = 'flex';
+
+      const totalPaginas = Math.ceil(arregloDatos.length / productosPorPagina);
+      if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+      if (paginaActual < 1) paginaActual = 1;
+
+      const inicio = (paginaActual - 1) * productosPorPagina;
+      const fin = inicio + productosPorPagina;
+      const productosPagina = arregloDatos.slice(inicio, fin);
+
+      productosPagina.forEach(prod => {
+        const estadoFinal = prod.existencia == 0 ? "Inactivo" : prod.estado;
+        const claseBadge = estadoFinal === 'Activo' ? 'badge disponible' : 'badge agotado';
+        const textoEstado = estadoFinal === 'Activo' ? 'Disponible' : 'Agotado';
+
+        const fila = `
+          <tr>
+            <td><img src="${prod.imagen}" alt="${prod.nombre}"></td>
+            <td><strong>${prod.nombre}</strong></td>
+            <td>${prod.categoria}</td>
+            <td>$${parseFloat(prod.precio).toFixed(2)}</td>
+            <td>${prod.existencia}</td>
+            <td><span class="${claseBadge}">${textoEstado}</span></td>
+            <td style="min-width: 180px;">
+              <button class="btn-accion btn-ver" onclick="abrirModal('ver', ${prod.id})">Ver</button>
+              <button class="btn-accion btn-editar" onclick="abrirModal('editar', ${prod.id})">Editar</button>
+              <button class="btn-accion btn-eliminar" onclick="solicitarEliminarToast(${prod.id})">Borrar</button>
+            </td>
+          </tr>
+        `;
+        cuerpo.innerHTML += fila;
+      });
+
+      document.getElementById('infoPagina').textContent = `Página ${paginaActual} de ${totalPaginas}`;
+      document.getElementById('btnAnterior').disabled = (paginaActual === 1);
+      document.getElementById('btnSiguiente').disabled = (paginaActual === totalPaginas);
+    }
+
+    function cambiarPagina(direccion) {
+      paginaActual += direccion;
+      renderizarTabla(datosFiltradosActuales);
+    }
+
+    function filtrarTabla() {
+      const texto = document.getElementById('buscarNombre').value.toLowerCase();
+      const cat = document.getElementById('filtroCategoria').value;
+      const estado = document.getElementById('filtroEstado').value;
+
+      const resultados = productosSimulados.filter(prod => {
+        const coincideNombre = prod.nombre.toLowerCase().includes(texto);
+        const coincideCat = cat === "Todas" || prod.categoria === cat;
+        const coincideEstado = estado === "Todos" || prod.estado === estado;
+        return coincideNombre && coincideCat && coincideEstado;
+      });
+
+      paginaActual = 1; 
+      renderizarTabla(resultados);
+    }
+
+    function abrirModal(modo, id) {
+      const modal = document.getElementById('modalProducto');
+      const form = document.getElementById('formularioProducto');
+      const btnGuardar = document.getElementById('btnGuardarForm');
+      
+      form.reset();
+      desbloquearFormulario();
+
+      const prod = productosSimulados.find(p => p.id === id);
+      if(!prod) return;
+
+      document.getElementById('prodId').value = prod.id;
+      document.getElementById('prodNombre').value = prod.nombre;
+      document.getElementById('prodPrecio').value = prod.precio;
+      document.getElementById('prodStock').value = prod.existencia;
+      document.getElementById('prodCategoria').value = prod.categoria;
+      document.getElementById('prodEstado').value = prod.estado;
+      document.getElementById('prodImagen').value = prod.imagen;
+      document.getElementById('prodDescripcion').value = prod.descripcion || "";
+
+      if (modo === 'ver') {
+        document.getElementById('modalTitulo').textContent = "Detalles del Producto";
+        bloquearFormulario();
+        btnGuardar.style.display = "none";
+      } else if (modo === 'editar') {
+        document.getElementById('modalTitulo').textContent = "Editar Producto";
+        btnGuardar.style.display = "inline-block";
+      }
+      
+      modal.style.display = 'flex';
+    }
+
+    function cerrarModal() {
+      document.getElementById('modalProducto').style.display = 'none';
+    }
+
+    function bloquearFormulario() {
+      const inputs = document.querySelectorAll('#formularioProducto input, #formularioProducto select, #formularioProducto textarea');
+      inputs.forEach(input => input.disabled = true);
+    }
+
+    function desbloquearFormulario() {
+      const inputs = document.querySelectorAll('#formularioProducto input, #formularioProducto select, #formularioProducto textarea');
+      inputs.forEach(input => input.disabled = false);
+    }
+
+    function guardarEdicion(event) {
+      event.preventDefault();
+      
+      const idForm = document.getElementById('prodId').value;
+      const index = productosSimulados.findIndex(p => p.id == idForm);
+      
+      if(index !== -1) {
+        productosSimulados[index].nombre = document.getElementById('prodNombre').value;
+        productosSimulados[index].precio = parseFloat(document.getElementById('prodPrecio').value);
+        productosSimulados[index].existencia = parseInt(document.getElementById('prodStock').value);
+        productosSimulados[index].categoria = document.getElementById('prodCategoria').value;
+        productosSimulados[index].estado = document.getElementById('prodEstado').value;
+        productosSimulados[index].imagen = document.getElementById('prodImagen').value;
+        productosSimulados[index].descripcion = document.getElementById('prodDescripcion').value;
+      }
+
+      localStorage.setItem('inventarioAdminV2', JSON.stringify(productosSimulados));
+      filtrarTabla(); 
+      cerrarModal();
+    }
+
+    
+    function solicitarEliminarToast(id) {
+      idProductoAEliminar = id;
+      const prod = productosSimulados.find(p => p.id === id);
+      
+      if(prod) {
+        document.getElementById('toastTextoProducto').innerHTML = `¿ELIMINAR <strong>${prod.nombre}</strong>?`;
+      }
+      
+      document.getElementById('toastConfirmacionBorrar').classList.add('mostrar');
+    }
+
+    document.getElementById('btnCancelarToast').addEventListener('click', () => {
+      document.getElementById('toastConfirmacionBorrar').classList.remove('mostrar');
+      idProductoAEliminar = null;
+    });
+
+    document.getElementById('btnConfirmarToast').addEventListener('click', () => {
+      if (idProductoAEliminar !== null) {
+        productosSimulados = productosSimulados.filter(p => p.id !== idProductoAEliminar);
+        localStorage.setItem('inventarioAdminV2', JSON.stringify(productosSimulados));
+        
+        const totalPaginas = Math.ceil(productosSimulados.length / productosPorPagina);
+        if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+
+        document.getElementById('toastConfirmacionBorrar').classList.remove('mostrar');
+        idProductoAEliminar = null;
+        
+        filtrarTabla();
+      }
+    });
+
+    window.onload = cargarDatos;
+  </script>
+</body>
+</html>

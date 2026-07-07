@@ -3,7 +3,7 @@ const inventario = [
     id: 1, 
     nombre: "Don Julio Reposado", 
     precio: 1500.00, 
-    imagen: "../Imagenes/donjulioreposado.jpeg", 
+    imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/donjulioreposado.jpeg", 
     url: "DonJulioRep.html", 
     etiquetas: ["reposado", "don-julio"] 
   },
@@ -11,7 +11,7 @@ const inventario = [
     id: 2, 
     nombre: "Jose Cuervo", 
     precio: 1300.00, 
-    imagen: "../Imagenes/josecuervo.jpg", 
+    imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/josecuervo.jpg", 
     url: "JoseCuervo.html", 
     etiquetas: ["reposado", "jose-cuervo"] 
   },
@@ -19,7 +19,7 @@ const inventario = [
     id: 3, 
     nombre: "Campo Azul", 
     precio: 1200.00, 
-    imagen: "../Imagenes/campoazul.jpg", 
+    imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/campoazul.jpg", 
     url: "CampoAzul.html", 
     etiquetas: ["blanco", "campo-azul"] 
   },
@@ -27,7 +27,7 @@ const inventario = [
     id: 4, 
     nombre: "1800 Cristal", 
     precio: 1550.00, 
-    imagen: "../Imagenes/1800cristal.webp", 
+    imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/1800cristal.webp", 
     url: "1800cristal.html", 
     etiquetas: ["cristalino", "añejo", "1800"] 
   },
@@ -35,7 +35,7 @@ const inventario = [
     id: 5, 
     nombre: "1800", 
     precio: 1800.00, 
-    imagen: "../Imagenes/1800.jpg", 
+    imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/1800.jpg", 
     url: "1800.html", 
     etiquetas: ["reposado", "1800"] 
   },
@@ -43,7 +43,7 @@ const inventario = [
     id: 6, 
     nombre: "Circulo", 
     precio: 2100.00, 
-    imagen: "../Imagenes/Circulo.webp", 
+    imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/Circulo.webp", 
     url: "Circulo.html", 
     etiquetas: ["blanco", "circulo"] 
   },

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administrador - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .admin-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    .admin-sidebar {
+      width: 250px;
+      background-color: rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      border-radius: 8px;
+      height: fit-content;
+    }
+    .dark-mode .admin-sidebar {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .admin-sidebar h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .admin-sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .admin-sidebar li {
+      margin-bottom: 10px;
+    }
+    .admin-sidebar a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+      display: block;
+      padding: 12px;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .admin-sidebar a:hover, .admin-sidebar a.activo {
+      background-color: #333;
+      color: #fff;
+    }
+    .dark-mode .admin-sidebar a:hover, .dark-mode .admin-sidebar a.activo {
+      background-color: #fff;
+      color: #333;
+    }
+
+    .admin-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .card {
+      background-color: rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .dark-mode .card {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .card h4 {
+      margin: 0 0 10px 0;
+      font-size: 1rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+    .card p {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #d9534f;
+    }
+
+    .seccion-admin {
+      margin-bottom: 30px;
+      padding: 25px;
+      background-color: rgba(0, 0, 0, 0.02);
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    .dark-mode .seccion-admin {
+      background-color: rgba(255, 255, 255, 0.02);
+      border-color: #444;
+    }
+    .seccion-admin h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    
+    .grafica-css {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      height: 250px;
+      padding-top: 20px;
+      border-bottom: 2px solid #ccc;
+      border-left: 2px solid #ccc;
+      margin-top: 20px;
+      padding-bottom: 5px;
+    }
+    .dark-mode .grafica-css {
+      border-bottom: 2px solid #666;
+      border-left: 2px solid #666;
+    }
+    .columna-grafica {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 14%;
+      height: 100%;
+      justify-content: flex-end;
+    }
+    .barra {
+      width: 100%;
+      border-radius: 5px 5px 0 0;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 0.9rem;
+      padding-top: 5px;
+    }
+    .etiqueta-eje {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      text-align: center;
+      font-weight: bold;
+      height: 30px;
+    }
+    
+    .barra-1 { background-color: #b4b3b3; height: 45%; } 
+    .barra-2 { background-color: #6a6e6a; height: 80%; } 
+    .barra-3 { background-color: #4a4c4d; height: 25%; } 
+    .barra-4 { background-color: #050505; height: 60%; } 
+    .barra-5 { background-color: #9d9e9e; height: 95%; } 
+    .barra-6 { background-color: #b1afb2; height: 30%; } 
+
+    .acciones-rapidas {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .actividad-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .actividad-lista li {
+      padding: 15px 10px;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+    .actividad-lista li:last-child {
+      border-bottom: none;
+    }
+    .indicador {
+      width: 10px;
+      height: 10px;
+      background-color: #5cb85c;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 15px;
+    }
+    .indicador.alerta { background-color: #f0ad4e; }
+    .indicador.info { background-color: #5bc0de; }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+    <h2>ADMIN</h2>
+  </header>
+
+  <div class="redes-flotantes">
+    <h4>@tekila</h4>
+    <div class="contenedor-iconos">
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok"></a>
+    </div>
+  </div>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html">Cerrar sesión</a></div>
+  </nav>
+  
+  <div class="admin-layout">
+    
+    <aside class="admin-sidebar">
+      <h3>Panel Admin</h3>
+      <ul>
+        <li><a href="#" class="activo">Dashboard</a></li>
+        <li><a href="file:///C:/Users/eduar/Desktop/NegociosI/AdminProductos.html">Productos</a></li>
+        <li><a href="#">Pedidos</a></li>
+        <li><a href="#">Promociones</a></li>
+        <li><a href="#">Clientes</a></li>
+        <li><a href="#">Reportes</a></li>
+      </ul>
+      <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+      <button class="btn-detalle" style="width: 100%; background-color: #0b0b0b;" onclick="cerrarSesion()">Cerrar sesión</button>
+      <div id="mensaje-logout" style="display: none; text-align: center; margin-top: 10px; color: #d9534f; font-weight: bold;">Cerrando sesión...</div>
+    </aside>
+
+    <main class="admin-content">
+      
+      <h2 style="margin-top: 0;">Resumen</h2>
+
+      <div class="dashboard-cards">
+        <div class="card">
+          <h4>Productos</h4>
+          <p>12</p>
+        </div>
+        <div class="card">
+          <h4>Pedidos de hoy</h4>
+          <p>5</p>
+        </div>
+        <div class="card">
+          <h4>Ventas del mes</h4>
+          <p style="color: #010101;">$12,500</p>
+        </div>
+        <div class="card">
+          <h4>Clientes</h4>
+          <p>38</p>
+        </div>
+        <div class="card">
+          <h4>Agotados</h4>
+          <p style="color: #f0ad4e;">2</p>
+        </div>
+      </div>
+
+      <div class="seccion-admin">
+        <h3>Ventas por Producto (Mensual)</h3>
+        
+        <div class="grafica-css">
+          <div class="columna-grafica">
+            <div class="barra barra-1">1</div>
+            <div class="etiqueta-eje">1800</div>
+          </div>
+          <div class="columna-grafica">
+            <div class="barra barra-2">3</div>
+            <div class="etiqueta-eje">Don Julio</div>
+          </div>
+          <div class="columna-grafica">
+            <div class="barra barra-3">4</div>
+            <div class="etiqueta-eje">C. Azul</div>
+          </div>
+
+   
+          </div>
+        </div>
+      </div>
+
+      <div class="seccion-admin">
+        <h3>Acciones Rápidas</h3>
+        <div class="acciones-rapidas">
+          <button class="btn-detalle" > Agregar producto</button>
+          <button class="btn-detalle" >Ver pedidos</button>
+          <button class="btn-detalle" >Crear promoción</button>
+        </div>
+      </div>
+
+      <div class="seccion-admin">
+        <h3>Actividad Reciente</h3>
+        <ul class="actividad-lista">
+          <li><strong>Hace 2 horas:</strong> Pedido #125 recibido.</li>
+          <li> <strong>Hace 3 horas:</strong> Nuevo cliente registrado (Juan Pérez).</li>
+          <li><strong>Hace 18 horas:</strong> Producto "Don Julio Reposado" actualizado.</li>
+        </ul>
+      </div>
+
+    </main>
+
+  </div>
+   
+  <footer class="footer-container">
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
+      Fracc. Bona Gens, C.P. 20256<br>
+      Aguascalientes, Ags., México</p>
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function cerrarSesion() {
+      const mensaje = document.getElementById("mensaje-logout");
+      mensaje.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html";
+      }, 1500);
+    }
+
+    function simularAccion(mensaje) {
+      alert(mensaje);
+    }
+  </script>
+
+</body>
+</html>
