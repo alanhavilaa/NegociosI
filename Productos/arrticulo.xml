@@ -1,0 +1,1167 @@
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<front>
+<journal-meta>
+<journal-id>1850-9959</journal-id>
+<journal-title>
+<![CDATA[ Revista Iberoamericana de Tecnología en Educación y Educación en Tecnología ]]>
+</journal-title>
+<abbrev-journal-title>
+<![CDATA[ Rev. iberoam. tecnol. educ. educ. tecnol. ]]>
+</abbrev-journal-title>
+<issn>1850-9959</issn>
+<publisher>
+<publisher-name>
+<![CDATA[ Red de Universidades Nacionales con Carreras de Informática ]]>
+</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id>S1850-99592016000100006</article-id>
+<title-group>
+<article-title xml:lang="es">
+<![CDATA[ Comprendiendo el Aprendizaje a través de las Neurociencias, con el entrelazado de las TICs en Educación ]]>
+</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>
+<![CDATA[ Falco ]]>
+</surname>
+<given-names>
+<![CDATA[ Mariana ]]>
+</given-names>
+</name>
+<xref ref-type="aff" rid="A01"/>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>
+<![CDATA[ Kuz ]]>
+</surname>
+<given-names>
+<![CDATA[ Antonieta ]]>
+</given-names>
+</name>
+<xref ref-type="aff" rid="A01"/>
+</contrib>
+</contrib-group>
+<aff id="A01">
+<institution>
+<![CDATA[ ,Universidad Tecnológica Nacional Facultad Regional La Plata LINSI ]]>
+</institution>
+<addr-line>
+<![CDATA[ La Plata Buenos Aires ]]>
+</addr-line>
+<country>Argentina</country>
+</aff>
+<pub-date pub-type="pub">
+<day>00</day>
+<month>06</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>00</day>
+<month>06</month>
+<year>2016</year>
+</pub-date>
+<numero>17</numero>
+<fpage>43</fpage>
+<lpage>51</lpage>
+<copyright-statement/>
+<copyright-year/>
+<self-uri xlink:href="http://www.scielo.org.ar/scielo.php?script=sci_arttext&pid=S1850-99592016000100006&lng=en&nrm=iso"/>
+<self-uri xlink:href="http://www.scielo.org.ar/scielo.php?script=sci_abstract&pid=S1850-99592016000100006&lng=en&nrm=iso"/>
+<self-uri xlink:href="http://www.scielo.org.ar/scielo.php?script=sci_pdf&pid=S1850-99592016000100006&lng=en&nrm=iso"/>
+<abstract abstract-type="short" xml:lang="es">
+<p>
+<![CDATA[ Las Neurociencias han posibilitado que en el último tiempo se revelen los misterios del cerebro - quien da origen a la conducta y el aprendizaje, y su funcionamiento. Consecuentemente, aportan al campo pedagógico conocimientos fundamentales acerca de las bases neurales no solo del aprendizaje en sí, sino de la memoria, de las emociones y de muchas otras funciones cerebrales que son, día a día, estimuladas y fortalecidas en el aula. Que todo agente educativo conozca y entienda cómo funciona el cerebro, llega a ser un requisito indispensable para la innovación pedagógica y la transformación de los sistemas educativos; que tienen a las TICs como un motor importante de cambio y crecimiento. El objetivo del presente artículo es estimular la comprensión de las características y descubrimientos fundamentales de las Neurociencias, contextualizando la relación entre el aprendizaje y el cerebro finalizando con la unión de la aplicación de las TICs en el contexto educativo, al comprender el aspecto neurocientífico de algunas tecnologías que se utilizan en los escenarios educativos. ]]>
+</p>
+</abstract>
+<abstract abstract-type="short" xml:lang="en">
+<p>
+<![CDATA[ Neurosciences have enabled the last time the mysteries of the brain are revealed - which gives rise to behavior and learning, and performance. Consequently, they contribute to the educational field fundamental knowledge about the neural basis of learning not only in itself, but memory, emotions and many other brain functions that are, day by day, encouraged and strengthened in the classroom. That every educational agent knows and understands how the brain works, it becomes a prerequisite for educational innovation and transformation of educational systems; who they have ICT as a major driver of change and growth. The aim of this paper is to stimulate understanding of the characteristics and fundamental discoveries of neuroscience, contextualizing the relationship between learning and brain ending with the union of the application of ICT in the educational context, comprehending the neuroscientist aspect of some technologies used in educational settings. ]]>
+</p>
+</abstract>
+<kwd-group>
+<kwd lng="es">
+<![CDATA[ Neurociencias ]]>
+</kwd>
+<kwd lng="es">
+<![CDATA[ Educación ]]>
+</kwd>
+<kwd lng="es">
+<![CDATA[ TICs ]]>
+</kwd>
+<kwd lng="es">
+<![CDATA[ Proceso enseñanza-aprendizaje ]]>
+</kwd>
+<kwd lng="en">
+<![CDATA[ Neurosciences ]]>
+</kwd>
+<kwd lng="en">
+<![CDATA[ Education ]]>
+</kwd>
+<kwd lng="en">
+<![CDATA[ ICT ]]>
+</kwd>
+<kwd lng="en">
+<![CDATA[ Teaching-learning process ]]>
+</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<![CDATA[ <p align="right"><b><font size="3" face="Arial, Helvetica, sans-serif">ART&Iacute;CULOS ORIGINALES </font></b></p> <p align="left"><b><font size="4" face="Arial, Helvetica, sans-serif">Comprendiendo el Aprendizaje a trav&eacute;s de las Neurociencias, con el entrelazado de las TICs en Educaci&oacute;n</font></b></p> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif"> Mariana Falco<a href="#a1"><sup>1</sup></a>, Antonieta Kuz<a href="#a1"><sup>1</sup></a></font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> <font size="2"><sup><a name="a1" id="a1"></a>1</sup> LINSI, Facultad Regional La Plata, Universidad Tecnol&oacute;gica Nacional,&nbsp; La Plata, Buenos Aires, Argentina </font></font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"><a href="mailto:mfalco@frlp.utn.edu.ar">mfalco@frlp.utn.edu.ar</a>, <a href="mailto:akuz@frlp.utn.edu.ar">akuz@frlp.utn.edu.ar</a></font></p> <p align="left">&nbsp;</p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"><b>Resumen</b></font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif">Las Neurociencias han posibilitado que en el &uacute;ltimo tiempo se revelen los misterios del cerebro - quien da origen a la conducta y el aprendizaje, y su funcionamiento. Consecuentemente, aportan al campo pedag&oacute;gico conocimientos fundamentales acerca de las bases neurales no solo del aprendizaje en s&iacute;, sino de la memoria, de las emociones y de muchas otras funciones cerebrales que son, d&iacute;a a d&iacute;a, estimuladas y fortalecidas en el aula. Que todo agente educativo conozca y entienda c&oacute;mo funciona el cerebro, llega a ser un requisito indispensable para la innovaci&oacute;n pedag&oacute;gica y la transformaci&oacute;n de los sistemas educativos; que tienen a las TICs como un motor importante de cambio y crecimiento. El objetivo del presente art&iacute;culo es estimular la comprensi&oacute;n de las caracter&iacute;sticas y descubrimientos fundamentales de las Neurociencias, contextualizando la relaci&oacute;n entre el aprendizaje y el cerebro finalizando con la uni&oacute;n de la aplicaci&oacute;n de las TICs en el contexto educativo, al comprender el aspecto neurocient&iacute;fico de algunas tecnolog&iacute;as que se utilizan en los escenarios educativos.</font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> <em>Palabras clave</em>: Neurociencias; Educaci&oacute;n; TICs; Proceso ense&ntilde;anza-aprendizaje</font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"><b>Abstract</b></font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="2" face="Arial, Helvetica, sans-serif">Neurosciences have enabled the last time the mysteries of the brain are revealed - which gives rise to behavior and learning, and performance. Consequently, they contribute to the educational field fundamental knowledge about the neural basis of learning not only in itself, but memory, emotions and many other brain functions that are, day by day, encouraged and strengthened in the classroom. That every educational agent knows and understands how the brain works, it becomes a prerequisite for educational innovation and transformation of educational systems; who they have ICT as a major driver of change and growth. The aim of this paper is to stimulate understanding of the characteristics and fundamental discoveries of neuroscience, contextualizing the relationship between learning and brain ending with the union of the application of ICT in the educational context, comprehending the neuroscientist aspect of some technologies used in educational settings.</font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> <em>Keywords</em>: Neurosciences; Education; ICT; Teaching-learning process</font></p> <p align="left">&nbsp;</p> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">1. Introducci&oacute;n</font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">La &eacute;poca en la cual vivimos est&aacute; marcada por constantes cambios en todos los &aacute;mbitos y de diversa &iacute;ndole, lo que conlleva a una b&uacute;squeda creciente del desarrollo del potencial humano. Uno de los retos de la educaci&oacute;n actual es reconstruir el espacio educativo adapt&aacute;ndolo a la nueva sociedad que se encuentra sujeta a continuos cambios. La neurociencia, en tanto abordaje y estudio interdisciplinario del cerebro, es una ciencia incipiente y prol&iacute;fica que augura una verdadera revoluci&oacute;n o cambio de paradigma en la manera de entender al ser humano como una unidad indisociable: biol&oacute;gica, psicol&oacute;gica y social <a href="#ref">[1]</a>. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Dentro del conjunto de sub-disciplinas <a href="#ref">[2]</a>, la neurociencia cognitiva ha sido la que probablemente mayores contribuciones ha generado durante la &uacute;ltima d&eacute;cada, en relaci&oacute;n con las aportaciones potenciales a la educaci&oacute;n. Como parte de sus objetivos, plantea el estudio integrado de las bases neurales de las representaciones mentales involucradas en diferentes procesos cognitivos, emocionales, motivacionales y psicol&oacute;gicos. En este sentido, y con car&aacute;cter de urgencia, se hacen necesarias las iniciativas de formaci&oacute;n y capacitaci&oacute;n de educadores para que se cumplan las metas trazadas y se arribe a la innovaci&oacute;n y transformaci&oacute;n de la educaci&oacute;n a favor del desarrollo humano <a href="#ref">[3]</a>.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Ansari y Coch <a href="#ref">[4]</a> afirman que el campo emergente de lo que es educaci&oacute;n, cerebro y mente deber&iacute;a caracterizarse por metodolog&iacute;as m&uacute;ltiples y niveles de an&aacute;lisis en contextos m&uacute;ltiples, ya sea en la ense&ntilde;anza como en la investigaci&oacute;n. Sostienen que solamente a trav&eacute;s de una conciencia y comprensi&oacute;n de las diferencias y las similitudes en ambas &aacute;reas tradicionales de investigaci&oacute;n, tanto en la educaci&oacute;n como en la neurociencia cognitiva, ser&aacute; posible lograr una fundamentaci&oacute;n com&uacute;n necesaria para una ciencia integrada de la educaci&oacute;n, el cerebro, la mente y el aprendizaje.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> La aproximaci&oacute;n de la teor&iacute;a de la educaci&oacute;n a las neurociencias es, hoy, un requerimiento cultural,&nbsp; para&nbsp; aumentar&nbsp; la&nbsp; comprensi&oacute;n&nbsp; de&nbsp; los&nbsp; procesos&nbsp; educativos&nbsp; en&nbsp; todos&nbsp; los&nbsp; seres humanos:&nbsp; adolescentes,&nbsp; adultos,&nbsp; ancianos&nbsp; y&nbsp; vulnerados&nbsp; por&nbsp; cualquiera&nbsp; categor&iacute;a&nbsp; de incapacidad.&nbsp; Esa&nbsp; aproximaci&oacute;n&nbsp; mejora&nbsp; la&nbsp; perspectiva&nbsp; de&nbsp; estudio&nbsp; de&nbsp; los&nbsp; procesos educativos</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> La consolidaci&oacute;n y expansi&oacute;n en el uso de nuevas tecnolog&iacute;as han generado cambios importantes en las organizaciones e instituciones sociales y m&aacute;s concretamente en las formas de relaci&oacute;n social. La misma tecnolog&iacute;a que mejora nuestras vidas, nos desaf&iacute;a a adaptarnos a nuevos contextos <a href="#ref">[5]</a>. Las dos &uacute;ltimas d&eacute;cadas mostraron un desarrollo sostenido en la utilizaci&oacute;n de las nuevas tecnolog&iacute;as en la educaci&oacute;n, que hizo que los estudios experimentales, las innovaciones y los nuevos proyectos para el sistema educativo, en todos sus niveles, quedaran marcados por estas incorporaciones. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> El ritmo de cambio de las tecnolog&iacute;as es acelerado, y posibilitan nuevas funciones constantemente, lo cual las convierte en generadoras de un problema: la adaptabilidad al acelerado y vertiginoso cambio y a las nuevas posibilidades que se encuentran siempre a disposici&oacute;n. Por lo tanto y como frente a las preguntas referidas a qu&eacute; son las tecnolog&iacute;as, Litwin <a href="#ref">[6]</a> mantiene su doble car&aacute;cter de herramienta y de entorno mientras que frente a las cuestiones pragm&aacute;ticas les reconoce m&uacute;ltiples funciones, tales como motivar, mostrar, reorganizar la informaci&oacute;n, ilustrar.</font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> En la ense&ntilde;anza tradicional, el empleo de las TICs despertaba el inter&eacute;s por el tratamiento del contenido porque romp&iacute;a con la rutina e incluso se constitu&iacute;a en un factor motivacional. Otro enfoque era utilizarlas en un nivel ilustrativo, como medio para ampliar informaci&oacute;n o darle un atractivo al tratamiento del tema. Ahora bien, el gran n&uacute;mero de tecnolog&iacute;as existentes hacen que no se puedan utilizar todas en el mismo espacio t&eacute;mporo-espacial o en el mismo curso, e incluso que a algunos alumnos elijan utilizar unas pero no otras. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Como bien postula Edith Litwin <a href="#ref">[6]</a>: &ldquo;<em>no es la tecnolog&iacute;a la que nos permite producir los cambios, sino nuestra decisi&oacute;n de imaginar con y a trav&eacute;s de ella</em>&rdquo;. Teniendo como base lo anterior, es fundamental conocer el funcionamiento del cerebro para determinar cu&aacute;les son las mejores estrategias de ense&ntilde;anza a implementar, para que puedan ser complementadas correctamente con las TICs adecuadas y potencien el proceso de aprendizaje. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> El prop&oacute;sito principal que encauza el presente art&iacute;culo es en primer lugar, vislumbrar las caracter&iacute;sticas y descubrimientos fundamentales de las Neurociencias. Luego, comprender la relaci&oacute;n entre el aprendizaje y el cerebro sin dejar de lado la importancia del aprendizaje creativo; y finalmente la uni&oacute;n con la aplicaci&oacute;n de las TICs en el contexto educativo, al comprender el aspecto neurocient&iacute;fico de algunas tecnolog&iacute;as que se utilizan en los escenarios educativos. </font></p> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">2. Comprendiendo la Neurociencia</font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">La neurociencia es una rama del conocimiento a la que contribuyen distintas sub-disciplinas que tienen como elemento com&uacute;n el estudio del sistema nervioso en sus distintas expresiones fenomenol&oacute;gicas. En 1995, la UNESCO se refiri&oacute; a la neurociencia como una disciplina que involucra tanto a la biolog&iacute;a del sistema nervioso, como a las ciencias humanas, sociales y exactas, que en conjunto representan la posibilidad de contribuir al bienestar humano por medio de mejoras en la calidad de vida durante todo el ciclo vital <a href="#ref">[2]</a> <a href="#ref">[7]</a>. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> No s&oacute;lo no debe ser considerada como una disciplina, sino como el conjunto de ciencias cuyo sujeto de investigaci&oacute;n es el sistema nervioso con particular inter&eacute;s en c&oacute;mo la actividad del cerebro se relaciona con la conducta y el aprendizaje. Algunos descubrimientos fundamentales de esta disciplina, que est&aacute;n expandiendo el conocimiento de los mecanismos del aprendizaje humano, son:</font></p> <ol> <li> <p><font size="3" face="Arial, Helvetica, sans-serif" align="left">El aprendizaje cambia la estructura f&iacute;sica del cerebro.</font></p> </li> <li> <p><font size="3" face="Arial, Helvetica, sans-serif" align="left">Esos cambios estructurales alteran la organizaci&oacute;n funcional del cerebro; en otras palabras, el aprendizaje organiza y reorganiza el cerebro.</font></p> </li> ]]>
+</body>
+<body>
+<![CDATA[ <li> <p><font size="3" face="Arial, Helvetica, sans-serif" align="left">Diferentes partes del cerebro pueden estar listas para aprender en tiempos diferentes.</font></p> </li> <li> <p><font size="3" face="Arial, Helvetica, sans-serif" align="left">El cerebro es un &oacute;rgano din&aacute;mico, moldeado en gran parte por la experiencia. </font></p> </li> <li> <p><font size="3" face="Arial, Helvetica, sans-serif" align="left">El desarrollo no es simplemente un proceso de desenvolvimiento impulsado biol&oacute;gicamente, sino que es tambi&eacute;n un proceso activo que obtiene informaci&oacute;n esencial de la experiencia.</font></p> </li> </ol> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Como bien denota Bachrach <a href="#ref">[8]</a>, cuanto m&aacute;s focalizada est&eacute; la persona que aprende el significado de esa informaci&oacute;n, mucho m&aacute;s elaborado es el proceso de registrarlo en la memoria. Es decir, si el individuo est&aacute; aprendiendo algo y no comprende/entiende su significado, es mejor que no intente memorizarlo porque en habidas cuentas no va a tener sentido. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Ese famoso hecho de &ldquo;estudiar de memoria&rdquo;, que implica en general no entender demasiado el significado de lo que se est&aacute; aprendiendo, puede desencadenar una mala experiencia en el alumno cuando la pregunta del examen no sea recordar algo sino elaborar, relacionar o asociar esa informaci&oacute;n con otra cosa. Est&aacute; demostrado tambi&eacute;n que, para recordar algo mejor, la utilizaci&oacute;n de ejemplos reales o situaciones lo m&aacute;s familiares posibles es muy eficiente. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Cuanto m&aacute;s personal sea el ejemplo, con m&aacute;s fuerza queda registrado y m&aacute;s f&aacute;cil es de recordar despu&eacute;s. Si una persona est&aacute; tratando de llevar informaci&oacute;n a alguien, la habilidad de crear una muy buena introducci&oacute;n sobre ese tema es quiz&aacute;s uno de los factores m&aacute;s importantes para tener &eacute;xito en la misi&oacute;n de ense&ntilde;ar o comunicar de manera efectiva. La raz&oacute;n de esto es que cuantas m&aacute;s estructuras neuronales fueron reclutadas al momento del aprendizaje, mucho m&aacute;s f&aacute;cil resulta despu&eacute;s tener acceso a esa informaci&oacute;n y recordarla.</font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> La educaci&oacute;n ha vivido constantes cambios a lo largo de la historia, bajo las reglas de las formas sociales imperantes en cada per&iacute;odo, dado por paradigmas diversos, pero es sin duda, durante el siglo XX que ha sufrido las modificaciones m&aacute;s vertiginosas en alas de los avances de diversas &aacute;reas, principalmente de la psicolog&iacute;a. La comprensi&oacute;n del fen&oacute;meno del aprendizaje resulta fundamental a la hora de establecer estrategias y metas en la din&aacute;mica del ense&ntilde;ar, de forma tal que un profesor pueda generar un ambiente propicio para desencadenar el proceso del aprender <a href="#ref">[9]</a>.</font></p> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">3. Aprendizaje y cerebro</font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">El proceso de aprendizaje involucra todo el cuerpo y el cerebro, quien act&uacute;a como una estaci&oacute;n receptora de est&iacute;mulos y se encarga de seleccionar, priorizar, procesar informaci&oacute;n, registrar, evocar, emitir respuestas motoras, consolidar capacidades, entre otras miles de funciones. El cerebro es el &uacute;nico &oacute;rgano del cuerpo humano que tiene la capacidad de aprender y a la vez ense&ntilde;arse a s&iacute; mismo. Los principios de aprendizaje del cerebro seg&uacute;n Caine y Caine (1997, citado en <a href="#ref">[10]</a> desde <a href="#ref">[9]</a>) son:</font> </p> <ol start="1" type="1"> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">El cerebro es un complejo sistema adaptativo: ya que funciona en muchos niveles al mismo tiempo, donde todo el sistema act&uacute;a al un&iacute;sono y no es posible comprender los procesos explorando partes separadamente.</font></p> </li> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">El cerebro es un cerebro social: es decir, se configura con nuestra relaci&oacute;n con el entorno. El aprendizaje depende enormemente del entorno social en que se encuentre el individuo.</font></p> </li> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">La b&uacute;squeda de significaci&oacute;n es innata: la b&uacute;squeda del significado ocurre durante toda nuestra vida, y est&aacute; dada por nuestras metas y valores. El significado se refiere al sentido de las experiencias.</font></p> </li> <li> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">La b&uacute;squeda de significado ocurre a trav&eacute;s de pautas: que pueden ser mapas esquem&aacute;ticos o categor&iacute;as. El cerebro aprende con informaci&oacute;n con sentido, que es importante para quien aprende.</font></p> </li> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Las emociones son cr&iacute;ticas para la elaboraci&oacute;n de pautas: lo que aprendemos es influido por las emociones.</font></p> </li> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Cada cerebro simult&aacute;neamente percibe y crea partes y todos: El cerebro reduce la informaci&oacute;n a partes y al mismo tiempo percibe la totalidad de un fen&oacute;meno.</font></p> </li> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">El aprendizaje implica tanto una atenci&oacute;n focalizada como una percepci&oacute;n perif&eacute;rica: el cerebro recibe informaci&oacute;n consciente y tambi&eacute;n aquella que est&aacute; m&aacute;s all&aacute; del foco de atenci&oacute;n.</font></p> </li> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">El aprendizaje siempre implica procesos conscientes e inconscientes.</font></p> </li> <li> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Tenemos al menos dos maneras de organizar la memoria: sistemas para recordar informaci&oacute;n no relacionada (taxon&oacute;micos) motivada por premio y castigo. El otro sistema es el espacial/autobiogr&aacute;fico que permite el recuerdo de experiencias, motivada por la novedad.</font></p> </li> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">El aprendizaje es un proceso de desarrollo: la plasticidad del cerebro permite la maleabilidad del mismo por la experiencia.</font></p> </li> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">El aprendizaje complejo se incrementa por el desaf&iacute;o y se inhibe por la amenaza.</font></p> </li> <li> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Cada cerebro est&aacute; organizado de manera &uacute;nica.</font></p> </li> </ol> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">3.1. Percibiendo el contexto de aplicaci&oacute;n</font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Todos estos principios deben ser trabajados desde la educaci&oacute;n, con el fin expl&iacute;cito de introducir mejoras en el ambiente de ense&ntilde;anza, adaptando los contenidos a diversos estilos de aprendizaje, tomando en cuenta las emociones y otras funciones cognitivas, generando conocimientos significativos para los estudiantes como plantea Ausubel, entre otros.</font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Es viable mencionar que al cerebro se le agiliza el aprendizaje cuando este se incorpora mediante esquemas, mapas, gr&aacute;ficos y cualquier otra herramienta que permita la formalidad y el orden. La informaci&oacute;n mostrada de forma organizada y estructurada incorpora una actitud positiva para captar la atenci&oacute;n del alumno, que se maximiza cuando &eacute;sta se relaciona con aprendizajes previos, es decir, vivencias personales que los alumnos tienen y que permiten entender mejor lo aprendido. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> En otras palabras, la presentaci&oacute;n diversificada del contenido de cualquier asignatura o materia a aprender dentro del &aacute;mbito educativo siempre ser&aacute; m&aacute;s efectiva si implica la activaci&oacute;n neuronal de ambos hemisferios cerebrales. Consecuentemente, debe proponerse una forma de trabajo en materia educativa que considere las caracter&iacute;sticas funcionales del cerebro humano, de modo que sea posible desarrollar t&eacute;cnicas y estrategias de trasmisi&oacute;n del conocimiento compatibles con la biolog&iacute;a del aprendizaje <a href="#ref">[1]</a>.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Bien sabemos que el aprendizaje est&aacute; constituido por un gran n&uacute;mero de procesos, de los cuales algunos de los m&aacute;s importantes son la motivaci&oacute;n, las emociones, la atenci&oacute;n y la memoria. Todos son procesos neurales que es necesario tener en cuenta a la hora de enfrentar el desaf&iacute;o de la ense&ntilde;anza, por lo cual se hace imprescindible que el profesor posea un conocimiento b&aacute;sico sobre la estructura y funci&oacute;n del sistema nervioso. Este saber debe abarcar tanto un nivel macro, como los hemisferios cerebrales, n&uacute;cleos m&aacute;s importantes, regiones relacionadas con ciertas funciones y m&aacute;s; como un nivel micro, relacionada a las neuronas y la forma de relaci&oacute;n y comunicaci&oacute;n entre ellas.</font></p> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">3.2. Cambiando los tradicionalismos</font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">En nuestro sistema educativo, desde sus inicios y hasta el tiempo presente, ha primado la importancia en la ense&ntilde;anza y el desarrollo del an&aacute;lisis l&oacute;gico y el razonamiento deductivo -que domin&oacute; el siglo XX- y no de nuestra capacidad emp&aacute;tica y creativa -necesaria para conquistar el siglo XXI-&nbsp; <a href="#ref">[8]</a>.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Gardner <a href="#ref">[11]</a>, a trav&eacute;s de la teor&iacute;a de las Inteligencias M&uacute;ltiples diverge de los puntos tradicionales. En una visi&oacute;n tradicional, la inteligencia se define operacionalmente como la habilidad para responder a las cuestiones de un test de inteligencia. En cambio, la mencionada teor&iacute;a pluraliza el concepto tradicional y se organiza a la luz de los or&iacute;genes biol&oacute;gicos&nbsp; de cada capacidad para resolver problemas. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Una inteligencia implica la habilidad necesaria para resolver problemas o para elaborar productos que son de importancia en un contexto cultural. Asimismo, los aspectos elementales del aprendizaje no est&aacute;n distribuidos de manera uniforme en el cerebro, y se pueden localizar en la actividad de grupos de neuronas espec&iacute;ficas. Consecuentemente, el aprendizaje se genera por una alteraci&oacute;n de las conexiones sin&aacute;pticas de las neuronas, m&aacute;s que de las conexiones sin&aacute;pticas nuevas.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> De esta manera y siguiendo a Geake <a href="#ref">[12]</a> <a href="#ref">[13]</a>, si el aprendizaje es el concepto principal de la educaci&oacute;n, entonces algunos de los descubrimientos de la Neurociencia permitir&aacute;n no solo a los docentes sino a la comunidad entera que aprende, ayudar a entender mejor los procesos de aprendizaje de los alumnos y, en consecuencia, que la ense&ntilde;anza se imprima de una manera m&aacute;s apropiada, efectiva y agradable.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Cuanto mejor sea el ambiente para aprender, mejor ser&aacute; el aprendizaje. El aprendizaje cambia la estructura f&iacute;sica del cerebro <a href="#ref">[14]</a> y esos cambios estructurales alteran la organizaci&oacute;n funcional del mismo; es decir que el aprendizaje organiza y reorganiza el cerebro. El desarrollo no es simplemente un proceso impulsado biol&oacute;gicamente; es tambi&eacute;n un proceso activo que obtiene informaci&oacute;n esencial de la experiencia <a href="#ref">[15]</a>. En resumen, la Neurociencia est&aacute; comenzando a dar algunas iluminaciones (en ingl&eacute;s, <em>insights</em>) <a href="#ref">[16]</a> <a href="#ref">[17]</a>, si no respuestas finales, a preguntas de gran inter&eacute;s para los educadores. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> La creatividad es la actividad mental a trav&eacute;s de la cual en alg&uacute;n momento una revelaci&oacute;n o&nbsp; insight ocurre dentro del cerebro y trae como resultado una idea o acci&oacute;n nueva que tiene valor. Es romper con nuestros patrones habituales de pensamiento. La creatividad no sucede s&oacute;lo en la cabeza de las personas sino tambi&eacute;n en la interacci&oacute;n de los pensamientos con su contexto sociocultural. Resulta un fen&oacute;meno sist&eacute;mico m&aacute;s que un fen&oacute;meno individual <a href="#ref">[8]</a>.</font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">4. El pensamiento creativo</font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Expertos en creatividad <a href="#ref">[18]</a> llevaron a cabo un estudio con personalidades consideradas creativas, historiadores, compositores, f&iacute;sicos, astr&oacute;nomos, entre otros; que arroj&oacute; como resultados que todos ellos son individuos con una gran energ&iacute;a f&iacute;sica, que trabajan much&iacute;simas horas, con gran concentraci&oacute;n, pero que tienen la sensaci&oacute;n de sentirse frescos y entusiasmados, logrando una combinaci&oacute;n de juego y disciplina, y que disfrutan mucho m&aacute;s el proceso que los resultados. El desarrollo de las neurociencias aporta entre otras innovaciones, la creatividad como medio de aprendizaje <a href="#ref">[19]</a>. El pensamiento creativo es pensar productivamente. Son las personas m&aacute;s emp&aacute;ticas y creativas las que hacen la gran diferencia en la sociedad, en la econom&iacute;a, en la educaci&oacute;n y en el comercio. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> La l&oacute;gica, tal como la conocemos es necesaria pero no suficiente. Como bien menciona Bachrach <a href="#ref">[8]</a>, nuestra educaci&oacute;n nos orienta a ser pensadores l&oacute;gicos y anal&iacute;ticos. Por ello, nuestra habilidad para hacer asociaciones entre temas que presentan ninguna o pocas relaciones no es muy buena. Es extremadamente dif&iacute;cil intentar realizar asociaciones entre cosas que al parecer no est&aacute;n conectadas, como la piscina y la gr&uacute;a. Esta escasa destreza para asociar conceptos poco relacionados limita much&iacute;simo nuestra habilidad para ser creativos. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Personas que puedan pensar de manera creativa e innovadora, podr&aacute;n ofrecer servicios y productos diferentes como as&iacute; tambi&eacute;n mejores experiencia, porque explotan su curiosidad. Consecuentemente, el comprender c&oacute;mo el cerebro y la mente interact&uacute;an, nos permiten ser protagonistas en la vanguardia de una revoluci&oacute;n de lo que significa ser humano <a href="#ref">[20]</a>.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> El acelerado crecimiento de las neurociencias sugiere que los diversos resultados de las investigaciones sobre el cerebro <a href="#ref">[21]</a> <a href="#ref">[22]</a>, permiten mayor comprensi&oacute;n de su funcionamiento y ello debe, necesariamente, ser incorporado, a los estudios sobre el mejoramiento de la habilidad del docente para ense&ntilde;ar y la habilidad del estudiante para aprender, y consecuentemente sus resultados permitir&aacute;n construir una nueva pedagog&iacute;a. Porque el espacio de la pedagog&iacute;a actual es un espacio de la mente y de los fen&oacute;menos mentales <a href="#ref">[23]</a>.</font></p> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">5. Las TICs en el Aprendizaje</font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">La educaci&oacute;n ha sido considerada por mucho tiempo el eslab&oacute;n privilegiado que articula la integraci&oacute;n cultural, la movilidad social y el desarrollo productivo. Pero existen cr&iacute;ticas a los modelos educativos y a los contenidos que forman parte del curr&iacute;culum actual y que en lo sustancial fueron dise&ntilde;ados para satisfacer las demandas de una sociedad muy distinta a la sociedad del conocimiento.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Vivimos en tiempos de grandes transformaciones tecnol&oacute;gicas que modifican de manera profunda las relaciones humanas, donde el acceso y generaci&oacute;n de conocimiento pasan a ser los motores del desarrollo. Las nuevas generaciones viven intensamente la omnipresencia de las tecnolog&iacute;as digitales que son mediadoras de gran parte de sus experiencias, lo que podr&iacute;a estar modificando sus destrezas cognitivas. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Las instituciones educativas se enfrentan a la necesidad de innovar en los m&eacute;todos pedag&oacute;gicos si desean convocar y ser inspiradoras para las nuevas generaciones de j&oacute;venes. Es fundamental preparar a los estudiantes para desenvolverse en la sociedad del conocimiento. El construir respuestas a los desaf&iacute;os de las sociedades y los sistemas educativos respecto a la definici&oacute;n de c&oacute;digos, contenidos y orientaciones de aprendizaje est&aacute; interpelado por la aparici&oacute;n de estas otras maneras de aprender.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> El uso de tecnolog&iacute;as en la educaci&oacute;n puede tener la finalidad de desarrollar las capacidades cognitivas del individuo; puede tambi&eacute;n tener el enfoque del trabajo colaborativo y en red para el desarrollo de la participaci&oacute;n y la colaboraci&oacute;n; puede asimismo tener en vista el desarrollo de un poder&iacute;o laboral apto para promover innovaciones y proyectos tecnol&oacute;gicos posibilitando que los pa&iacute;ses sean competitivos en la econom&iacute;a del conocimiento; o puede simplemente atender a la demanda difusa de conocimiento de los recursos inform&aacute;ticos latente entre el p&uacute;blico escolar formado por ni&ntilde;os, j&oacute;venes y adultos.</font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Las aplicaciones de las TICs son variadas y pueden situarse en primer lugar, en el campo de la ense&ntilde;anza superior y en el de la formaci&oacute;n profesional, con destacado papel para el e-learning (o incluso el <em>blended learning</em>); en segundo lugar, en el campo de la educaci&oacute;n b&aacute;sica, con uso destacado como herramienta de ense&ntilde;anza de contenidos escolares espec&iacute;ficos y como recurso para la configuraci&oacute;n de nuevos entornos de aprendizaje; y finalmente, en el campo de la educaci&oacute;n especial, en el cual el uso de los recursos inform&aacute;ticos representa una enorme posibilidad de extensi&oacute;n y de potenciaci&oacute;n de habilidades comprometidas.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> La introducci&oacute;n de las TICs en las aulas favorece el desarrollo de nuevas pr&aacute;cticas educativas y pone en evidencia la necesidad de una nueva definici&oacute;n de roles, especialmente, para los alumnos y docentes; lo que conlleva a que los alumnos puedan llegar a adquirir un mayor grado de autonom&iacute;a y responsabilidad en el proceso de aprendizaje, obligando al docente a salir de su rol cl&aacute;sico como &uacute;nica fuente de conocimiento. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Diversos estudios enfocados en caracterizar las generaciones de j&oacute;venes que crecieron acostumbradas a convivir con las nuevas tecnolog&iacute;as, las denominan &ldquo;estudiantes del nuevo milenio&rdquo;, &ldquo;generaci&oacute;n red&rdquo;, &ldquo;generaci&oacute;n gamer&rdquo;, &ldquo;homo zappiens&rdquo;, entre otros. Francesc Pedr&oacute; <a href="#ref">[24]</a> define el aprendiz del nuevo milenio como aquel que es adepto a la computadora, creativo con la tecnolog&iacute;a, y por encima de todo, acostumbrado a las multitareas.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> En la misma l&iacute;nea, las TICs ofrecen oportunidades para el seguimiento de los aprendizajes de cada estudiante y del desempe&ntilde;o de los docentes, las instituciones y los sistemas educativos. En este nuevo escenario social, econ&oacute;mico, pol&iacute;tico y cultural de la SI &ndash;facilitado en buena medida por las TICs y otros desarrollos tecnol&oacute;gicos que han venido produci&eacute;ndose desde la segunda mitad del siglo XX&ndash; el conocimiento se ha convertido en la mercanc&iacute;a m&aacute;s valiosa de todas, y la educaci&oacute;n y la formaci&oacute;n, en las v&iacute;as para producirla y adquirirla <a href="#ref">[25]</a>.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> En este escenario, la educaci&oacute;n ya no es vista &uacute;nicamente como un instrumento para promover el desarrollo, la socializaci&oacute;n y la enculturaci&oacute;n de las personas, como un instrumento de construcci&oacute;n de la identidad nacional o como un medio de construcci&oacute;n de la ciudadan&iacute;a. Adquiere una nueva dimensi&oacute;n: se convierte en el motor fundamental del desarrollo econ&oacute;mico y social.</font></p> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">5.1. Cambios Cerebrales: la Inmersi&oacute;n de las TICs </font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Como plantean Garc&iacute;a Carrasco y Juanes M&eacute;ndez <a href="#ref">[26]</a>, la humanidad en su historia cultural ha pasado por tres grandes contingencias. La primera fue adentrarse en la comprensi&oacute;n de los acontecimientos mediante las funciones mentales que ejercita el habla; la segunda fue profundizar&nbsp; la&nbsp; comprensi&oacute;n&nbsp; mediante&nbsp; las&nbsp; pr&aacute;cticas&nbsp; que&nbsp; posibilita&nbsp; la&nbsp; lectura&nbsp; y&nbsp; la escritura; mientras que la tercera que es el reto&nbsp; actual, consiste&nbsp; en&nbsp; extender&nbsp; la&nbsp; comprensi&oacute;n&nbsp; mediante&nbsp; las&nbsp; relaciones de producci&oacute;n de sentido posible en el contexto de las&nbsp; ciencias y tecnolog&iacute;as del&nbsp; conocimiento. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> La lectoescritura y las TICs se ponen al servicio de las actividades del pensamiento, que se toma como una &ldquo;cosa muy compleja&rdquo; o su equivalente, &ldquo;una facultad, un poder&rdquo; <a href="#ref">[26]</a>. Dentro de las funciones que instituyen el pensamiento, P&eacute;rez citado en <a href="#ref">[26]</a> esboza las siguientes: las sensaciones,&nbsp; la atenci&oacute;n, la memoria, la imaginaci&oacute;n, la conciencia, el albedr&iacute;o de retomar decisiones o cambiar de rumbo las acciones, las emociones y la motivaci&oacute;n. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> El sentido de la escritura, el de la oralidad y el de las TICs se alcanza cuando se integran como instrumentos en la configuraci&oacute;n de la actividad de las funciones mencionadas. Esas funciones son primarias, no se crean, no se determinan pero nos han llegado por historiales evolutivos <a href="#ref">[27]</a>. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> De la misma manera, las TICs tambi&eacute;n son instrumentos que posibilitan la observaci&oacute;n de la estructura del cerebro y que consecuentemente, participan en sus aplicaciones generales de los instrumentos y de la incorporaci&oacute;n a las funciones mentales. &nbsp;Garc&iacute;a Carrasco y Juanes M&eacute;ndez puntualizan que abren un nuevo campo de investigaci&oacute;n a trav&eacute;s del cual comprobar la efectividad de los cambios que producen las acciones mediadas por instrumentos. </font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Los seres humanos no solo manejan instrumentos,&nbsp; sino&nbsp; que&nbsp; los&nbsp; emplean&nbsp; como&nbsp; mediadores-componentes y como elementos&nbsp; integrantes&nbsp; de&nbsp; las competencias,&nbsp; al momento de proyectar&nbsp; y&nbsp; ejecutar&nbsp; acciones, donde el instrumento se integra como un componente sist&eacute;mico. Existen &ldquo;habilidades latentes&rdquo; que hacen referencia al potencial de la estructura cuando se introduce la mediaci&oacute;n instrumental originada por su capacidad creativa. Esta mediaci&oacute;n posibilita innovaciones funcionales aut&eacute;nticas, es decir: un moldeado del cerebro. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Las TICs se constituyen en un sistema tecnol&oacute;gico humano que tiene el poder de modificar el entorno vital <a href="#ref">[26]</a>, debido a que crean un contexto de pr&aacute;ctica humana y poseen no solo el coeficiente de evoluci&oacute;n m&aacute;s r&aacute;pido sino un alcance global, y se fundan en una fuente de cambios en la actividad del cerebro. Citando a Small <a href="#ref">[28]</a>: <em>&ldquo;la actual eclosi&oacute;n de la tecnolog&iacute;a digital no s&oacute;lo est&aacute; cambiando nuestra forma de vivir y comunicarnos, sino que est&aacute; alterando, r&aacute;pida y profundamente, nuestro cerebro. La exposici&oacute;n&nbsp; diaria a la alta tecnolog&iacute;a [...] estimula la alteraci&oacute;n de los caminos neuronales y la activaci&oacute;n de los neurotransmisores, con lo que gradualmente&nbsp; se&nbsp; afianzan&nbsp; en&nbsp; el&nbsp; cerebro&nbsp; nuevos&nbsp; caminos&nbsp; neuronales,&nbsp; al&nbsp; tiempo que&nbsp; los&nbsp; antiguos&nbsp; se debilitan...&rdquo;</em>.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Siguiendo las bases que aportan las neurociencias, es viable mencionar que el cerebro se ve afectado por todos los&nbsp; cambios&nbsp; en&nbsp; el&nbsp; entorno&nbsp; cultural; porque vivir y participar&nbsp; en&nbsp; dichos&nbsp; entornos consisten&nbsp; en&nbsp; la&nbsp; activaci&oacute;n&nbsp; de&nbsp; patrones&nbsp; de&nbsp; actividad&nbsp; cerebral,&nbsp; mediante&nbsp; los&nbsp; cuales&nbsp; es posible dirigir el&nbsp; comportamiento. Los sentidos limitan propiedades del cerebro y esto conlleva a experiencias como ver,&nbsp; o&iacute;r &nbsp;y&nbsp; sentir. Donde&nbsp; el&nbsp; organismo&nbsp; se&nbsp; comporte&nbsp; o modifique&nbsp; su&nbsp; comportamiento,&nbsp; ya&nbsp; sea&nbsp; el&nbsp; medio&nbsp; externo&nbsp; o&nbsp; el&nbsp; medio&nbsp; interno,&nbsp; lo&nbsp; ha conseguido porque el cerebro gener&oacute; patrones organizados de actividad o cambi&oacute; los que habitualmente ven&iacute;a trayendo <a href="#ref">[29]</a>.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Retrotray&eacute;ndonos al a&ntilde;o 2009, Small expone en su libro iBrain, que tanto Internet como las tecnolog&iacute;as 2.0 han cambiado nuestro cerebro a nivel de conexiones neuronales y, por supuesto, culturalmente. Los m&aacute;s expuestos al mundo digital son los adolescentes que han evolucionado cerebralmente, desarrollando nuevas habilidades como la capacidad de s&iacute;ntesis y atenuando la degradaci&oacute;n por la edad, pero perdiendo otras como la capacidad de reflexionar, de concentraci&oacute;n y las habilidades sociales. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Estos cambios se han producido con mucha rapidez, por lo que Small sugiere que estamos frente al proceso evolutivo m&aacute;s impresionante y veloz de nuestra historia, raz&oacute;n por la cual a los padres y docentes se les dificulta enormemente comprender a los&nbsp; j&oacute;venes,&nbsp; puesto&nbsp; que,&nbsp; adem&aacute;s&nbsp; de&nbsp; las&nbsp; diferencias&nbsp; generacionales,&nbsp; se encuentran&nbsp; con&nbsp; cerebros programados para realizar otras actividades y para comprender su realidad de una manera distinta. En la subsecci&oacute;n siguiente se brindar&aacute; algunos ejemplos sobre las oportunidades brindadas por las tecnolog&iacute;as exponiendo su aspecto neurocient&iacute;fico.</font></p> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">5.2. Las oportunidades afloradas por la tecnolog&iacute;a</font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">La educaci&oacute;n forma parte de ese entorno, y son en las pr&aacute;cticas educativas en las que la inclusi&oacute;n de las TICs posibilita una oportunidad de cambio cultural, en el que los docentes deben acompa&ntilde;ar a los alumnos en el proceso de aprender a aprender, y se constituyen en los gestores de los aprendizajes para posibilitar el desarrollo de los estudiantes. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> La capacidad mediadora de las TICs como instrumentos psicol&oacute;gicos es una potencialidad que, como tal, se hace efectiva en mayor o menor medida, en las pr&aacute;cticas educativas que tienen lugar en las aulas en funci&oacute;n de los usos que los participantes hacen de ellas. El ingreso masivo de elementos tecnol&oacute;gicos como laptops, realidad virtual, entre otros; en las pr&aacute;cticas &aacute;ulicas, y de nuevas estrategias de ense&ntilde;anza mediante su uso, condiciona distintos procesos cognitivos (atenci&oacute;n, memoria, funciones ejecutivas) <a href="#ref">[25]</a> en los educandos en el momento del proceso de aprendizaje.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> A trav&eacute;s de las TICs, las im&aacute;genes pueden ser f&aacute;cilmente utilizadas en la ense&ntilde;anza y la mejora de la memoria retentiva de los estudiantes. De la misma manera, los profesores pueden explicar f&aacute;cilmente las instrucciones complejas asegurando la comprensi&oacute;n de los estudiantes. Tambi&eacute;n, pueden crear clases interactivas generando clases m&aacute;s agradables, lo que podr&iacute;a mejorar la asistencia de los estudiantes y la concentraci&oacute;n. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Un programa multimedial interactivo puede convertirse en una poderosa herramienta pedag&oacute;gica y did&aacute;ctica que aproveche la capacidad multisensorial de los seres humanos. La combinaci&oacute;n de textos, gr&aacute;ficos, sonido, fotograf&iacute;as, animaciones y videos permite transmitir el conocimiento de manera mucho m&aacute;s natural, v&iacute;vida y din&aacute;mica, lo cual resulta crucial para el aprendizaje. Este tipo de recursos puede incitar a la transformaci&oacute;n de los estudiantes, de recipientes pasivos de informaci&oacute;n a participantes m&aacute;s activos de su proceso de aprendizaje.</font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Las TICs deben ser parte integral de la educaci&oacute;n moderna, permitiendo con su uso efectivo llevar a cabo la misi&oacute;n de divulgaci&oacute;n e investigaci&oacute;n en las instituciones educativas. El computador debe sobrepasar sus funciones tradicionales, como simple herramienta de procesamiento de texto y computaci&oacute;n individual, para convertirse en herramienta de uso comunitario que facilite el desarrollo y la coordinaci&oacute;n de tareas cooperativas con base en la informaci&oacute;n. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Las actividades acad&eacute;micas colaborativas, desde cualquiera de las &aacute;reas tem&aacute;ticas del curr&iacute;culo, son el eje de innovaci&oacute;n en aspectos socioculturales propios del entorno pedag&oacute;gico. Este tipo de actividad tecnol&oacute;gica involucra el desarrollo y crecimiento del talento humano como un proceso cooperativo espont&aacute;neo y efectivo, contrastando con la actual cultura basada en la competitividad y la propiedad intelectual.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> En especial algunas aplicaciones y conjuntos de aplicaciones TIC, tienen una serie de caracter&iacute;sticas espec&iacute;ficas que abren nuevos horizontes y posibilidades a los procesos de ense&ntilde;anza y aprendizaje y son susceptibles de generar, cuando se explotan adecuadamente y se utilizan en determinados contextos de uso, din&aacute;micas de innovaci&oacute;n y mejora imposibles o muy dif&iacute;ciles de conseguir en su ausencia. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"><b>EVEAs</b></font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">En los tiempos que vivimos, y siguiendo un paradigma integrador-educacional se les atribuye al proceso de ense&ntilde;ar y de aprender un rol activo, que est&aacute; basado en la exploraci&oacute;n, la experimentaci&oacute;n, el debate y la reflexi&oacute;n. Por tal motivo, las TICs son desarrolladas como pr&aacute;cticas pedag&oacute;gicas innovadoras que generan competencias en los alumnos mediante el uso continuo de las funciones prefrontales de los mismos <a href="#ref">[30]</a> <a href="#ref">[31]</a>. La forma de generar competencias es mediante la construcci&oacute;n del EVEA centrado en el estudiante que supone el auto-aprendizaje y la auto-transformaci&oacute;n de esquemas cognitivos mediados por la tecnolog&iacute;a disponible y el seguimiento individual del proceso de ense&ntilde;anza y de aprendizaje por parte de tutores. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Distintos investigadores han se&ntilde;alado que los EVEAs aumentan la adhesi&oacute;n al tema a estudiar, la concentraci&oacute;n y la atenci&oacute;n <a href="#ref">[32]</a> por medio de la estimulaci&oacute;n de v&iacute;as sensoriales an&aacute;logas de manera simult&aacute;nea (visual, auditiva y asociativa t&eacute;mporo-parieto-occipital) que facilitan un incremento y refuerzo de la capacidad de aprendizaje. De este modo se produce una sucesi&oacute;n sincr&oacute;nica de eventos basados en un aumento efectivo del campo atencional activaciones reverberantes para producir engramas, activaci&oacute;n de las cortezas de asociaci&oacute;n para la integraci&oacute;n de conocimientos y consolidaci&oacute;n eficaz de la memoria; todos sucesos necesarios <a href="#ref">[33]</a> que son la base del aprendizaje.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Los educadores deben tener en cuenta que al cerebro le llama la atenci&oacute;n lo novedoso, por ello es necesario potenciar lo creativo: im&aacute;genes, juegos, entre otros. Lo que se busca es captar la atenci&oacute;n de los alumnos pero que se encuentre en estrecha relaci&oacute;n con lo que se pretende que asimilen, comprendan y aprendan. Se hace fundamental que en las aulas se implementen estrategias que les generen expectativas a los alumnos promoviendo la participaci&oacute;n, con el fin de que se sientan constructores del aprendizaje.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"><b>Juegos</b></font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Ya en el a&ntilde;o 2013 panelistas en la Universidad de Stanford <a href="#ref">[34]</a> explicaban que la utilizaci&oacute;n de juegos como una herramienta educacional provee oportunidades para un aprendizaje m&aacute;s profundo, porque resulta que los juegos son dif&iacute;ciles y lo que se busca desde las Neurociencias es potenciar la generaci&oacute;n del entramado de conexiones neuronales, posibilitando que el alumno genere nuevos caminos para resolver problemas. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">El sistema de puntos (en ingl&eacute;s, <em>points</em>), insignias (en ingl&eacute;s, <em>badges</em>), premios (en ingl&eacute;s, <em>rewards</em>) y tablas de clasificaci&oacute;n (en ingl&eacute;s, <em>leaderboards</em>) utilizados en los juegos masivos online multijugador (en ingl&eacute;s, MMO o <em>Massively Multiplayer Online</em>) se puede replicar en el contexto educativo, para dar cuenta de las diferentes motivaciones de los individuos y las necesidades de interacci&oacute;n o de expresi&oacute;n.</font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">Es factible mencionar por tanto, que el juego dirigido (en ingl&eacute;s<em>, playful learning</em>) es un componente fundamental del aprendizaje, debido a que ayuda a &quot;enfocar&quot; el inter&eacute;s de los alumnos. Ahora bien, la receta o forma m&aacute;s efectiva es combinar la instrucci&oacute;n tradicional con el aprendizaje por el descubrimiento. Como as&iacute; tambi&eacute;n, la devoluci&oacute;n del docente comentando los errores y aciertos en los ejercicios o ex&aacute;menes mejora la comprensi&oacute;n y fijaci&oacute;n de los conocimientos. De la misma manera, es mejor tomar pruebas frecuentes que insistir en la memorizaci&oacute;n.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Ahora bien, para memorizar datos es preferible dejar un tiempo entre repeticiones. El proceso de convertir la memoria de corto plazo en la de largo plazo se llama consolidaci&oacute;n. Hoy se sabe que la relaci&oacute;n entre la repetici&oacute;n y la memoria es muy clara. La forma m&aacute;s efectiva de recordar algo por m&aacute;s tiempo (consolidar) es exponerse adrede repetidas veces a esa informaci&oacute;n. &nbsp;Se sabe adem&aacute;s que el aprendizaje ocurre mucho mejor cuando la informaci&oacute;n nueva se incorpora de manera gradual en la memoria, y no de golpe. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> En resumen, es indispensable la necesidad de formarse desde la teor&iacute;a y la pr&aacute;ctica para adaptarse a la sociedad del conocimiento actual. Un trabajo que sea &quot;en&quot; y &quot;con&quot; la sociedad, implementando cooperaci&oacute;n con el conocimiento, la tecnolog&iacute;a y la informaci&oacute;n. &nbsp;Usar la tecnolog&iacute;a no te convierte en mejor profesional, pero no usarla te har&aacute; peor maestro.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> El educador que conoce los principios neurobiol&oacute;gicos que rigen el funcionamiento cerebral, su maduraci&oacute;n cognitiva y emocional, tiene en sus manos un recurso espl&eacute;ndido para dise&ntilde;ar su praxis docente, identificando ritmos y modalidades madurativas en sus alumnos y eligiendo recursos de ense&ntilde;anza sobre bases cient&iacute;ficas que le garantizan &oacute;ptimos resultados. Si bien, podemos decir que las Neurociencias en la Educaci&oacute;n se encuentra en &ldquo;la primera infancia&rdquo;, es una disciplina que avanza a pasos acelerados y que claramente no debemos perderle el rastro. </font></p> <p align="left"><b><font size="3" face="Arial, Helvetica, sans-serif">Conclusiones</font></b></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif">La comprensi&oacute;n del fen&oacute;meno del aprendizaje resulta fundamental a la hora de establecer estrategias y metas en la din&aacute;mica del ense&ntilde;ar, de forma tal que un profesor pueda generar un ambiente propicio para desencadenar el proceso del aprender. Los escenarios del futuro exigen la construcci&oacute;n de esta nueva pedagog&iacute;a orientada hacia la innovaci&oacute;n y la creatividad, nacida de la interconexi&oacute;n entre la pedagog&iacute;a y las neurociencias. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> En el contexto educativo, los docentes deben dise&ntilde;ar estrategias que propicien la aproximaci&oacute;n efectiva del estudiante hacia el objeto de aprendizaje, que contribuyan a crear el espacio an&iacute;mico emocional para que el aprendizaje tenga lugar, logrando que la escuela se convierta en un lugar placentero, para que los hemisferios del pensamiento puedan asumir el aprendizaje, y se puedan unir los elementos racionales y l&oacute;gicos del hemisferio izquierdo con los elementos imaginativos, fantasiosos y creativos del hemisferio derecho <a href="#ref">[35]</a> <a href="#ref">[36]</a>.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Que todo agente educativo conozca y entienda c&oacute;mo aprende el cerebro, c&oacute;mo procesa la informaci&oacute;n, c&oacute;mo controla las emociones, los sentimientos, los estados conductuales, o c&oacute;mo es fr&aacute;gil frente a determinados est&iacute;mulos, llega a ser un requisito indispensable para la innovaci&oacute;n pedag&oacute;gica y transformaci&oacute;n de los sistemas educativos. En este sentido, la Neuroeducaci&oacute;n contribuye a disminuir la brecha entre las investigaciones neurocient&iacute;ficas y la pr&aacute;ctica pedag&oacute;gica.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Si bien se presentaron las oportunidades afloradas por la tecnolog&iacute;a, brindando los cambios que se realizaron y que se esperan realizar en funci&oacute;n del nivel de crecimiento que poseen las TICs, no debemos dejar de lado que tambi&eacute;n existen aspectos negativos a los que quedan expuestos los usuarios (como el tiempo de exposici&oacute;n), y que debemos conocerlos con el fin de buscar formas como humanidad, que nos permitan hacerle frente a dichas alertas. </font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Si esperamos cambios sustantivos de enfoque did&aacute;ctico en la educaci&oacute;n, la introducci&oacute;n de las TICs en conjunci&oacute;n de las Neurociencias, en la formaci&oacute;n de los docentes es un paso fundamental. El lugar que estas tecnolog&iacute;as tienen en la sociedad actual y futura representa una oportunidad para articular aprendizaje y conocimiento en sinton&iacute;a con las nuevas exigencias de una educaci&oacute;n que valora el modelo pedag&oacute;gico, as&iacute; como la apropiaci&oacute;n de ellas a partir de una opci&oacute;n de integraci&oacute;n. Para poder ense&ntilde;ar, &iquest;c&oacute;mo se va a desconocer aquello que permite que el aprendizaje tenga &eacute;xito? El cerebro es un &oacute;rgano maravilloso y es fundamental comprender de qu&eacute; manera permite el aprendizaje para identificar cu&aacute;les son las mejores TICs para cada clase y cada alumno. </font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"> Innovar es transformar, es apostar por una educaci&oacute;n para el SXXI. Por tal raz&oacute;n, es de vital importancia implementar en nuestras aulas nuevos componentes que abran camino a un nuevo modelo de pr&aacute;ctica pedag&oacute;gica, un modelo que considere la armon&iacute;a entre el cerebro, el aprendizaje y el desarrollo humano.</font></p> <p align="left"><font size="3" face="Arial, Helvetica, sans-serif"><b><font size="2"><a name="ref" id="ref"></a>Referencias</font></b></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif">[1] Neurociencia aplicada a la Educaci&oacute;n. Estimulando ambos hemisferios cerebrales. Grupo Braidot. Febrero 2009 Disponible en <a href="http://www.econo.unlp.edu.ar/uploads/docs/e_news_febrero_2009a.pdf" target="_blank">http://www.econo.unlp.edu.ar/uploads/docs/e_news_febrero_2009a.pdf</a></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259708&pid=S1850-9959201600010000600001&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --><!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [2] M. Nagao, <em>Knowledge and Inference.</em> Academic Press, Boston, 1988 Benar&oacute; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259709&pid=S1850-9959201600010000600002&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --><!-- ref -->s S, Lipina SJ, Segretin MS, Hermida MJ, Colombo JA. Neurociencia y educaci&oacute;n: hacia la construcci&oacute;n de puentes interactivos. Rev Neurol 2010; 50: 179-86. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259710&pid=S1850-9959201600010000600003&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --> </font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [3] A. L. Campos, Neuroeducaci&oacute;n: uniendo las neurociencias y la educaci&oacute;n en la b&uacute;squeda del desarrollo humano. Revista Digital la educ@ci&oacute;n, Junio 2010 n&deg; 143. Organizaci&oacute;n de los Estados Americanos. <a href="http://www.dragodsm.com/pdf/dragodsm-neurociencias-educacion-y-desarrollo-06-2012.pdf" target="_blank">Http://www.dragodsm.com/pdf/dragodsm-neurociencias-educacion-y-desarrollo-06-2012.pdf</a></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259712&pid=S1850-9959201600010000600004&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --><!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [4] Ansari, D. y Coch, D. 2006 Bridges over troubled waters: education and cognitive neuroscience. TRENDS in Cognitive Sciences.. Vol. 10. N&ordm; 4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259713&pid=S1850-9959201600010000600005&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> &nbsp;[5] A. &Aacute;lvarez Ferrando, A. Kuz, M. Falco, &ldquo;<em>Gephi: An&aacute;lisis de interacciones en un foro, a trav&eacute;s de ARS en el aula</em>&rdquo;.&nbsp; Revista Iberoamericana de Tecnolog&iacute;a en Educaci&oacute;n y Educaci&oacute;n en Tecnolog&iacute;a (TE&amp;ET). RedUNCI &ndash; UNLP. N&uacute;mero 11, La Plata, Buenos Aires, Argentina. ISSN 1850-9959. Diciembre 2013. </font></p> ]]>
+</body>
+<body>
+<![CDATA[ <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [6] E. Litwin, Tecnolog&iacute;as educativas en tiempos de internet. 1&ordf; ed. Buenos Aires, Ed. Amorrortu, 2005. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259716&pid=S1850-9959201600010000600007&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [7] J. D. Vincent, Ethics and neurosciences. Paris: Unesco; 1995. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259718&pid=S1850-9959201600010000600008&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [8] E. Bachrach, &Aacute;gil Mente. Ed. Sudamericana, Buenos Aires, (2014). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259720&pid=S1850-9959201600010000600009&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [9] F. Maureira Cid, Neurociencia y Educaci&oacute;n, Exemplum (2010), 3: 267-274. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259722&pid=S1850-9959201600010000600010&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref -->&nbsp;</font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [10] R. Salas, <em>La educaci&oacute;n, &iquest;necesita realmente de la neurociencia?</em> En: Estudios Pedag&oacute;gicos, N&ordm; 29, 2003, pp. 155-171 <a href="http://dx.doi.org/10.4067/S0718-07052003000100011" target="_blank">http://dx.doi.org/10.4067/S0718-07052003000100011</a>. Silva (2003)</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259724&pid=S1850-9959201600010000600011&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --><!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [11] H. Gardner, Reflections on multiple intelligences: Myths and messages. Phi Delta Kappan, 77, 200-209, (1995). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259725&pid=S1850-9959201600010000600012&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [12] R. Salas Silva. <em>Does education really need Neuroscience</em>? Estud. pedag&oacute;g., Valdivia,&nbsp; n. 29, p. 155-171,&nbsp;&nbsp; 2003, <a href="http://dx.doi.org/10.4067/S0718-07052003000100011" target="_blank">http://dx.doi.org/10.4067/S0718-07052003000100011</a>. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259727&pid=S1850-9959201600010000600013&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [13] J. Geake, The Gifted Brain. (2002). <a href="http://www.edfac.unimelb.edu.au/LED/GCE/brain.html" target="_blank">http://www.edfac.unimelb.edu.au/LED/GCE/brain.html</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259729&pid=S1850-9959201600010000600014&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [14] R. Carter, The Human Brain Book, London, DK ADULT, (2009). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259731&pid=S1850-9959201600010000600015&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [15] M. Sweeney, <em>Brain:</em> <em>The Complete Mind: How it Develops, How it Works and How to Keep it Sharp</em>, Washington, National Geographic, (2009). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259733&pid=S1850-9959201600010000600016&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [16] E. Kandel, <em>In search of memory: the emergence of a new science of mind</em>, New York, W.W. Norton &amp; Company, (2007). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259735&pid=S1850-9959201600010000600017&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [17] E. Kandel, <em>The Age of Insight: The Quest to Understand the Unconscious</em> in Art, Mind and Brain, from Vienna 1900 to the Present, New York, Random House, (2012). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259737&pid=S1850-9959201600010000600018&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [18] N. Andreasen, The creating Brain: The Neuroscience of Genius, New York, Dana Press, (2011). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259739&pid=S1850-9959201600010000600019&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [19] J. Kaufman, R. Sternberg, The Cambridge Handbook of Creativity, Cambridge, Cambridge University Press, (2010). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259741&pid=S1850-9959201600010000600020&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [20] S. Begley, Train your mind, Change your brain: how a new science reveals our extraordinary potential to transform ourselves, New York, Ballentine Books, (2007). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259743&pid=S1850-9959201600010000600021&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [21] L. Doval, The Traditional vs New Approaches to Diagnostic and Achievement Testing. En: Methods and Techniques of Holistic Education. Springfield, Illinois,&nbsp; (1985). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259745&pid=S1850-9959201600010000600022&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --> </font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [22] B. Gargallo, Los Procesos Cognitivos y el Aprendizaje. La Reflexibidad-Impulsividad y el Rendimiento Acad&eacute;mico. En: PADE. Universidad de Valencia, 1:2, (1991). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259747&pid=S1850-9959201600010000600023&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --> </font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [23] E. Gordon; S. Koslow, Integrative Neuroscience and Personalized Medicine, Nueva York, Oxford University Press, (2010). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259749&pid=S1850-9959201600010000600024&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [24] F. Pedro. Aprender en el nuevo milenio, CERI.OECD. Par&iacute;s, (2006). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259751&pid=S1850-9959201600010000600025&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [25] R. Carneiro, J.C. Toscano, T. D&iacute;az, Los desaf&iacute;os de las TIC para el cambio educativo. Metas Educativas 2012, Organizaci&oacute;n de Estados Iberoamericanos para la Educaci&oacute;n, la Ciencia y la Cultura (OEI), Madrid, Fundaci&oacute;n Santillana. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259753&pid=S1850-9959201600010000600026&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [26] J. Garc&iacute;a Carrasco, J.A. Juanes M&eacute;ndez. El cerebro y las TIC. Teor&iacute;a de la Educaci&oacute;n. Educaci&oacute;n y Cultura en la Sociedad de la Informaci&oacute;n, vol. 14, n&uacute;m. 2, 2013, pp. 42-84. Universidad de Salamanca, Espa&ntilde;a. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259755&pid=S1850-9959201600010000600027&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [27] P. Gardenfors. C&oacute;mo el Homo se convirti&oacute; en Sapiens. Madrid: Espasa, (2006). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259757&pid=S1850-9959201600010000600028&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [28] G. Small. El&nbsp; cerebro&nbsp; digital.&nbsp; C&oacute;mo&nbsp; las&nbsp; nuevas&nbsp; tecnolog&iacute;as&nbsp; est&aacute;n&nbsp; cambiando nuestra mente. Barcelona: Urano, (2009). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259759&pid=S1850-9959201600010000600029&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [29] R. Llinas. El&nbsp; cerebro&nbsp; y&nbsp; el&nbsp; mito&nbsp; del&nbsp; yo.&nbsp; El&nbsp; papel&nbsp; de&nbsp; las&nbsp; neuronas&nbsp; en&nbsp; el pensamiento y el comportamiento humano. Barcelona: Belacqua, (2003). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259761&pid=S1850-9959201600010000600030&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [30] M. J. Mazzoglio y Nabar, Aspectos&nbsp; neurocient&iacute;ficos implicados en el uso de espacios&nbsp; virtuales de&nbsp; ense&ntilde;anza y aprendizaje. Asociaci&oacute;n Educar para el Desarrollo &ndash; Curso de capacitaci&oacute;n Docente, abril de 2012. <a href="http://www.asociacioneducar.com/monografias-docente-neurociencias/m.mazzoglio.pdf" target="_blank">http://www.asociacioneducar.com/monografias-docente-neurociencias/m.mazzoglio.pdf</a></font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [31] D. Levis, Ense&ntilde;ar y aprender con inform&aacute;tica / Ense&ntilde;ar y aprender inform&aacute;tica. Medios inform&aacute;ticos en la escuela Argentina. En: Cabello-Levis (editores). Medios inform&aacute;ticos en la educaci&oacute;n a principios del siglo XXI. Buenos Aires, Prometeo, 2007. Pp.21 -50. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259764&pid=S1850-9959201600010000600032&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> ]]>
+</body>
+<body>
+<![CDATA[ <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [32] S. Molholm, et al. Audio - Visual Multisensory Integration in Superior Parietal Lobule Revealed by Human Intracranial Recordings. J Neurophys 96, 721 - 729, 2006. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259766&pid=S1850-9959201600010000600033&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [33] M. I. Posner, Attention in cognitive neuroscience: an overview. En Gazzaniga MS Ed. The Cognitive Neuroscience Cambridge: MIT Press. 1995, p. 1009 &ndash; 20.</font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [34] Stanford University, Stanford Report, (March 1, 2013). Playing to learn: Panelists at Stanford discussion say using games as an educational tool provides opportunities for deeper learning. Disponible online en: <a href="http://news.stanford.edu/news/2013/march/games-education-tool-030113.html" target="_blank">http://news.stanford.edu/news/2013/march/games-education-tool-030113.html</a></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259769&pid=S1850-9959201600010000600035&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [35] E. A. Cole et al., &ldquo;Neural evidence for dissociable components of task-switching&rdquo;, en Cereb Cortex 16:47-86, (2006).</font></p> <!-- ref --><p align="left"><font size="2" face="Arial, Helvetica, sans-serif"> [36] E. De Bono, Creatividad: 62 ejercicios para desarrollar la mente, Barcelona, Paid&oacute;s Ib&eacute;rica Ediciones, (2008). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#160;<a href="javascript:void(0);" onclick="javascript: window.open('/scielo.php?script=sci_nlinks&ref=7259771&pid=S1850-9959201600010000600037&lng=','','width=640,height=500,resizable=yes,scrollbars=1,menubar=yes,');">Links</a>&#160;]<!-- end-ref --></font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"><em>&nbsp;</em></font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"><em>Direcci&oacute;n de Contacto del Autor/es</em>:</font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif">Mariana Falco<br /> Universidad Tecnol&oacute;gica Nacional, FRLP<br /> 60 esq. 124<br /> La Plata, Buenos Aires<br /> Argentina<br /> e-mail: <a href="mailto:mfalco@frlp.utn.edu.ar">mfalco@frlp.utn.edu.ar</a></font></p> ]]>
+</body>
+<body>
+<![CDATA[ <p align="left"><font size="2" face="Arial, Helvetica, sans-serif">Antonieta Kuz<br /> Universidad Tecnol&oacute;gica Nacional, FRLP<br /> 60 esq. 124<br /> La Plata, Buenos Aires<br /> Argentina<br /> e-mail: <a href="mailto:akuz@frlp.utn.edu.ar">akuz@frlp.utn.edu.ar</a></font></p> <p align="left"> <font size="2" face="Arial, Helvetica, sans-serif"><strong> Mariana Falco</strong>. Ingeniera en Sistemas de Informaci&oacute;n. Docente universitaria. Investigadora en tecnolog&iacute;a en educaci&oacute;n, aplicaciones del An&aacute;lisis de Redes Sociales y agentes inteligentes en el aula en PID UTN-FRLP.</font></p> <p align="left"><font size="2" face="Arial, Helvetica, sans-serif"><strong>Antonieta Kuz</strong>.&nbsp; Ingeniera en Sistemas de Informaci&oacute;n.&nbsp; Estudiante de doctorado de UNICEN. Investigadora PID Integraci&oacute;n de Agentes y Redes Sociales en Entornos Educativos UTN-FRLP. Docente Universitaria </font></p> ]]>
+</body>
+<back>
+<ref-list>
+<ref id="B1">
+<label>1</label>
+<nlm-citation citation-type="">
+<collab>Grupo Braidot</collab>
+<article-title xml:lang="es">
+<![CDATA[ Neurociencia aplicada a la Educación: Estimulando ambos hemisferios cerebrales ]]>
+</article-title>
+<source>
+<![CDATA[ ]]>
+</source>
+<year>Febr</year>
+<month>er</month>
+<day>o </day>
+</nlm-citation>
+</ref>
+<ref id="B2">
+<label>2</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Nagao ]]>
+</surname>
+<given-names>
+<![CDATA[ M. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Knowledge and Inference ]]>
+</source>
+<year>1988</year>
+<publisher-loc>
+<![CDATA[ Boston ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Academic Press ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B3">
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Benarós ]]>
+</surname>
+<given-names>
+<![CDATA[ S ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Lipina ]]>
+</surname>
+<given-names>
+<![CDATA[ SJ ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Segretin ]]>
+</surname>
+<given-names>
+<![CDATA[ MS ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Hermida ]]>
+</surname>
+<given-names>
+<![CDATA[ MJ ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Colombo ]]>
+</surname>
+<given-names>
+<![CDATA[ JA ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="es">
+<![CDATA[ Neurociencia y educación: hacia la construcción de puentes interactivos ]]>
+</article-title>
+<source>
+<![CDATA[ Rev Neurol ]]>
+</source>
+<year>2010</year>
+<volume>50</volume>
+<page-range>179-86</page-range>
+</nlm-citation>
+</ref>
+<ref id="B4">
+<label>3</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Campos ]]>
+</surname>
+<given-names>
+<![CDATA[ A. L. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="es">
+<![CDATA[ Neuroeducación: uniendo las neurociencias y la educación en la búsqueda del desarrollo humano ]]>
+</article-title>
+<source>
+<![CDATA[ Revista Digital la educ@ción ]]>
+</source>
+<year>Juni</year>
+<month>o </month>
+<day>20</day>
+<numero>143</numero>
+<issue>143</issue>
+<publisher-name>
+<![CDATA[ Organización de los Estados Americanos ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B5">
+<label>4</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Ansari ]]>
+</surname>
+<given-names>
+<![CDATA[ D. ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Coch ]]>
+</surname>
+<given-names>
+<![CDATA[ D. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="en">
+<![CDATA[ Bridges over troubled waters: education and cognitive neuroscience ]]>
+</article-title>
+<source>
+<![CDATA[ TRENDS in Cognitive Sciences ]]>
+</source>
+<year>2006</year>
+<volume>10</volume>
+<numero>4</numero>
+<issue>4</issue>
+</nlm-citation>
+</ref>
+<ref id="B6">
+<label>5</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Álvarez Ferrando ]]>
+</surname>
+<given-names>
+<![CDATA[ A. ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Kuz ]]>
+</surname>
+<given-names>
+<![CDATA[ A. ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Falco ]]>
+</surname>
+<given-names>
+<![CDATA[ M. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="en">
+<![CDATA[ Gephi: Análisis de interacciones en un foro, a través de ARS en el aula ]]>
+</article-title>
+<source>
+<![CDATA[ Revista Iberoamericana de Tecnología en Educación y Educación en Tecnología (TE& ET) ]]>
+</source>
+<year>Dici</year>
+<month>em</month>
+<day>br</day>
+<numero>11</numero>
+<issue>11</issue>
+<publisher-loc>
+<![CDATA[ La Plata ]]>
+</publisher-loc>
+</nlm-citation>
+</ref>
+<ref id="B7">
+<label>6</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Litwin ]]>
+</surname>
+<given-names>
+<![CDATA[ E. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Tecnologías educativas en tiempos de internet ]]>
+</source>
+<year>2005</year>
+<edition>1</edition>
+<publisher-loc>
+<![CDATA[ Buenos Aires ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Amorrortu ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B8">
+<label>7</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Vincent ]]>
+</surname>
+<given-names>
+<![CDATA[ J. D. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Ethics and neurosciences ]]>
+</source>
+<year>1995</year>
+<publisher-loc>
+<![CDATA[ Paris ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Unesco ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B9">
+<label>8</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Bachrach ]]>
+</surname>
+<given-names>
+<![CDATA[ E. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Ágil Mente ]]>
+</source>
+<year>2014</year>
+<publisher-loc>
+<![CDATA[ Buenos Aires ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Sudamericana ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B10">
+<label>9</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Maureira Cid ]]>
+</surname>
+<given-names>
+<![CDATA[ F. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="es">
+<![CDATA[ Neurociencia y Educación ]]>
+</article-title>
+<source>
+<![CDATA[ Exemplum ]]>
+</source>
+<year>2010</year>
+</nlm-citation>
+</ref>
+<ref id="B11">
+<label>10</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Salas ]]>
+</surname>
+<given-names>
+<![CDATA[ R. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="es">
+<![CDATA[ La educación, ¿necesita realmente de la neurociencia? ]]>
+</article-title>
+<source>
+<![CDATA[ Estudios Pedagógicos ]]>
+</source>
+<year>2003</year>
+<numero>29</numero>
+<issue>29</issue>
+<page-range>155-171</page-range>
+</nlm-citation>
+</ref>
+<ref id="B12">
+<label>11</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Gardner ]]>
+</surname>
+<given-names>
+<![CDATA[ H. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="en">
+<![CDATA[ Reflections on multiple intelligences: Myths and messages ]]>
+</article-title>
+<source>
+<![CDATA[ Phi Delta Kappan ]]>
+</source>
+<year>1995</year>
+<volume>77</volume>
+<page-range>200-209</page-range>
+</nlm-citation>
+</ref>
+<ref id="B13">
+<label>12</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Salas Silva ]]>
+</surname>
+<given-names>
+<![CDATA[ R. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="en">
+<![CDATA[ Does education really need Neuroscience? ]]>
+</article-title>
+<source>
+<![CDATA[ Estud. pedagóg. ]]>
+</source>
+<year>2003</year>
+<numero>29</numero>
+<issue>29</issue>
+<page-range>155-171</page-range>
+<publisher-loc>
+<![CDATA[ Valdivia ]]>
+</publisher-loc>
+</nlm-citation>
+</ref>
+<ref id="B14">
+<label>13</label>
+<nlm-citation citation-type="">
+<source>
+<![CDATA[ ]]>
+</source>
+<year/>
+</nlm-citation>
+</ref>
+<ref id="B15">
+<label>14</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Carter ]]>
+</surname>
+<given-names>
+<![CDATA[ R. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ The Human Brain Book ]]>
+</source>
+<year>2009</year>
+<publisher-loc>
+<![CDATA[ London ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ DK ADULT ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B16">
+<label>15</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Sweeney ]]>
+</surname>
+<given-names>
+<![CDATA[ M. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Brain: The Complete Mind: How it Develops, How it Works and How to Keep it Sharp ]]>
+</source>
+<year>2009</year>
+<publisher-loc>
+<![CDATA[ Washington ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ National Geographic ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B17">
+<label>16</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Kandel ]]>
+</surname>
+<given-names>
+<![CDATA[ E. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ In search of memory: the emergence of a new science of mind ]]>
+</source>
+<year>2007</year>
+<publisher-loc>
+<![CDATA[ New York ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ W.W. Norton & Company ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B18">
+<label>17</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Kandel ]]>
+</surname>
+<given-names>
+<![CDATA[ E. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ The Age of Insight: The Quest to Understand the Unconscious in Art, Mind and Brain, from Vienna 1900 to the Present ]]>
+</source>
+<year>2012</year>
+<publisher-loc>
+<![CDATA[ New York ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Random House ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B19">
+<label>18</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Andreasen ]]>
+</surname>
+<given-names>
+<![CDATA[ N. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ The creating Brain: The Neuroscience of Genius ]]>
+</source>
+<year>2011</year>
+<publisher-loc>
+<![CDATA[ New York ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Dana Press ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B20">
+<label>19</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Kaufman ]]>
+</surname>
+<given-names>
+<![CDATA[ J. ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Sternberg ]]>
+</surname>
+<given-names>
+<![CDATA[ R. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ The Cambridge Handbook of Creativity ]]>
+</source>
+<year>2010</year>
+<publisher-loc>
+<![CDATA[ Cambridge ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Cambridge University Press ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B21">
+<label>20</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Begley ]]>
+</surname>
+<given-names>
+<![CDATA[ S. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Train your mind, Change your brain: how a new science reveals our extraordinary potential to transform ourselves ]]>
+</source>
+<year>2007</year>
+<publisher-loc>
+<![CDATA[ New York ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Ballentine Books ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B22">
+<label>21</label>
+<nlm-citation citation-type="">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Doval ]]>
+</surname>
+<given-names>
+<![CDATA[ L. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="en">
+<![CDATA[ The Traditional vs New Approaches to Diagnostic and Achievement Testing ]]>
+</article-title>
+<source>
+<![CDATA[ Methods and Techniques of Holistic Education ]]>
+</source>
+<year>1985</year>
+<publisher-loc>
+<![CDATA[ Springfield^eIllinois Illinois ]]>
+</publisher-loc>
+</nlm-citation>
+</ref>
+<ref id="B23">
+<label>22</label>
+<nlm-citation citation-type="">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Gargallo ]]>
+</surname>
+<given-names>
+<![CDATA[ B. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="es">
+<![CDATA[ Los Procesos Cognitivos y el Aprendizaje: La Reflexibidad-Impulsividad y el Rendimiento Académico ]]>
+</article-title>
+<source>
+<![CDATA[ ]]>
+</source>
+<year/>
+</nlm-citation>
+</ref>
+<ref id="B24">
+<label>23</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Gordon ]]>
+</surname>
+<given-names>
+<![CDATA[ E. ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Koslow ]]>
+</surname>
+<given-names>
+<![CDATA[ S. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Integrative Neuroscience and Personalized Medicine ]]>
+</source>
+<year>2010</year>
+<publisher-loc>
+<![CDATA[ Nueva York ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Oxford University Press ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B25">
+<label>24</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Pedro ]]>
+</surname>
+<given-names>
+<![CDATA[ F. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Aprender en el nuevo milenio ]]>
+</source>
+<year>2006</year>
+<publisher-loc>
+<![CDATA[ París ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ CERI.OECD ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B26">
+<label>25</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Carneiro ]]>
+</surname>
+<given-names>
+<![CDATA[ R. ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Toscano ]]>
+</surname>
+<given-names>
+<![CDATA[ J.C. ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Díaz ]]>
+</surname>
+<given-names>
+<![CDATA[ T. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Los desafíos de las TIC para el cambio educativo ]]>
+</source>
+<year/>
+<publisher-loc>
+<![CDATA[ Madrid ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Organización de Estados Iberoamericanos para la Educación, la Ciencia y la Cultura (OEI)Fundación Santillana ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B27">
+<label>26</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ García Carrasco ]]>
+</surname>
+<given-names>
+<![CDATA[ J. ]]>
+</given-names>
+</name>
+<name>
+<surname>
+<![CDATA[ Juanes Méndez ]]>
+</surname>
+<given-names>
+<![CDATA[ J.A. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="es">
+<![CDATA[ El cerebro y las TIC ]]>
+</article-title>
+<source>
+<![CDATA[ Teoría de la Educación. Educación y Cultura en la Sociedad de la Información ]]>
+</source>
+<year>2013</year>
+<volume>14</volume>
+<numero>2</numero>
+<issue>2</issue>
+<page-range>42-84</page-range>
+<publisher-name>
+<![CDATA[ Universidad de Salamanca ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B28">
+<label>27</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Gardenfors ]]>
+</surname>
+<given-names>
+<![CDATA[ P. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Cómo el Homo se convirtió en Sapiens ]]>
+</source>
+<year>2006</year>
+<publisher-loc>
+<![CDATA[ Madrid ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Espasa ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B29">
+<label>28</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Small ]]>
+</surname>
+<given-names>
+<![CDATA[ G. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ El cerebro digital: Cómo las nuevas tecnologías están cambiando nuestra mente ]]>
+</source>
+<year>2009</year>
+<publisher-loc>
+<![CDATA[ Barcelona ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Urano ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B30">
+<label>29</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Llinas ]]>
+</surname>
+<given-names>
+<![CDATA[ R. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ El cerebro y el mito del yo: El papel de las neuronas en el pensamiento y el comportamiento humano ]]>
+</source>
+<year>2003</year>
+<publisher-loc>
+<![CDATA[ Barcelona ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Belacqua ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B31">
+<label>30</label>
+<nlm-citation citation-type="">
+<source>
+<![CDATA[ ]]>
+</source>
+<year/>
+</nlm-citation>
+</ref>
+<ref id="B32">
+<label>31</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Levis ]]>
+</surname>
+<given-names>
+<![CDATA[ D. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="es">
+<![CDATA[ Enseñar y aprender con informática / Enseñar y aprender informática: Medios informáticos en la escuela Argentina ]]>
+</article-title>
+<person-group person-group-type="editor">
+<name>
+<surname>
+<![CDATA[ Cabello ]]>
+</surname>
+</name>
+<name>
+<surname>
+<![CDATA[ Levis ]]>
+</surname>
+</name>
+</person-group>
+<source>
+<![CDATA[ Medios informáticos en la educación a principios del siglo XXI ]]>
+</source>
+<year>2007</year>
+<page-range>21 -50</page-range>
+<publisher-loc>
+<![CDATA[ Buenos Aires ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Prometeo ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B33">
+<label>32</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Molholm ]]>
+</surname>
+<given-names>
+<![CDATA[ S. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="en">
+<![CDATA[ Audio - Visual Multisensory Integration in Superior Parietal Lobule Revealed by Human Intracranial Recordings ]]>
+</article-title>
+<source>
+<![CDATA[ J Neurophys ]]>
+</source>
+<year>2006</year>
+<volume>96</volume>
+<page-range>721 - 729</page-range>
+</nlm-citation>
+</ref>
+<ref id="B34">
+<label>33</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Posner ]]>
+</surname>
+<given-names>
+<![CDATA[ M. I. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="en">
+<![CDATA[ Attention in cognitive neuroscience: an overview ]]>
+</article-title>
+<person-group person-group-type="editor">
+<name>
+<surname>
+<![CDATA[ Gazzaniga ]]>
+</surname>
+<given-names>
+<![CDATA[ MS ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ The Cognitive Neuroscience ]]>
+</source>
+<year>1995</year>
+<page-range>1009 - 20</page-range>
+<publisher-loc>
+<![CDATA[ Cambridge ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ MIT Press ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+<ref id="B35">
+<label>34</label>
+<nlm-citation citation-type="">
+<source>
+<![CDATA[ ]]>
+</source>
+<year/>
+</nlm-citation>
+</ref>
+<ref id="B36">
+<label>35</label>
+<nlm-citation citation-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ Cole ]]>
+</surname>
+<given-names>
+<![CDATA[ E. A. ]]>
+</given-names>
+</name>
+</person-group>
+<article-title xml:lang="en">
+<![CDATA[ Neural evidence for dissociable components of task-switching ]]>
+</article-title>
+<source>
+<![CDATA[ Cereb Cortex ]]>
+</source>
+<year>2006</year>
+<volume>16</volume>
+<page-range>47-86</page-range>
+</nlm-citation>
+</ref>
+<ref id="B37">
+<label>36</label>
+<nlm-citation citation-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>
+<![CDATA[ De Bono ]]>
+</surname>
+<given-names>
+<![CDATA[ E. ]]>
+</given-names>
+</name>
+</person-group>
+<source>
+<![CDATA[ Creatividad: 62 ejercicios para desarrollar la mente ]]>
+</source>
+<year>2008</year>
+<publisher-loc>
+<![CDATA[ Barcelona ]]>
+</publisher-loc>
+<publisher-name>
+<![CDATA[ Paidós Ibérica Ediciones ]]>
+</publisher-name>
+</nlm-citation>
+</ref>
+</ref-list>
+</back>
+</article>

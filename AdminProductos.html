@@ -29,6 +29,7 @@
     .dark-mode .admin-sidebar a:hover, .dark-mode .admin-sidebar a.activo { background-color: #fff; color: #333; }
     .admin-content { flex: 1; min-width: 300px; }
 
+    /* Controles y tabla */
     .controles-tabla {
       display: flex;
       flex-wrap: wrap;
@@ -68,16 +69,6 @@
     .btn-pagina:disabled { background-color: #999; cursor: not-allowed; }
     .info-pagina { font-weight: bold; }
 
-    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 1000; }
-    .modal-content { background: #fff; padding: 25px; border-radius: 8px; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; }
-    .dark-mode .modal-content { background: #222; color: #fff; }
-    .form-group { margin-bottom: 15px; }
-    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-    .dark-mode .form-group input, .dark-mode .form-group select, .dark-mode .form-group textarea { background: #333; color: #fff; border-color: #555; }
-    .modal-botones { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
-
-  
     .toast-confirmacion {
       display: none;
       position: fixed;
@@ -107,49 +98,15 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
 
-    .toast-confirmacion h4 {
-      margin: 0;
-      color: #cc0000;
-      font-size: 16px;
-    }
-    
-    .dark-mode .toast-confirmacion h4 {
-      color: #ff4d4d;
-    }
+    .toast-confirmacion h4 { margin: 0; color: #cc0000; font-size: 16px; }
+    .dark-mode .toast-confirmacion h4 { color: #ff4d4d; }
+    .toast-confirmacion p { margin: 0; font-size: 13px; line-height: 1.4; }
 
-    .toast-confirmacion p {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.4;
-    }
-
-    .toast-botones {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 5px;
-    }
-
-    .toast-botones button {
-      padding: 6px 12px;
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 12px;
-      transition: background 0.2s;
-    }
-
-    .btn-toast-cancelar {
-      background-color: #e0e0e0;
-      color: #333;
-    }
+    .toast-botones { display: flex; justify-content: flex-end; gap: 10px; margin-top: 5px; }
+    .toast-botones button { padding: 6px 12px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 12px; transition: background 0.2s; }
+    .btn-toast-cancelar { background-color: #e0e0e0; color: #333; }
     .btn-toast-cancelar:hover { background-color: #d5d5d5; }
-
-    .btn-toast-eliminar {
-      background-color: #d9534f;
-      color: white;
-    }
+    .btn-toast-eliminar { background-color: #d9534f; color: white; }
     .btn-toast-eliminar:hover { background-color: #c9302c; }
   </style>
 </head>
@@ -173,12 +130,12 @@
     <aside class="admin-sidebar">
       <h3>Panel Admin</h3>
       <ul>
-        <li><a href="PerfilAdmin.html">Dashboard</a></li>
-        <li><a href="#" class="activo">Productos</a></li>
-        <li><a href="#">Pedidos</a></li>
-        <li><a href="#">Promociones</a></li>
-        <li><a href="#">Clientes</a></li>
-        <li><a href="#">Reportes</a></li>
+          <li><a href="PerfilAdmin.html">Dashboard</a></li>
+        <li><a href="AdminProductos.html" class="activo">Productos</a></li>
+        <li><a href="AdminPedidos.html">Pedidos</a></li>
+        <li><a href="AdminPromociones.html">Promociones</a></li>
+        <li><a href="AdminClientes.html">Clientes</a></li>
+        <li><a href="AdminReportes.html" >Reportes</a></li>
       </ul>
       <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
       <button class="btn-detalle" style="width: 100%; background-color: #0e0e0e;" onclick="cerrarSesion()">Cerrar sesión</button>
@@ -236,66 +193,6 @@
     </main>
   </div>
 
-  <div id="modalProducto" class="modal-overlay">
-    <div class="modal-content">
-      <h3 id="modalTitulo" style="margin-top: 0; border-bottom: 1px solid #ccc; padding-bottom: 10px;">Editar Producto</h3>
-      
-      <form id="formularioProducto" onsubmit="guardarEdicion(event)">
-        <input type="hidden" id="prodId">
-        
-        <div class="form-group">
-          <label>Nombre del Producto:</label>
-          <input type="text" id="prodNombre" required>
-        </div>
-        
-        <div style="display: flex; gap: 15px;">
-          <div class="form-group" style="flex: 1;">
-            <label>Precio ($):</label>
-            <input type="number" id="prodPrecio" step="0.01" min="0" required>
-          </div>
-          <div class="form-group" style="flex: 1;">
-            <label>Existencia (Unidades):</label>
-            <input type="number" id="prodStock" min="0" required>
-          </div>
-        </div>
-
-        <div style="display: flex; gap: 15px;">
-          <div class="form-group" style="flex: 1;">
-            <label>Categoría:</label>
-            <select id="prodCategoria" required>
-              <option value="Reposado">Reposado</option>
-              <option value="Blanco">Blanco</option>
-              <option value="Añejo">Añejo</option>
-              <option value="Premium">Premium</option>
-            </select>
-          </div>
-          <div class="form-group" style="flex: 1;">
-            <label>Estado:</label>
-            <select id="prodEstado" required>
-              <option value="Activo">Disponible</option>
-              <option value="Inactivo">Agotado</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>URL de la Imagen:</label>
-          <input type="text" id="prodImagen" required>
-        </div>
-
-        <div class="form-group">
-          <label>Descripción:</label>
-          <textarea id="prodDescripcion" rows="3"></textarea>
-        </div>
-
-        <div class="modal-botones">
-          <button type="button" class="btn-detalle" style="background-color: #555;" onclick="cerrarModal()">Cancelar</button>
-          <button type="submit" class="btn-detalle" id="btnGuardarForm">Guardar Cambios</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <div id="toastConfirmacionBorrar" class="toast-confirmacion">
     <div>
       <h4>ELIMINAR PRODUCTO</h4>
@@ -349,7 +246,7 @@
             categoria: cat,
             existencia: Math.floor(Math.random() * 50) + 5, 
             estado: "Activo",
-            descripcion: "Descripción simulada para " + prod.nombre
+            descripcion: " " + prod.nombre
           };
         });
         localStorage.setItem('inventarioAdminV2', JSON.stringify(productosSimulados));
@@ -394,8 +291,8 @@
             <td>${prod.existencia}</td>
             <td><span class="${claseBadge}">${textoEstado}</span></td>
             <td style="min-width: 180px;">
-              <button class="btn-accion btn-ver" onclick="abrirModal('ver', ${prod.id})">Ver</button>
-              <button class="btn-accion btn-editar" onclick="abrirModal('editar', ${prod.id})">Editar</button>
+              <button class="btn-accion btn-ver" onclick="window.location.href='AdminVerProducto.html?id=${prod.id}'">Ver</button>
+              <button class="btn-accion btn-editar" onclick="window.location.href='AdminEditarProducto.html?id=${prod.id}'">Editar</button>
               <button class="btn-accion btn-eliminar" onclick="solicitarEliminarToast(${prod.id})">Borrar</button>
             </td>
           </tr>
@@ -429,74 +326,6 @@
       renderizarTabla(resultados);
     }
 
-    function abrirModal(modo, id) {
-      const modal = document.getElementById('modalProducto');
-      const form = document.getElementById('formularioProducto');
-      const btnGuardar = document.getElementById('btnGuardarForm');
-      
-      form.reset();
-      desbloquearFormulario();
-
-      const prod = productosSimulados.find(p => p.id === id);
-      if(!prod) return;
-
-      document.getElementById('prodId').value = prod.id;
-      document.getElementById('prodNombre').value = prod.nombre;
-      document.getElementById('prodPrecio').value = prod.precio;
-      document.getElementById('prodStock').value = prod.existencia;
-      document.getElementById('prodCategoria').value = prod.categoria;
-      document.getElementById('prodEstado').value = prod.estado;
-      document.getElementById('prodImagen').value = prod.imagen;
-      document.getElementById('prodDescripcion').value = prod.descripcion || "";
-
-      if (modo === 'ver') {
-        document.getElementById('modalTitulo').textContent = "Detalles del Producto";
-        bloquearFormulario();
-        btnGuardar.style.display = "none";
-      } else if (modo === 'editar') {
-        document.getElementById('modalTitulo').textContent = "Editar Producto";
-        btnGuardar.style.display = "inline-block";
-      }
-      
-      modal.style.display = 'flex';
-    }
-
-    function cerrarModal() {
-      document.getElementById('modalProducto').style.display = 'none';
-    }
-
-    function bloquearFormulario() {
-      const inputs = document.querySelectorAll('#formularioProducto input, #formularioProducto select, #formularioProducto textarea');
-      inputs.forEach(input => input.disabled = true);
-    }
-
-    function desbloquearFormulario() {
-      const inputs = document.querySelectorAll('#formularioProducto input, #formularioProducto select, #formularioProducto textarea');
-      inputs.forEach(input => input.disabled = false);
-    }
-
-    function guardarEdicion(event) {
-      event.preventDefault();
-      
-      const idForm = document.getElementById('prodId').value;
-      const index = productosSimulados.findIndex(p => p.id == idForm);
-      
-      if(index !== -1) {
-        productosSimulados[index].nombre = document.getElementById('prodNombre').value;
-        productosSimulados[index].precio = parseFloat(document.getElementById('prodPrecio').value);
-        productosSimulados[index].existencia = parseInt(document.getElementById('prodStock').value);
-        productosSimulados[index].categoria = document.getElementById('prodCategoria').value;
-        productosSimulados[index].estado = document.getElementById('prodEstado').value;
-        productosSimulados[index].imagen = document.getElementById('prodImagen').value;
-        productosSimulados[index].descripcion = document.getElementById('prodDescripcion').value;
-      }
-
-      localStorage.setItem('inventarioAdminV2', JSON.stringify(productosSimulados));
-      filtrarTabla(); 
-      cerrarModal();
-    }
-
-    
     function solicitarEliminarToast(id) {
       idProductoAEliminar = id;
       const prod = productosSimulados.find(p => p.id === id);

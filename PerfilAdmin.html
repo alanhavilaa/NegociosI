@@ -215,12 +215,12 @@
     <aside class="admin-sidebar">
       <h3>Panel Admin</h3>
       <ul>
-        <li><a href="#" class="activo">Dashboard</a></li>
-        <li><a href="file:///C:/Users/eduar/Desktop/NegociosI/AdminProductos.html">Productos</a></li>
-        <li><a href="#">Pedidos</a></li>
-        <li><a href="#">Promociones</a></li>
-        <li><a href="#">Clientes</a></li>
-        <li><a href="#">Reportes</a></li>
+         <li><a href="PerfilAdmin.html" class="activo">Dashboard</a></li>
+        <li><a href="AdminProductos.html">Productos</a></li>
+        <li><a href="AdminPedidos.html">Pedidos</a></li>
+        <li><a href="AdminPromociones.html">Promociones</a></li>
+        <li><a href="AdminClientes.html">Clientes</a></li>
+        <li><a href="AdminReportes.html">Reportes</a></li>
       </ul>
       <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
       <button class="btn-detalle" style="width: 100%; background-color: #0b0b0b;" onclick="cerrarSesion()">Cerrar sesión</button>
@@ -270,18 +270,15 @@
             <div class="barra barra-3">4</div>
             <div class="etiqueta-eje">C. Azul</div>
           </div>
-
-   
-          </div>
         </div>
       </div>
 
       <div class="seccion-admin">
         <h3>Acciones Rápidas</h3>
         <div class="acciones-rapidas">
-          <button class="btn-detalle" > Agregar producto</button>
-          <button class="btn-detalle" >Ver pedidos</button>
-          <button class="btn-detalle" >Crear promoción</button>
+          <button class="btn-detalle" onclick="window.location.href='AdminAgregarProducto.html'">Agregar producto</button>
+          <button class="btn-detalle" onclick="simularAccion('Mostrando pedidos...')">Ver pedidos</button>
+          <button class="btn-detalle" onclick="window.location.href='AdminCrearPromocion.html'">Crear promoción</button>
         </div>
       </div>
 

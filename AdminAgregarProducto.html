@@ -57,6 +57,20 @@
     .form-row { display: flex; gap: 15px; flex-wrap: wrap; }
     .form-row .form-group { flex: 1; min-width: 200px; }
     .botones-accion { display: flex; justify-content: flex-end; gap: 10px; margin-top: 25px; }
+
+    #mensajeExito {
+      display: none;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .dark-mode #mensajeExito {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body class="light-mode">
@@ -79,21 +93,23 @@
     <aside class="admin-sidebar">
       <h3>Panel Admin</h3>
       <ul>
-        <li><a href="PerfilAdmin.html">Dashboard</a></li>
-        <li><a href="AdminProductos.html" class="activo">Productos</a></li>
-        <li><a href="#">Pedidos</a></li>
-        <li><a href="#">Promociones</a></li>
-        <li><a href="#">Clientes</a></li>
-        <li><a href="#">Reportes</a></li>
+         <li><a href="PerfilAdmin.html">Dashboard</a></li>
+        <li><a href="AdminProductos.html"class="activo">Productos</a></li>
+        <li><a href="AdminPedidos.html">Pedidos</a></li>
+        <li><a href="AdminPromociones.html">Promociones</a></li>
+        <li><a href="AdminClientes.html">Clientes</a></li>
+        <li><a href="AdminReportes.html">Reportes</a></li>
       </ul>
       <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
       <button class="btn-detalle" style="width: 100%; background-color: #131313;" onclick="cerrarSesion()">Cerrar sesión</button>
     </aside>
 
     <main class="admin-content">
-      <h2 style="margin-top: 0;">Agregar Nuevo Producto</h2>
+      <h2 style="margin-top: 0; margin-bottom: 25px;">Agregar Nuevo Producto</h2>
       
-      <div class="seccion-formulario">
+      <div id="mensajeExito">PRODUCTO AGREGADO.</div>
+      
+      <div class="seccion-formulario" id="contenedorFormulario">
         <form onsubmit="guardarNuevoProducto(event)">
 
           <div class="form-group">
@@ -184,8 +200,13 @@
       inventarioActual.unshift(nuevoProducto);
 
       localStorage.setItem('inventarioAdminV2', JSON.stringify(inventarioActual));
-      alert("Producto agregado exitosamente.");
-      window.location.href = "AdminProductos.html";
+      
+      document.getElementById('contenedorFormulario').style.display = 'none';
+      document.getElementById('mensajeExito').style.display = 'block';
+      
+      setTimeout(() => {
+        window.location.href = "AdminProductos.html";
+      }, 2000);
     }
   </script>
 

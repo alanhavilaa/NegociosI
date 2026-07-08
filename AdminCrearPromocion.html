@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear Promoción - TEKILA ADMIN</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .admin-layout { display: flex; flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+    .admin-sidebar { width: 250px; background-color: rgba(0, 0, 0, 0.05); padding: 20px; border-radius: 8px; height: fit-content; }
+    .dark-mode .admin-sidebar { background-color: rgba(255, 255, 255, 0.05); }
+    .admin-sidebar h3 { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+    .admin-sidebar ul { list-style: none; padding: 0; }
+    .admin-sidebar li { margin-bottom: 10px; }
+    .admin-sidebar a { display: block; padding: 12px; border-radius: 5px; text-decoration: none; color: inherit; font-weight: bold; transition: background 0.3s, color 0.3s; }
+    .admin-sidebar a:hover, .admin-sidebar a.activo { background-color: #333; color: #fff; }
+    .dark-mode .admin-sidebar a:hover, .dark-mode .admin-sidebar a.activo { background-color: #fff; color: #333; }
+    .admin-content { flex: 1; min-width: 300px; }
+    
+    .form-container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 800px; }
+    .dark-mode .form-container { background: #222; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px; }
+    .dark-mode .form-group input, .dark-mode .form-group select, .dark-mode .form-group textarea { background: #333; color: #fff; border-color: #555; }
+    .form-row { display: flex; gap: 20px; flex-wrap: wrap; }
+    .form-row .form-group { flex: 1; min-width: 200px; }
+    
+    .modal-botones { display: flex; gap: 10px; margin-top: 30px; }
+    .btn-detalle { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; color: white; font-weight: bold; background-color: #333; font-size: 14px; }
+    .btn-detalle:hover { background-color: #555; }
+    .btn-cancelar { background-color: #888; }
+    .btn-cancelar:hover { background-color: #666; }
+
+    .toast-exito {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: -400px; 
+      z-index: 2000;
+      background-color: #fff;
+      color: #333;
+      width: 320px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      border-left: 5px solid #28a745; 
+      transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast-exito.mostrar {
+      display: flex;
+      right: 20px; 
+    }
+
+    .dark-mode .toast-exito {
+      background-color: #2a2a2a;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .toast-exito h4 {
+      margin: 0;
+      color: #28a745;
+      font-size: 16px;
+    }
+
+    .toast-exito p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+    <h2>ADMIN</h2>
+  </header>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html">Cerrar sesión</a></div>
+  </nav>
+  
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <h3>Panel Admin</h3>
+      <ul>
+          <li><a href="PerfilAdmin.html">Dashboard</a></li>
+        <li><a href="AdminProductos.html">Productos</a></li>
+        <li><a href="AdminPedidos.html">Pedidos</a></li>
+        <li><a href="AdminPromociones.html"class="activo">Promociones</a></li>
+        <li><a href="AdminClientes.html">Clientes</a></li>
+        <li><a href="AdminReportes.html" >Reportes</a></li>
+      </ul>
+      <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+      <button class="btn-detalle" style="width: 100%; background-color: #0e0e0e;" onclick="cerrarSesion()">Cerrar sesión</button>
+    </aside>
+
+    <main class="admin-content">
+      <h2 style="margin-top: 0; margin-bottom: 25px;">Crear Nueva Promoción</h2>
+
+      <div class="form-container">
+        <form id="formularioPromocion" onsubmit="crearPromocion(event)">
+          
+          <div class="form-group">
+            <label>Nombre de la Promoción:</label>
+            <input type="text" id="promoNombre" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>% Descuento :</label>
+              <input type="number" id="promoDescuento" min="1" max="100" required>
+            </div>
+            <div class="form-group">
+              <label>Producto a aplicar:</label>
+              <select id="promoProducto" required>
+                <option value="">Cargando productos...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Fecha de Inicio:</label>
+              <input type="date" id="promoInicio" required>
+            </div>
+            <div class="form-group">
+              <label>Fecha de Fin:</label>
+              <input type="date" id="promoFin" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Descripción:</label>
+            <textarea id="promoDescripcion" rows="3"></textarea>
+          </div>
+
+          <div class="modal-botones">
+            <button type="submit" class="btn-detalle">Guardar Promoción</button>
+            <button type="button" class="btn-detalle btn-cancelar" onclick="window.location.href='AdminPromociones.html'">Cancelar y volver</button>
+          </div>
+        </form>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="toastExito" class="toast-exito">
+    <div>
+      <h4>PROMOCIÓN CREADA</h4>
+      <p id="textoExito"></p>
+    </div>
+  </div>
+  
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function cerrarSesion() { 
+        window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html"; 
+    }
+
+    window.onload = function() {
+      const selectProducto = document.getElementById('promoProducto');
+      const inventarioGuardado = JSON.parse(localStorage.getItem('inventarioAdminV2')) || [];
+
+      selectProducto.innerHTML = '<option value="">Seleccione un producto</option><option value="Todos">Aplicar a todos los productos</option>';
+
+      if (inventarioGuardado.length > 0) {
+        inventarioGuardado.forEach(prod => {
+          const opcion = document.createElement('option');
+          opcion.value = prod.id;
+          opcion.textContent = prod.nombre;
+          selectProducto.appendChild(opcion);
+        });
+      } else {
+        selectProducto.innerHTML = '<option value="">No hay productos registrados</option>';
+      }
+    };
+
+    function crearPromocion(event) {
+      event.preventDefault(); 
+
+      const nombre = document.getElementById('promoNombre').value;
+      const descuento = document.getElementById('promoDescuento').value;
+      const fechaInicio = document.getElementById('promoInicio').value;
+      const fechaFin = document.getElementById('promoFin').value;
+      const descripcion = document.getElementById('promoDescripcion').value;
+      
+      const selectObj = document.getElementById('promoProducto');
+      const productoId = selectObj.value;
+      const productoNombre = selectObj.options[selectObj.selectedIndex].text;
+
+      const nuevaPromocion = {
+        id: Date.now(), 
+        nombre: nombre,
+        descuento: descuento,
+        productoId: productoId,
+        productoNombre: productoNombre,
+        fechaInicio: fechaInicio,
+        fechaFin: fechaFin,
+        descripcion: descripcion,
+        estado: 'Activa'
+      };
+
+      let promocionesGuardadas = JSON.parse(localStorage.getItem('promocionesAdmin')) || [];
+
+      promocionesGuardadas.push(nuevaPromocion);
+      localStorage.setItem('promocionesAdmin', JSON.stringify(promocionesGuardadas));
+      
+      document.getElementById('textoExito').innerHTML = `<strong>${nombre}</strong> del ${descuento}% para: ${productoNombre}.`;
+      document.getElementById('toastExito').classList.add('mostrar');
+      
+      setTimeout(() => {
+        window.location.href = 'AdminPromociones.html';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

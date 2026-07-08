@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Producto - TEKILA ADMIN</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .admin-layout { display: flex; flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+    .admin-sidebar { width: 250px; background-color: rgba(0, 0, 0, 0.05); padding: 20px; border-radius: 8px; height: fit-content; }
+    .dark-mode .admin-sidebar { background-color: rgba(255, 255, 255, 0.05); }
+    .admin-sidebar h3 { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+    .admin-sidebar ul { list-style: none; padding: 0; }
+    .admin-sidebar li { margin-bottom: 10px; }
+    .admin-sidebar a { display: block; padding: 12px; border-radius: 5px; text-decoration: none; color: inherit; font-weight: bold; transition: background 0.3s, color 0.3s; }
+    .admin-sidebar a:hover, .admin-sidebar a.activo { background-color: #333; color: #fff; }
+    .dark-mode .admin-sidebar a:hover, .dark-mode .admin-sidebar a.activo { background-color: #fff; color: #333; }
+    .admin-content { flex: 1; min-width: 300px; }
+    
+    .form-container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 800px; }
+    .dark-mode .form-container { background: #222; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px; }
+    .dark-mode .form-group input, .dark-mode .form-group select, .dark-mode .form-group textarea { background: #333; color: #fff; border-color: #555; }
+    .form-row { display: flex; gap: 20px; flex-wrap: wrap; }
+    .form-row .form-group { flex: 1; min-width: 200px; }
+    
+    .modal-botones { display: flex; gap: 10px; margin-top: 30px; }
+    .btn-detalle { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; color: white; font-weight: bold; background-color: #333; font-size: 14px; }
+    .btn-detalle:hover { background-color: #555; }
+    .btn-cancelar { background-color: #888; }
+    .btn-cancelar:hover { background-color: #666; }
+
+    #mensajeExito {
+      display: none;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .dark-mode #mensajeExito {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+    <h2>ADMIN</h2>
+  </header>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html">Cerrar sesión</a></div>
+  </nav>
+  
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <h3>Panel Admin</h3>
+      <ul>
+           <li><a href="PerfilAdmin.html">Dashboard</a></li>
+        <li><a href="AdminProductos.html">Productos</a></li>
+        <li><a href="AdminPedidos.html">Pedidos</a></li>
+        <li><a href="AdminPromociones.html">Promociones</a></li>
+        <li><a href="AdminClientes.html">Clientes</a></li>
+        <li><a href="AdminReportes.html" class="activo">Reportes</a></li>
+      </ul>
+      <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+      <button class="btn-detalle" style="width: 100%; background-color: #0e0e0e;" onclick="cerrarSesion()">Cerrar sesión</button>
+    </aside>
+
+    <main class="admin-content">
+      <h2 style="margin-top: 0; margin-bottom: 25px;">Editar Producto</h2>
+
+      <div id="mensajeExito">PRODUCTO ACTUALIZADO</div>
+
+      <div class="form-container" id="contenedorFormulario" style="display: none;">
+        <form id="formularioEditar" onsubmit="guardarEdicion(event)">
+          <input type="hidden" id="prodId">
+          
+          <div class="form-group">
+            <label>Nombre del Producto:</label>
+            <input type="text" id="prodNombre" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Precio ($):</label>
+              <input type="number" id="prodPrecio" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+              <label>Existencia (Unidades):</label>
+              <input type="number" id="prodStock" min="0" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Categoría:</label>
+              <select id="prodCategoria" required>
+                <option value="Reposado">Reposado</option>
+                <option value="Blanco">Blanco</option>
+                <option value="Añejo">Añejo</option>
+                <option value="Premium">Premium</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Estado:</label>
+              <select id="prodEstado" required>
+                <option value="Activo">Disponible</option>
+                <option value="Inactivo">Agotado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>URL de la Imagen (Ruta local o URL):</label>
+            <input type="text" id="prodImagen" required>
+          </div>
+
+          <div class="form-group">
+            <label>Descripción:</label>
+            <textarea id="prodDescripcion" rows="4"></textarea>
+          </div>
+
+          <div class="modal-botones">
+            <button type="submit" class="btn-detalle">Guardar Cambios</button>
+            <button type="button" class="btn-detalle btn-cancelar" onclick="window.location.href='AdminProductos.html'">Cancelar</button>
+          </div>
+        </form>
+      </div>
+      
+      <div id="mensajeError" style="display: none; color: red; font-weight: bold; text-align: center; padding: 50px;">
+        Producto no encontrado.
+      </div>
+
+    </main>
+  </div>
+  
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function cerrarSesion() { window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html"; }
+
+    let inventarioGlobal = [];
+
+    window.onload = function() {
+      const parametros = new URLSearchParams(window.location.search);
+      const idProducto = parametros.get('id');
+
+      if (idProducto) {
+        inventarioGlobal = JSON.parse(localStorage.getItem('inventarioAdminV2')) || [];
+        const productoActual = inventarioGlobal.find(p => p.id == idProducto);
+
+        if (productoActual) {
+          document.getElementById('prodId').value = productoActual.id;
+          document.getElementById('prodNombre').value = productoActual.nombre;
+          document.getElementById('prodPrecio').value = productoActual.precio;
+          document.getElementById('prodStock').value = productoActual.existencia;
+          document.getElementById('prodCategoria').value = productoActual.categoria;
+          document.getElementById('prodEstado').value = productoActual.estado;
+          document.getElementById('prodImagen').value = productoActual.imagen;
+          document.getElementById('prodDescripcion').value = productoActual.descripcion || '';
+          
+          document.getElementById('contenedorFormulario').style.display = 'block';
+        } else {
+          document.getElementById('mensajeError').style.display = 'block';
+        }
+      } else {
+        document.getElementById('mensajeError').style.display = 'block';
+      }
+    };
+
+    function guardarEdicion(event) {
+      event.preventDefault(); 
+      
+      const idForm = document.getElementById('prodId').value;
+      const index = inventarioGlobal.findIndex(p => p.id == idForm);
+      
+      if(index !== -1) {
+        inventarioGlobal[index].nombre = document.getElementById('prodNombre').value;
+        inventarioGlobal[index].precio = parseFloat(document.getElementById('prodPrecio').value);
+        inventarioGlobal[index].existencia = parseInt(document.getElementById('prodStock').value);
+        inventarioGlobal[index].categoria = document.getElementById('prodCategoria').value;
+        inventarioGlobal[index].estado = document.getElementById('prodEstado').value;
+        inventarioGlobal[index].imagen = document.getElementById('prodImagen').value;
+        inventarioGlobal[index].descripcion = document.getElementById('prodDescripcion').value;
+        
+        localStorage.setItem('inventarioAdminV2', JSON.stringify(inventarioGlobal));
+        
+        document.getElementById('contenedorFormulario').style.display = 'none';
+        document.getElementById('mensajeExito').style.display = 'block';
+        
+        setTimeout(() => {
+          window.location.href = 'AdminProductos.html';
+        }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

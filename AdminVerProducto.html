@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ver Producto - TEKILA ADMIN</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .admin-layout { display: flex; flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+    .admin-sidebar { width: 250px; background-color: rgba(0, 0, 0, 0.05); padding: 20px; border-radius: 8px; height: fit-content; }
+    .dark-mode .admin-sidebar { background-color: rgba(255, 255, 255, 0.05); }
+    .admin-sidebar h3 { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+    .admin-sidebar ul { list-style: none; padding: 0; }
+    .admin-sidebar li { margin-bottom: 10px; }
+    .admin-sidebar a { display: block; padding: 12px; border-radius: 5px; text-decoration: none; color: inherit; font-weight: bold; transition: background 0.3s, color 0.3s; }
+    .admin-sidebar a:hover, .admin-sidebar a.activo { background-color: #333; color: #fff; }
+    .dark-mode .admin-sidebar a:hover, .dark-mode .admin-sidebar a.activo { background-color: #fff; color: #333; }
+    .admin-content { flex: 1; min-width: 300px; }
+    
+    .detalle-card { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; gap: 30px; flex-wrap: wrap; }
+    .dark-mode .detalle-card { background: #222; }
+    .detalle-img-container { flex: 1; min-width: 250px; text-align: center; }
+    .detalle-img-container img { max-width: 100%; max-height: 350px; border-radius: 8px; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .detalle-info { flex: 2; min-width: 300px; }
+    .detalle-info h2 { margin-top: 0; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+    .info-grupo { margin-bottom: 15px; font-size: 16px; }
+    .info-grupo strong { display: inline-block; width: 120px; color: #555; }
+    .dark-mode .info-grupo strong { color: #aaa; }
+    
+    .btn-detalle { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; color: white; font-weight: bold; background-color: #333; font-size: 14px; }
+    .btn-detalle:hover { background-color: #555; }
+    .btn-volver { background-color: #666; margin-top: 20px; }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+    <h2>ADMIN</h2>
+  </header>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html">Cerrar sesión</a></div>
+  </nav>
+  
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <h3>Panel Admin</h3>
+      <ul>
+          <li><a href="PerfilAdmin.html">Dashboard</a></li>
+        <li><a href="AdminProductos.html" class="activo">Productos</a></li>
+        <li><a href="AdminPedidos.html">Pedidos</a></li>
+        <li><a href="AdminPromociones.html">Promociones</a></li>
+        <li><a href="AdminClientes.html">Clientes</a></li>
+        <li><a href="AdminReportes.html" >Reportes</a></li>
+      </ul>
+      <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+      <button class="btn-detalle" style="width: 100%; background-color: #0e0e0e;" onclick="cerrarSesion()">Cerrar sesión</button>
+    </aside>
+
+    <main class="admin-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2 style="margin: 0;">Detalles del Producto</h2>
+        <button class="btn-detalle" onclick="window.location.href='AdminProductos.html'">REGRESAR</button>
+      </div>
+
+      <div class="detalle-card" id="contenedorDetalles" style="display: none;">
+        <div class="detalle-img-container">
+          <img id="verImagen" src="" alt="Imagen del producto">
+        </div>
+        <div class="detalle-info">
+          <h2 id="verNombre">Nombre del Producto</h2>
+          <div class="info-grupo"><strong>ID:</strong> <span id="verId"></span></div>
+          <div class="info-grupo"><strong>Categoría:</strong> <span id="verCategoria"></span></div>
+          <div class="info-grupo"><strong>Precio:</strong> $<span id="verPrecio"></span></div>
+          <div class="info-grupo"><strong>Existencia:</strong> <span id="verStock"></span> unidades</div>
+          <div class="info-grupo"><strong>Estado:</strong> <span id="verEstado"></span></div>
+          <div class="info-grupo">
+            <strong>Descripción:</strong> 
+            <p id="verDescripcion" style="margin-top: 5px; line-height: 1.5;"></p>
+          </div>
+          <button class="btn-detalle btn-volver" onclick="irAEditar()">Editar este producto</button>
+        </div>
+      </div>
+
+      <div id="mensajeError" style="display: none; color: red; font-weight: bold; text-align: center; padding: 50px;">
+        Producto no encontrado.
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function cerrarSesion() { window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html"; }
+
+    let idProductoGlobal = null;
+
+    window.onload = function() {
+      const parametros = new URLSearchParams(window.location.search);
+      idProductoGlobal = parametros.get('id');
+
+      if (idProductoGlobal) {
+        const inventarioGuardado = JSON.parse(localStorage.getItem('inventarioAdminV2')) || [];
+        const productoActual = inventarioGuardado.find(p => p.id == idProductoGlobal);
+
+        if (productoActual) {
+          document.getElementById('verImagen').src = productoActual.imagen;
+          document.getElementById('verNombre').textContent = productoActual.nombre;
+          document.getElementById('verId').textContent = productoActual.id;
+          document.getElementById('verCategoria').textContent = productoActual.categoria;
+          document.getElementById('verPrecio').textContent = parseFloat(productoActual.precio).toFixed(2);
+          document.getElementById('verStock').textContent = productoActual.existencia;
+          document.getElementById('verEstado').textContent = productoActual.estado;
+          document.getElementById('verDescripcion').textContent = productoActual.descripcion || 'Sin descripción detallada.';
+          
+          document.getElementById('contenedorDetalles').style.display = 'flex';
+        } else {
+          document.getElementById('mensajeError').style.display = 'block';
+        }
+      } else {
+        document.getElementById('mensajeError').style.display = 'block';
+      }
+    };
+
+    function irAEditar() {
+      if(idProductoGlobal) {
+        window.location.href = `AdminEditarProducto.html?id=${idProductoGlobal}`;
+      }
+    }
+  </script>
+</body>
+</html>
