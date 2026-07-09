@@ -201,8 +201,14 @@
     <div class="toast-botones">
       <button id="btnCancelarToast" class="btn-toast-cancelar">CANCELAR</button>
       <button id="btnConfirmarToast" class="btn-toast-eliminar">ELIMINAR</button>
+     
     </div>
+    
   </div>
+   <div id="toast-boton1" class="toast-confirmacion">Producto eliminado exitosamente.
+  </div>
+
+  
    
   <script src="productos.js"></script>
   
@@ -342,6 +348,8 @@
       idProductoAEliminar = null;
     });
 
+   
+
     document.getElementById('btnConfirmarToast').addEventListener('click', () => {
       if (idProductoAEliminar !== null) {
         productosSimulados = productosSimulados.filter(p => p.id !== idProductoAEliminar);
@@ -354,6 +362,13 @@
         idProductoAEliminar = null;
         
         filtrarTabla();
+
+        const toastExito = document.getElementById('toastExito');
+        toastExito.style.display = 'block';
+
+        setTimeout(() => {
+          toastExito.style.display = 'none';
+        }, 3000);
       }
     });
 

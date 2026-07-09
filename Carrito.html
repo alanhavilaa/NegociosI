@@ -158,6 +158,9 @@
       Fracc. Bona Gens, C.P. 20256<br>
       Aguascalientes, Ags., México</p>
       <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
+      <p style="margin-top: 15px; font-size: 14px;">
+        <a href="Politicas.html" style="color: #ccc; text-decoration: none; border-bottom: 1px solid #ccc;">Políticas de Compra y Privacidad</a>
+      </p>
     </div>
   </footer>
 
@@ -197,6 +200,7 @@
               <div class="controles-cantidad">
                 <span>${producto.cantidad}</span>
                 <button class="btn-cant" onclick="modificarCantidadItem(${index}, -1)">-</button>
+                <button class="btn-cant" onclick="modificarCantidadItem(${index}, 1)">+</button>
               </div>
             </div>
             <div style="text-align: right; margin-right: 20px;">
@@ -218,7 +222,7 @@
       document.getElementById('total-carrito').textContent = total.toFixed(2);
     }
 
-    function modificarCantidadItem(index, cambio) {
+   function modificarCantidadItem(index, cambio) {
       let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
       
       if (carrito[index]) {
@@ -230,6 +234,13 @@
         
         localStorage.setItem('carritoTekila', JSON.stringify(carrito));
         renderizarCarrito(); 
+        
+        if (cambio < 0) {
+          mostrarNotificacion("Producto eliminado", "alerta");
+        }
+         if (cambio > 0) {
+          mostrarNotificacion("Producto agregado", "alerta");
+        }
       }
     }
 
@@ -238,7 +249,11 @@
       carrito.splice(index, 1); 
       localStorage.setItem('carritoTekila', JSON.stringify(carrito));
       renderizarCarrito(); 
+      
+      mostrarNotificacion("Producto eliminado", "alerta"); 
     }
+
+  
 
     function mostrarNotificacion(texto, tipoClase) {
       const mensaje = document.getElementById('mensaje-flotante');

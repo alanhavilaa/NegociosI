@@ -33,6 +33,11 @@
     .estado-Enviado { color: #6b6e6e; }
     .estado-Entregado { color: #505150; }
     .estado-Cancelado { color: #b00303; }
+
+    .paginacion-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 20px; }
+    .btn-pagina { background-color: #333; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .btn-pagina:disabled { background-color: #999; cursor: not-allowed; }
+    .info-pagina { font-weight: bold; }
   </style>
 </head>
 <body class="light-mode">
@@ -67,6 +72,23 @@
 
     <main class="admin-content">
       <h2 style="margin-top: 0;">Gestión de Pedidos</h2>
+
+      <div class="controles-tabla">
+        <div class="filtros">
+          <input type="text" id="buscarNombre" class="input-filtro" placeholder="Buscar ID" oninput="filtrarTabla()">
+          
+          
+
+          <select id="filtroEstado" class="input-filtro" onchange="filtrarTabla()">
+            <option value="Todos">Todos los Estados</option>
+           <option value="Activo">Pendinte</option>
+            <option value="Inactivo">Enviado</option>
+            <option value="Activo">Entregado</option>
+            <option value="Inactivo">Cancelado</option>
+          </select>
+        </div>
+       
+      </div>
       
       <table class="tabla-admin">
         <thead>
@@ -82,6 +104,13 @@
         <tbody id="tablaPedidos">
           </tbody>
       </table>
+
+      <div class="paginacion-container" id="controles-paginacion">
+        <button class="btn-pagina" id="btnAnterior" onclick="cambiarPagina(-1)">Anterior</button>
+        <span class="info-pagina" id="infoPagina">Página 1</span>
+        <button class="btn-pagina" id="btnSiguiente" onclick="cambiarPagina(1)">Siguiente</button>
+      </div>
+
     </main>
   </div>
 
@@ -95,11 +124,15 @@
       window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html";
     }
 
+    let paginaActual = 1;
+    const pedidosPorPagina = 4;
+
     let pedidos = JSON.parse(localStorage.getItem('pedidosAdmin')) || [
       { id: "PED-001", cliente: "Juan Pérez", fecha: "2023-10-25", total: 1250.00, estado: "Pendiente" },
       { id: "PED-002", cliente: "María Gómez", fecha: "2023-10-24", total: 850.50, estado: "Enviado" },
       { id: "PED-003", cliente: "Carlos Ruiz", fecha: "2023-10-20", total: 3200.00, estado: "Entregado" },
-      { id: "PED-004", cliente: "Ana López", fecha: "2023-10-18", total: 450.00, estado: "Cancelado" }
+      { id: "PED-004", cliente: "Ana López", fecha: "2023-10-18", total: 450.00, estado: "Cancelado" },
+      { id: "PED-005", cliente: "Gilberto Mora", fecha: "2023-10-26", total: 1500.00, estado: "Pendiente" } // Extra para página 2
     ];
 
     window.onload = function() {
@@ -109,9 +142,29 @@
 
     function cargarPedidos() {
       const tbody = document.getElementById('tablaPedidos');
+      const controlesPagina = document.getElementById('controles-paginacion');
       tbody.innerHTML = '';
       
-      pedidos.forEach((pedido, index) => {
+      if (pedidos.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center;">No hay pedidos registrados.</td></tr>';
+        controlesPagina.style.display = 'none';
+        return;
+      }
+
+      controlesPagina.style.display = 'flex';
+
+      const totalPaginas = Math.ceil(pedidos.length / pedidosPorPagina);
+      if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+      if (paginaActual < 1) paginaActual = 1;
+
+      const inicio = (paginaActual - 1) * pedidosPorPagina;
+      const fin = inicio + pedidosPorPagina;
+      const pedidosPagina = pedidos.slice(inicio, fin);
+      
+      pedidosPagina.forEach((pedido, index) => {
+        
+        const globalIndex = inicio + index;
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td><strong>${pedido.id}</strong></td>
@@ -120,7 +173,7 @@
           <td>$${pedido.total.toFixed(2)}</td>
           <td class="estado-${pedido.estado}"><strong>${pedido.estado}</strong></td>
           <td>
-            <select class="select-estado" onchange="cambiarEstado(${index}, this.value)">
+            <select class="select-estado" onchange="cambiarEstado(${globalIndex}, this.value)">
               <option value="Pendiente" ${pedido.estado === 'Pendiente' ? 'selected' : ''}>Pendiente</option>
               <option value="Enviado" ${pedido.estado === 'Enviado' ? 'selected' : ''}>Enviado</option>
               <option value="Entregado" ${pedido.estado === 'Entregado' ? 'selected' : ''}>Entregado</option>
@@ -130,10 +183,19 @@
         `;
         tbody.appendChild(tr);
       });
+
+      document.getElementById('infoPagina').textContent = `Página ${paginaActual} de ${totalPaginas}`;
+      document.getElementById('btnAnterior').disabled = (paginaActual === 1);
+      document.getElementById('btnSiguiente').disabled = (paginaActual === totalPaginas);
     }
 
-    function cambiarEstado(index, nuevoEstado) {
-      pedidos[index].estado = nuevoEstado;
+    function cambiarPagina(direccion) {
+      paginaActual += direccion;
+      cargarPedidos();
+    }
+
+    function cambiarEstado(globalIndex, nuevoEstado) {
+      pedidos[globalIndex].estado = nuevoEstado;
       localStorage.setItem('pedidosAdmin', JSON.stringify(pedidos));
       cargarPedidos(); 
     }

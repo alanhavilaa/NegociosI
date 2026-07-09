@@ -25,6 +25,11 @@
     .dark-mode .tabla-admin th, .dark-mode .tabla-admin td { border-bottom-color: #444; }
     .tabla-admin th { background-color: #333; color: #fff; }
     .dark-mode .tabla-admin th { background-color: #111; }
+
+    .paginacion-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 20px; }
+    .btn-pagina { background-color: #333; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .btn-pagina:disabled { background-color: #999; cursor: not-allowed; }
+    .info-pagina { font-weight: bold; }
   </style>
 </head>
 <body class="light-mode">
@@ -59,6 +64,7 @@
 
     <main class="admin-content">
       <h2 style="margin-top: 0;">Clientes</h2>
+      <button class="btn-detalle" style="margin-bottom: 20px; background-color: #454545;" onclick="agregarCliente()">Agregar Cliente</button>
       
       <table class="tabla-admin">
         <thead>
@@ -73,6 +79,12 @@
         <tbody id="tablaClientes">
           </tbody>
       </table>
+
+      <div class="paginacion-container" id="controles-paginacion">
+        <button class="btn-pagina" id="btnAnterior" onclick="cambiarPagina(-1)">Anterior</button>
+        <span class="info-pagina" id="infoPagina">Página 1</span>
+        <button class="btn-pagina" id="btnSiguiente" onclick="cambiarPagina(1)">Siguiente</button>
+      </div>
     </main>
   </div>
 
@@ -86,16 +98,48 @@
       window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html";
     }
 
-    const clientes = [
-      { nombre: "Gilberto Mora", correo: "gil.moraz@email.com", telefono: "449 555 1234", fecha: "2023-05-12", pedidos: 4 },
-      { nombre: "María Gómez", correo: "maria.g@email.com", telefono: "449 120 5678", fecha: "2023-06-20", pedidos: 1 },
-      { nombre: "Carlos Ruiz", correo: "cruiz99@email.com", telefono: "449 820 9876", fecha: "2023-08-01", pedidos: 8 },
-      { nombre: "Ana López", correo: "ana.lopez@email.com", telefono: "449 132 4321", fecha: "2023-09-15", pedidos: 0 }
-    ];
+    function agregarCliente() {
+      window.location.href = "AgregarCliente.html"; 
+    }
 
-    window.onload = function() {
+    let clientes = JSON.parse(localStorage.getItem("clientesTEKILA"));
+    let paginaActual = 1;
+    const clientesPorPagina = 4; 
+
+    if (!clientes) {
+      clientes = [
+        { nombre: "Gilberto Mora", correo: "gil.moraz@email.com", telefono: "449 555 1234", fecha: "2023-05-12", pedidos: 4 },
+        { nombre: "María Gómez", correo: "maria.g@email.com", telefono: "449 120 5678", fecha: "2023-06-20", pedidos: 1 },
+        { nombre: "Carlos Ruiz", correo: "cruiz99@email.com", telefono: "449 820 9876", fecha: "2023-08-01", pedidos: 8 },
+        { nombre: "Ana López", correo: "ana.lopez@email.com", telefono: "449 132 4321", fecha: "2023-09-15", pedidos: 0 },
+        { nombre: "Jesús Alejandro", correo: "alex.j@email.com", telefono: "449 444 7777", fecha: "2023-10-05", pedidos: 2 } 
+      ];
+      localStorage.setItem("clientesTEKILA", JSON.stringify(clientes));
+    }
+
+    function renderizarTabla() {
       const tbody = document.getElementById('tablaClientes');
-      clientes.forEach(cliente => {
+      const controlesPagina = document.getElementById('controles-paginacion');
+      tbody.innerHTML = ''; 
+
+      if (clientes.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center;">No hay clientes registrados.</td></tr>';
+        controlesPagina.style.display = 'none';
+        return;
+      }
+
+      controlesPagina.style.display = 'flex';
+
+      const totalPaginas = Math.ceil(clientes.length / clientesPorPagina);
+      if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+      if (paginaActual < 1) paginaActual = 1;
+
+      // Recortar arreglo para la página actual
+      const inicio = (paginaActual - 1) * clientesPorPagina;
+      const fin = inicio + clientesPorPagina;
+      const clientesPagina = clientes.slice(inicio, fin);
+
+      clientesPagina.forEach(cliente => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td><strong>${cliente.nombre}</strong></td>
@@ -106,6 +150,19 @@
         `;
         tbody.appendChild(tr);
       });
+
+      document.getElementById('infoPagina').textContent = `Página ${paginaActual} de ${totalPaginas}`;
+      document.getElementById('btnAnterior').disabled = (paginaActual === 1);
+      document.getElementById('btnSiguiente').disabled = (paginaActual === totalPaginas);
+    }
+
+    function cambiarPagina(direccion) {
+      paginaActual += direccion;
+      renderizarTabla();
+    }
+
+    window.onload = function() {
+      renderizarTabla();
     };
   </script>
 </body>

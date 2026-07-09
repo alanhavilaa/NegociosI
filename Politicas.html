@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Políticas - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .politicas-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      line-height: 1.6;
+    }
+    .dark-mode .politicas-container {
+      background-color: #222;
+      color: #eee;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    .politicas-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ccc;
+    }
+    .dark-mode .politicas-container h2 {
+      border-bottom-color: #444;
+    }
+    .seccion-politica {
+      margin-bottom: 25px;
+    }
+    .seccion-politica h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .dark-mode .seccion-politica h3 {
+      color: #fff;
+    }
+    .seccion-politica ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    .seccion-politica li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <div><a href="Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="Catalogo.html">Catálogo</a></div>
+    <div class="dropdown"><a href="Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="Contacto.html">Contacto</a></div>
+    <div class="dropdown"><a href="Login.html">Iniciar sesión</a></div>
+    <div class="dropdown"><a href="Carrito.html">🛒 Carrito</a></div>
+  </nav>
+
+  <main>
+    <div class="politicas-container">
+      <h2>Políticas de TEKILA</h2>
+
+      <div class="seccion-politica">
+        <h3>1. Políticas de Compra</h3>
+        <ul>
+          <li><strong>Venta exclusiva a mayores de edad:</strong> Al ser un sitio de venta de bebidas alcohólicas, confirmas que tienes 18 años o más al momento de realizar tu compra. Se podrá solicitar identificación oficial al momento de la entrega.</li>
+          <li><strong>Precios y Pagos:</strong> Todos los precios incluyen IVA (16%). Aceptamos pagos con tarjeta de crédito, débito y transferencias. Los pedidos solo se procesarán una vez confirmado el pago.</li>
+          <li><strong>Disponibilidad:</strong> El inventario está sujeto a existencias. Si un producto se agota después de tu compra, te contactaremos para ofrecerte un cambio o el reembolso total.</li>
+        </ul>
+      </div>
+
+      <div class="seccion-politica">
+        <h3>2. Políticas de Envío</h3>
+        <ul>
+          <li><strong>Envíos Locales (Aguascalientes):</strong> Entregas el mismo día o al día siguiente hábil para pedidos realizados antes de las 14:00 hrs.</li>
+          <li><strong>Envíos Nacionales:</strong> El tiempo estimado de entrega es de 3 a 5 días hábiles a través de nuestras paqueterías afiliadas.</li>
+          <li><strong>Costos:</strong> El costo de envío se calculará automáticamente en tu carrito de compras antes de finalizar el pago. Envío gratis en compras mayores a $2,000 MXN.</li>
+        </ul>
+      </div>
+
+      <div class="seccion-politica">
+        <h3>3. Cambios y Devoluciones</h3>
+        <ul>
+          <li>Por higiene y seguridad alimentaria, <strong>no aceptamos devoluciones en botellas abiertas o con el sello de seguridad violado.</strong></li>
+          <li>Si tu pedido llega dañado, roto o incorrecto, tienes un plazo máximo de <strong>24 horas</strong> desde la recepción para reportarlo al correo tekilacomp@gmail.com con fotografías de evidencia.</li>
+          <li>En caso de proceder la garantía, te enviaremos una botella de reemplazo sin costo adicional o procesaremos el reembolso a tu método de pago original en un lapso de 3 a 5 días hábiles.</li>
+        </ul>
+      </div>
+
+      <div class="seccion-politica">
+        <h3>4. Privacidad de Datos</h3>
+        <p>Tu información personal (nombre, dirección, correo y teléfono) será utilizada exclusivamente para el procesamiento y envío de tus pedidos. TEKILA no comparte ni vende tu información a terceros.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer-container">
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
+      Fracc. Bona Gens, C.P. 20256<br>
+      Aguascalientes, Ags., México</p>
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
+      <p style="margin-top: 15px; font-size: 14px;">
+        <a href="Politicas.html" style="color: #ccc; text-decoration: none; border-bottom: 1px solid #ccc;">Políticas de Compra y Privacidad</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+
+</body>
+</html>

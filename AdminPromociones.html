@@ -74,6 +74,11 @@
     .toast-botones button { padding: 6px 12px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 12px; transition: background 0.2s; }
     .btn-toast-cancelar { background-color: #e0e0e0; color: #333; }
     .btn-toast-eliminar { background-color: #d9534f; color: white; }
+
+    .paginacion-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 30px; margin-bottom: 20px; }
+    .btn-pagina { background-color: #333; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .btn-pagina:disabled { background-color: #999; cursor: not-allowed; }
+    .info-pagina { font-weight: bold; }
   </style>
 </head>
 <body class="light-mode">
@@ -95,7 +100,7 @@
     <aside class="admin-sidebar">
       <h3>Panel Admin</h3>
       <ul>
-          <li><a href="PerfilAdmin.html">Dashboard</a></li>
+        <li><a href="PerfilAdmin.html">Dashboard</a></li>
         <li><a href="AdminProductos.html">Productos</a></li>
         <li><a href="AdminPedidos.html">Pedidos</a></li>
         <li><a href="AdminPromociones.html" class="activo">Promociones</a></li>
@@ -108,8 +113,16 @@
 
     <main class="admin-content">
       <h2 style="margin-top: 0;">Promociones</h2>
-      <button class="btn-detalle" onclick="window.location.href='AdminCrearPromocion.html'">CREAR PROMOCION</button>
+      <button class="btn-detalle" onclick="window.location.href='AdminCrearPromocion.html'">CREAR PROMOCIÓN</button>
+      
       <div class="contenedor-tarjetas" id="contenedorTarjetas"></div>
+
+      <div class="paginacion-container" id="controles-paginacion">
+        <button class="btn-pagina" id="btnAnterior" onclick="cambiarPagina(-1)">Anterior</button>
+        <span class="info-pagina" id="infoPagina">Página 1</span>
+        <button class="btn-pagina" id="btnSiguiente" onclick="cambiarPagina(1)">Siguiente</button>
+      </div>
+
     </main>
   </div>
 
@@ -136,28 +149,51 @@
 
     let promocionesGuardadas = [];
     let idPromocionAEliminar = null;
+    
+    let paginaActual = 1;
+    const promocionesPorPagina = 2;
 
     window.onload = function() {
+      const datos = localStorage.getItem('promocionesAdmin');
+      if (datos) {
+        promocionesGuardadas = JSON.parse(datos);
+      } else {
+        promocionesGuardadas = [
+          { id: 1, nombre: "Buen Fin 2024", descuento: 15, productoNombre: "Tequila Reposado Especial", fechaInicio: "2024-11-15", fechaFin: "2024-11-20", descripcion: "Descuento en Reposados por Buen Fin" },
+          { id: 2, nombre: "Promo Navidad", descuento: 20, productoNombre: "Tequila Añejo Premium", fechaInicio: "2024-12-10", fechaFin: "2024-12-25", descripcion: "Celebra las fiestas con nosotros" },
+          { id: 3, nombre: "Día del Padre", descuento: 10, productoNombre: "Tequila Blanco", fechaInicio: "2024-06-10", fechaFin: "2024-06-20", descripcion: "Regalo especial para papá" },
+          { id: 4, nombre: "Oferta Relámpago", descuento: 30, productoNombre: "Todos los productos", fechaInicio: "2024-10-01", fechaFin: "2024-10-02", descripcion: "Solo por hoy" },
+          { id: 5, nombre: "Aniversario TEKILA", descuento: 25, productoNombre: "Paquete Degustación", fechaInicio: "2024-08-01", fechaFin: "2024-08-31", descripcion: "Festeja nuestro aniversario con nosotros" } // Extra para página 2
+        ];
+        localStorage.setItem('promocionesAdmin', JSON.stringify(promocionesGuardadas));
+      }
       cargarPromociones();
     };
 
     function cargarPromociones() {
-      const datos = localStorage.getItem('promocionesAdmin');
-      if (datos) {
-        promocionesGuardadas = JSON.parse(datos);
-      }
-
       const contenedor = document.getElementById('contenedorTarjetas');
+      const controlesPagina = document.getElementById('controles-paginacion');
       contenedor.innerHTML = '';
 
       if (promocionesGuardadas.length === 0) {
-        contenedor.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; background: rgba(0,0,0,0.02); border-radius: 8px;">No hay promociones.</div>';
+        contenedor.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; background: rgba(0,0,0,0.02); border-radius: 8px;">No hay promociones registradas.</div>';
+        controlesPagina.style.display = 'none';
         return;
       }
 
+      controlesPagina.style.display = 'flex';
+
+      const totalPaginas = Math.ceil(promocionesGuardadas.length / promocionesPorPagina);
+      if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+      if (paginaActual < 1) paginaActual = 1;
+
+      const inicio = (paginaActual - 1) * promocionesPorPagina;
+      const fin = inicio + promocionesPorPagina;
+      const promocionesPagina = promocionesGuardadas.slice(inicio, fin);
+
       const hoy = new Date().toISOString().split('T')[0];
 
-      promocionesGuardadas.forEach(promo => {
+      promocionesPagina.forEach(promo => {
         let textoEstado = 'Activa';
         let claseEstado = 'estado-activa';
 
@@ -195,6 +231,15 @@
         
         contenedor.innerHTML += tarjeta;
       });
+
+      document.getElementById('infoPagina').textContent = `Página ${paginaActual} de ${totalPaginas}`;
+      document.getElementById('btnAnterior').disabled = (paginaActual === 1);
+      document.getElementById('btnSiguiente').disabled = (paginaActual === totalPaginas);
+    }
+
+    function cambiarPagina(direccion) {
+      paginaActual += direccion;
+      cargarPromociones();
     }
 
     function solicitarEliminar(id) {
@@ -218,7 +263,8 @@
         
         document.getElementById('toastConfirmacionBorrar').classList.remove('mostrar');
         idPromocionAEliminar = null;
-        cargarPromociones();
+        
+        cargarPromociones(); 
       }
     });
   </script>

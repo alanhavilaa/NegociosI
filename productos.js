@@ -21,7 +21,7 @@ const inventario = [
     precio: 1200.00, 
     imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/campoazul.jpg", 
     url: "CampoAzul.html", 
-    etiquetas: ["blanco", "campo-azul"] 
+    etiquetas: ["añejo", "campo-azul"] 
   },
   { 
     id: 4, 
@@ -29,7 +29,7 @@ const inventario = [
     precio: 1550.00, 
     imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/1800cristal.webp", 
     url: "1800cristal.html", 
-    etiquetas: ["cristalino", "añejo", "1800"] 
+    etiquetas: ["cristalino", "blanco" , "1800"] 
   },
   { 
     id: 5, 
@@ -37,7 +37,7 @@ const inventario = [
     precio: 1800.00, 
     imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/1800.jpg", 
     url: "1800.html", 
-    etiquetas: ["reposado", "1800"] 
+    etiquetas: ["blanco", "1800"] 
   },
   { 
     id: 6, 
@@ -45,7 +45,7 @@ const inventario = [
     precio: 2100.00, 
     imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/Circulo.webp", 
     url: "Circulo.html", 
-    etiquetas: ["blanco", "circulo"] 
+    etiquetas: ["blanco", "premium", "circulo"] 
   },
   { 
     id: 7, 
@@ -53,7 +53,7 @@ const inventario = [
     precio: 4500.00, 
     imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/DonJulioUltima.webp", 
     url: "UltimaReserva.html", 
-    etiquetas: ["extra-añejo", "don-julio", "premium"] 
+    etiquetas: ["extra-añejo", "añejo","don-julio", "premium"] 
   },
   { 
     id: 8, 
