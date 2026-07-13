@@ -49,9 +49,62 @@
 
   </nav>
 
+  <div id="cookie-banner">
+    <p>Usamos cookies para mejorar tu experiencia, analizar el tráfico y mostrarte publicidad relevante. Puedes aceptar todas, rechazarlas o configurarlas a tu medida.</p>
+    
+    <div class="cookie-botones-container">
+      <button class="cookie-btn btn-accept" onclick="acceptAllCookies()">Aceptar todas</button>
+      <button class="cookie-btn btn-reject" onclick="rejectAllCookies()">Rechazar</button>
+      <button class="cookie-btn btn-config" onclick="openCookieConfig()">Configurar cookies</button>
+    </div>
+  </div>
+
+  <div id="cookie-modal">
+    <div class="cookie-modal-content">
+      <h3>Configuración de Cookies</h3>
+      <p style="font-size: 14px; color: #555; margin-bottom: 20px;">Selecciona qué tipo de cookies permites que utilicemos. Tu privacidad es importante para nosotros.</p>
+      
+      <div class="cookie-option">
+        <label><input type="checkbox" checked disabled> Estrictamente Necesarias</label>
+        <p>Son fundamentales para que la tienda funcione (por ejemplo: recordar los productos en tu carrito de compras o mantener tu sesión iniciada de forma segura). No se pueden desactivar.</p>
+      </div>
+      
+      <div class="cookie-option">
+        <label><input type="checkbox" id="chk-analiticas" checked> Rendimiento y Analíticas</label>
+        <p>Nos ayudan a contar las visitas y saber qué páginas son las más populares. Toda la información es anónima y nos sirve para mejorar el funcionamiento de la web.</p>
+      </div>
+
+      <div class="cookie-option">
+        <label><input type="checkbox" id="chk-personalizacion" checked> Preferencias y Personalización</label>
+        <p>Permiten que el sitio web recuerde tus elecciones (como si prefieres el modo oscuro o el modo claro) para ofrecerte una experiencia a tu medida en cada visita.</p>
+      </div>
+
+      <div class="cookie-option">
+        <label><input type="checkbox" id="chk-localizacion" checked> Geolocalización</label>
+        <p>Nos permiten calcular los costos de envío con mayor precisión hacia tu región (como Aguascalientes o el resto de México), mostrarte la moneda local y verificar la disponibilidad de productos en tu zona.</p>
+      </div>
+      
+      <div class="cookie-option" style="border-bottom: none;">
+        <label><input type="checkbox" id="chk-marketing" checked> Marketing y Publicidad</label>
+        <p>Ayudan a mostrarte anuncios relevantes de TEKILA en otras plataformas sociales y a medir la efectividad de nuestras campañas publicitarias. No guardan datos personales directos, sino identificadores de navegador.</p>
+      </div>
+      
+      <button class="btn-save" onclick="saveCookiePreferences()">Guardar Mis Preferencias</button>
+    </div>
+  </div>
+
+
   <div class="hero-section">
     <a href="C:/Users/eduar/Desktop/formulario.html" class="btn-central">Ver Productos</a>
   </div>
+  <a href="Escaparate.html" class="cuadro-exclusivo">
+    <div class="exclusivo-tag">Exclusivo</div>
+    <img src="C:\Users\eduar\Desktop\NegociosI\Escaparate\escaparate1.jpg" alt="Última Reserva">
+    <div class="exclusivo-info">
+      <h4>Don Julio Última Reserva</h4>
+      <p>VER PRODUCTO</p>
+    </div>
+  </a>
 
   <div class="footer-container">
     <div class="caja-info">
@@ -72,6 +125,51 @@
       document.body.classList.toggle("dark-mode");
       document.body.classList.toggle("light-mode");
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const banner = document.getElementById("cookie-banner");
+      const modal = document.getElementById("cookie-modal");
+      
+      const consent = localStorage.getItem("cookieConsent");
+
+      if (!consent) {
+        banner.style.display = "block";
+      }
+
+      window.acceptAllCookies = function() {
+        localStorage.setItem("cookieConsent", "accepted_all");
+        localStorage.setItem("cookies_necesarias", "true");
+        localStorage.setItem("cookies_analiticas", "true");
+        localStorage.setItem("cookies_marketing", "true");
+        banner.style.display = "none";
+      };
+
+      window.rejectAllCookies = function() {
+        localStorage.setItem("cookieConsent", "rejected_all");
+        localStorage.setItem("cookies_necesarias", "true");
+        localStorage.setItem("cookies_analiticas", "false");
+        localStorage.setItem("cookies_marketing", "false");
+        banner.style.display = "none";
+      };
+
+      window.openCookieConfig = function() {
+        modal.style.display = "flex";
+      };
+
+      window.saveCookiePreferences = function() {
+        const analiticas = document.getElementById("chk-analiticas").checked;
+        const marketing = document.getElementById("chk-marketing").checked;
+        
+        localStorage.setItem("cookieConsent", "custom");
+        localStorage.setItem("cookies_necesarias", "true");
+        localStorage.setItem("cookies_analiticas", analiticas);
+        localStorage.setItem("cookies_marketing", marketing);
+        
+        modal.style.display = "none";
+        banner.style.display = "none";
+      };
+    });
+  </script>
   </script>
 
 </body>

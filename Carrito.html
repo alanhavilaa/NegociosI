@@ -135,6 +135,10 @@
       </div>
 
       <div class="resumen-carrito" id="seccion-resumen">
+        <div style="margin-bottom: 20px; display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+  <input type="text" id="input-codigo" placeholder="CÓDIGO DE PROMOCIÓN" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; outline: none; width: 200px;">
+  <button class="btn-detalle" style="padding: 8px 15px;" onclick="aplicarCodigoRapido()">Aplicar</button>
+</div>
         <p>Subtotal: $<span id="subtotal-carrito">0.00</span></p>
         <p>IVA (16%): $<span id="iva-carrito">0.00</span></p>
         <p style="color: green;">Descuentos: -$<span id="descuento-carrito">0.00</span></p>
@@ -287,6 +291,18 @@
     window.onload = function() {
       renderizarCarrito();
     };
+
+    function aplicarCodigoRapido() {
+  const input = document.getElementById('input-codigo');
+  
+  if (input.value.trim() !== '') {
+    mostrarNotificacion("Promoción aplicada", "exito");
+    
+    input.value = '';
+  } else {
+    mostrarNotificacion("Por favor ingresa un código", "alerta");
+  }
+}
   </script>
 
 </body>
