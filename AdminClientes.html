@@ -67,28 +67,91 @@
       <button class="btn-detalle" style="margin-bottom: 20px; background-color: #454545;" onclick="agregarCliente()">Agregar Cliente</button>
       
       <table class="tabla-admin">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Correo Electrónico</th>
-            <th>Teléfono</th>
-            <th>Fecha de Registro</th>
-            <th>Pedidos Realizados</th>
+
+<thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Correo Electrónico</th>
+    <th>Teléfono</th>
+    <th>Fecha de Registro</th>
+    <th>Pedidos Realizados</th>
+    <th>Acciones</th> </tr>
+</thead>
+
           </tr>
         </thead>
         <tbody id="tablaClientes">
           </tbody>
       </table>
 
-      <div class="paginacion-container" id="controles-paginacion">
-        <button class="btn-pagina" id="btnAnterior" onclick="cambiarPagina(-1)">Anterior</button>
-        <span class="info-pagina" id="infoPagina">Página 1</span>
-        <button class="btn-pagina" id="btnSiguiente" onclick="cambiarPagina(1)">Siguiente</button>
-      </div>
+     <div class="paginacion-container" id="controles-paginacion">
+  <button class="btn-pagina" id="btnAnterior" onclick="cambiarPagina(-1)">Anterior</button>
+  <span class="info-pagina" id="infoPagina">Página 1</span>
+  <button class="btn-pagina" id="btnSiguiente" onclick="cambiarPagina(1)">Siguiente</button>
+</div>
     </main>
   </div>
 
-  <script>
+ <script>
+    let paginaActual = 1;
+    const clientesPorPagina = 4;
+
+    function inicializarDatos() {
+      let clientes = JSON.parse(localStorage.getItem("clientesTEKILA"));
+      if (!clientes || clientes.length === 0) {
+        clientes = [
+          { id: 1, nombre: "Gilberto Mora", correo: "gil.moraz@email.com", telefono: "449 555 1234", fecha: "2023-05-12", pedidos: 4 },
+          { id: 2, nombre: "María Gómez", correo: "maria.g@email.com", telefono: "449 120 5678", fecha: "2023-06-20", pedidos: 1 },
+          { id: 3, nombre: "Carlos Ruiz", correo: "cruiz99@email.com", telefono: "449 820 9876", fecha: "2023-08-01", pedidos: 8 },
+          { id: 4, nombre: "Ana López", correo: "ana.lopez@email.com", telefono: "449 132 4321", fecha: "2023-09-15", pedidos: 0 },
+          { id: 5, nombre: "Jesús Alejandro", correo: "alex.j@email.com", telefono: "449 444 7777", fecha: "2023-10-05", pedidos: 2 } 
+        ];
+        localStorage.setItem("clientesTEKILA", JSON.stringify(clientes));
+      }
+      return clientes;
+    }
+
+    function renderizarTabla() {
+      const clientes = inicializarDatos();
+      const tbody = document.getElementById('tablaClientes');
+      const controlesPagina = document.getElementById('controles-paginacion');
+      tbody.innerHTML = ''; 
+
+      const totalPaginas = Math.ceil(clientes.length / clientesPorPagina);
+      if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+      if (paginaActual < 1) paginaActual = 1;
+
+      const inicio = (paginaActual - 1) * clientesPorPagina;
+      const fin = inicio + clientesPorPagina;
+      const clientesPagina = clientes.slice(inicio, fin);
+
+      clientesPagina.forEach(cliente => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${cliente.nombre}</strong></td>
+          <td>${cliente.correo}</td>
+          <td>${cliente.telefono}</td>
+          <td>${cliente.fecha}</td>
+          <td>${cliente.pedidos}</td>
+          <td>
+            <button class="btn-editar" style="background: #aaa9a9; padding: 5px 10px; border:none; cursor:pointer;" 
+            onclick="window.location.href='AdminEditarCliente.html?id=${cliente.id}'">Editar</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('infoPagina').textContent = `Página ${paginaActual} de ${totalPaginas || 1}`;
+      document.getElementById('btnAnterior').disabled = (paginaActual === 1);
+      document.getElementById('btnSiguiente').disabled = (paginaActual >= totalPaginas);
+      controlesPagina.style.display = 'flex';
+    }
+
+    function cambiarPagina(direccion) {
+      paginaActual += direccion;
+      renderizarTabla();
+    }
+
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
       document.body.classList.toggle("light-mode");
@@ -102,68 +165,7 @@
       window.location.href = "AgregarCliente.html"; 
     }
 
-    let clientes = JSON.parse(localStorage.getItem("clientesTEKILA"));
-    let paginaActual = 1;
-    const clientesPorPagina = 4; 
-
-    if (!clientes) {
-      clientes = [
-        { nombre: "Gilberto Mora", correo: "gil.moraz@email.com", telefono: "449 555 1234", fecha: "2023-05-12", pedidos: 4 },
-        { nombre: "María Gómez", correo: "maria.g@email.com", telefono: "449 120 5678", fecha: "2023-06-20", pedidos: 1 },
-        { nombre: "Carlos Ruiz", correo: "cruiz99@email.com", telefono: "449 820 9876", fecha: "2023-08-01", pedidos: 8 },
-        { nombre: "Ana López", correo: "ana.lopez@email.com", telefono: "449 132 4321", fecha: "2023-09-15", pedidos: 0 },
-        { nombre: "Jesús Alejandro", correo: "alex.j@email.com", telefono: "449 444 7777", fecha: "2023-10-05", pedidos: 2 } 
-      ];
-      localStorage.setItem("clientesTEKILA", JSON.stringify(clientes));
-    }
-
-    function renderizarTabla() {
-      const tbody = document.getElementById('tablaClientes');
-      const controlesPagina = document.getElementById('controles-paginacion');
-      tbody.innerHTML = ''; 
-
-      if (clientes.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center;">No hay clientes registrados.</td></tr>';
-        controlesPagina.style.display = 'none';
-        return;
-      }
-
-      controlesPagina.style.display = 'flex';
-
-      const totalPaginas = Math.ceil(clientes.length / clientesPorPagina);
-      if (paginaActual > totalPaginas) paginaActual = totalPaginas;
-      if (paginaActual < 1) paginaActual = 1;
-
-      // Recortar arreglo para la página actual
-      const inicio = (paginaActual - 1) * clientesPorPagina;
-      const fin = inicio + clientesPorPagina;
-      const clientesPagina = clientes.slice(inicio, fin);
-
-      clientesPagina.forEach(cliente => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td><strong>${cliente.nombre}</strong></td>
-          <td>${cliente.correo}</td>
-          <td>${cliente.telefono}</td>
-          <td>${cliente.fecha}</td>
-          <td>${cliente.pedidos}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-
-      document.getElementById('infoPagina').textContent = `Página ${paginaActual} de ${totalPaginas}`;
-      document.getElementById('btnAnterior').disabled = (paginaActual === 1);
-      document.getElementById('btnSiguiente').disabled = (paginaActual === totalPaginas);
-    }
-
-    function cambiarPagina(direccion) {
-      paginaActual += direccion;
-      renderizarTabla();
-    }
-
-    window.onload = function() {
-      renderizarTabla();
-    };
-  </script>
+    window.onload = renderizarTabla;
+</script>
 </body>
 </html>

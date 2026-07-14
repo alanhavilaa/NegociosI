@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Subasta - Botella P.I. - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+
+  <div class="redes-flotantes">
+    <h4>@tekila</h4>
+    <div class="contenedor-iconos">
+      <a href="#"><img src="Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="Imagenes/tiktok.png" alt="TikTok"></a>
+    </div>
+  </div>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="Catalogo.html">Catálogo</a>
+    <a href="Promociones.html">Promociones</a>
+    <a href="Nosotros.html">Nosotros</a>
+    <a href="Contacto.html">Contacto</a>
+        <a href="Comunidad.html">Comunidad</a>
+    <a href="Login.html">Iniciar sesión</a>
+    <a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
+  </nav>
+  
+  <main>
+    <div class="producto-detalle-container">
+      <h2>Botella Pedro Infante Original</h2>
+      <img src="Imagenes/pedroinfante.jpg" alt="PedroInfante" class="imagen-detalle">
+    </div>
+    
+    <div class="producto-detalle-container">
+      <div class="caja-info">
+        <p><strong>Puja inicial: $4000</strong></p>
+        <p>Tequila completamente sellado, botella producida en primera linea, completamente original.</p>
+      </div>
+    </div>
+
+    <div class="seccion-oferta" style="text-align: center; margin: 20px;">
+      <input type="text" id="nombreInput" placeholder="NOMBRE">
+      <input type="number" id="pujaInput" placeholder="OFERTA $">
+      <button class="btn-detalle" onclick="guardarPuja()">MANDAR OFERTA</button>
+    </div>
+
+    <table class="tabla-subasta" style="width: 80%; margin: 20px auto; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 2px solid #000;">
+          <th style="padding: 10px;">NOMBRE</th>
+          <th style="padding: 10px;">PUJA</th>
+        </tr>
+      </thead>
+      <tbody id="tablaBody"></tbody>
+    </table>
+  </main>
+
+  <footer class="footer-container">
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", renderizar);
+
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function guardarPuja() {
+      const nombre = document.getElementById('nombreInput').value;
+      const puja = document.getElementById('pujaInput').value;
+
+
+      let lista = JSON.parse(localStorage.getItem('pujasTekila')) || [];
+      lista.push({ nombre: nombre, puja: puja });
+      localStorage.setItem('pujasTekila', JSON.stringify(lista));
+      
+      document.getElementById('nombreInput').value = "";
+      document.getElementById('pujaInput').value = "";
+      renderizar();
+    }
+
+    function renderizar() {
+      const lista = JSON.parse(localStorage.getItem('pujasTekila')) || [];
+      const tbody = document.getElementById('tablaBody');
+      tbody.innerHTML = "";
+      
+      // Ordenar pujas de mayor a menor
+      lista.sort((a, b) => b.puja - a.puja);
+
+      lista.forEach(item => {
+        tbody.innerHTML += `<tr>
+          <td style="padding:8px; border-bottom:1px solid #ddd;">${item.nombre}</td>
+          <td style="padding:8px; border-bottom:1px solid #ddd;">$${item.puja}</td>
+        </tr>`;
+      });
+    }
+  </script>
+</body>
+</html>

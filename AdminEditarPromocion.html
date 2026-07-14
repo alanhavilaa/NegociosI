@@ -148,7 +148,9 @@
     window.onload = function() {
       const selectProducto = document.getElementById('promoProducto');
       const inventarioGuardado = JSON.parse(localStorage.getItem('inventarioAdminV2')) || [];
+      
       selectProducto.innerHTML = '<option value="">Seleccione un producto</option><option value="Todos">Aplicar a todos los productos</option>';
+      
       if (inventarioGuardado.length > 0) {
         inventarioGuardado.forEach(prod => {
           const opcion = document.createElement('option');
@@ -169,7 +171,17 @@
           document.getElementById('promoId').value = promoActual.id;
           document.getElementById('promoNombre').value = promoActual.nombre;
           document.getElementById('promoDescuento').value = promoActual.descuento;
-          document.getElementById('promoProducto').value = promoActual.productoId;
+          
+          if (promoActual.productoId) {
+            document.getElementById('promoProducto').value = promoActual.productoId;
+          } else if (promoActual.productoNombre) {
+            const opcionDefault = document.createElement('option');
+            opcionDefault.value = "default_temp";
+            opcionDefault.textContent = promoActual.productoNombre;
+            selectProducto.appendChild(opcionDefault);
+            document.getElementById('promoProducto').value = "default_temp";
+          }
+
           document.getElementById('promoInicio').value = promoActual.fechaInicio;
           document.getElementById('promoFin').value = promoActual.fechaFin;
           document.getElementById('promoDescripcion').value = promoActual.descripcion || '';
@@ -192,10 +204,18 @@
       if(index !== -1) {
         const selectObj = document.getElementById('promoProducto');
         
+        let prodNombre = "Seleccione un producto";
+        let prodId = "";
+        
+        if (selectObj.selectedIndex !== -1) {
+            prodNombre = selectObj.options[selectObj.selectedIndex].text;
+            prodId = selectObj.value;
+        }
+        
         promocionesGlobal[index].nombre = document.getElementById('promoNombre').value;
         promocionesGlobal[index].descuento = document.getElementById('promoDescuento').value;
-        promocionesGlobal[index].productoId = selectObj.value;
-        promocionesGlobal[index].productoNombre = selectObj.options[selectObj.selectedIndex].text;
+        promocionesGlobal[index].productoId = prodId;
+        promocionesGlobal[index].productoNombre = prodNombre;
         promocionesGlobal[index].fechaInicio = document.getElementById('promoInicio').value;
         promocionesGlobal[index].fechaFin = document.getElementById('promoFin').value;
         promocionesGlobal[index].descripcion = document.getElementById('promoDescripcion').value;

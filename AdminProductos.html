@@ -193,7 +193,7 @@
     </main>
   </div>
 
-  <div id="toastConfirmacionBorrar" class="toast-confirmacion">
+ <div id="toastConfirmacionBorrar" class="toast-confirmacion">
     <div>
       <h4>ELIMINAR PRODUCTO</h4>
       <p id="toastTextoProducto">¿Estás seguro de eliminar este producto?</p>
@@ -201,14 +201,14 @@
     <div class="toast-botones">
       <button id="btnCancelarToast" class="btn-toast-cancelar">CANCELAR</button>
       <button id="btnConfirmarToast" class="btn-toast-eliminar">ELIMINAR</button>
-     
     </div>
-    
-  </div>
-   <div id="toast-boton1" class="toast-confirmacion">Producto eliminado exitosamente.
   </div>
 
-  
+  <div id="toastExito" class="toast-confirmacion" style="border-left: 5px solid #28a745;">
+    <div>
+      <h4 style="color: #28a745;">PRODCUTO ELIMINADO</h4>
+    </div>
+  </div>
    
   <script src="productos.js"></script>
   
@@ -350,7 +350,7 @@
 
    
 
-    document.getElementById('btnConfirmarToast').addEventListener('click', () => {
+   document.getElementById('btnConfirmarToast').addEventListener('click', () => {
       if (idProductoAEliminar !== null) {
         productosSimulados = productosSimulados.filter(p => p.id !== idProductoAEliminar);
         localStorage.setItem('inventarioAdminV2', JSON.stringify(productosSimulados));
@@ -364,10 +364,10 @@
         filtrarTabla();
 
         const toastExito = document.getElementById('toastExito');
-        toastExito.style.display = 'block';
+        toastExito.classList.add('mostrar');
 
         setTimeout(() => {
-          toastExito.style.display = 'none';
+          toastExito.classList.remove('mostrar');
         }, 3000);
       }
     });

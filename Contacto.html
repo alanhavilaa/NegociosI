@@ -3,262 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Inicio - TEKILA</title>
-  <style>
-    body {
-      margin: 50px 100px; 
-      font-family: 'Segoe UI', sans-serif;
-      transition: background-color 0.3s, color 0.3s;
-    }
+    <link rel="stylesheet" href="estilo.css">
 
-    body.light-mode {
-      background-color: white;
-      color: black;
-    }
-
-    body.dark-mode {
-      background-color: #121212;
-      color: white;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 1rem 0;
-      position: relative;
-      transition: background-color 0.3s ease;
-    }
-
-    body.light-mode nav { background-color: black; }
-    body.dark-mode nav { background-color: white; }
-
-    .footer-container {
-      display: flex;
-      justify-content: center; 
-      margin-top: 50px;
-    }
-
-    .caja-info {
-      width: 100%;
-      max-width: 800px;
-      padding: 25px;
-      border-radius: 10px;
-      transition: background-color 0.3s, box-shadow 0.3s;
-      text-align: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 4px;
-    }
-
-    body.light-mode .caja-info {
-      background-color: #f4f4f4;
-      border: 1px solid #e0e0e0;
-    }
-
-    body.dark-mode .caja-info {
-      background-color: #1e1e1e;
-      border: 1px solid #333;
-    }
-
-    .caja-info h3 {
-      margin-top: 0;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    .caja-info p {
-      margin: 8px 0;
-      line-height: 1.5;
-    }
-
-    body.light-mode nav a { color: white; }
-    body.dark-mode nav a { color: black; }
-
-    body.light-mode nav a:hover {
-      background-color: white;
-      color: black;
-    }
-
-    body.dark-mode nav a:hover {
-      background-color: black;
-      color: white;
-    }
-
-    .dropdown { position: relative; }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%; 
-      left: 50%;
-      transform: translateX(-50%);
-      flex-direction: column;
-      min-width: 160px;
-      z-index: 10;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-
-    body.light-mode .dropdown-content { background-color: black; }
-    body.dark-mode .dropdown-content { background-color: white; }
-
-    .dropdown-content a {
-      padding: 10px;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .dropdown:hover .dropdown-content { display: flex; }
-
-    .toggle-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: black;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      z-index: 999;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .redes-flotantes {
-      position: fixed; 
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center; 
-      gap: 10px; 
-      z-index: 999;
-    }
-
-    .redes-flotantes h4 {
-      margin: 0; 
-    }
-
-    .contenedor-iconos {
-      display: flex;
-      gap: 10px; 
-    }
-
-    .contenedor-iconos a {
-      background-color: black;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      border-radius: 0; 
-    }
-
-    body.light-mode .contenedor-iconos a {
-      background-color: white;
-      border: 1px solid black;
-    }
-
-    .contenedor-iconos a img {
-      width: 25px;
-      height: 25px;
-      object-fit: contain;
-    }
     
-    .light-mode .toggle-button {
-      background: white;
-      color: black;
-      border: 1px solid black;
-    }
-    
-    .logo-pequeno {
-      width: 40px; 
-      height: auto; 
-    }
-    
-     .header-principal {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .hero-section {
-      margin-top: 40px; 
-      height: 60vh; 
-      background-image: url('C:/Users/eduar/Desktop/Imagenes/687ef8134c6df.webp'); 
-      background-size: cover; 
-      background-position: center; 
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-
-    .btn-central {
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      text-decoration: none;
-      transition: transform 0.2s, background-color 0.3s;
-    }
-
-    body.light-mode .btn-central {
-      background-color: black;
-      color: white;
-    }
-
-    body.dark-mode .btn-central {
-      background-color: white;
-      color: black;
-    }
-
-    .btn-central:hover {
-      transform: scale(1.05); 
-    }
-    
-    body.light-mode .btn-central:hover { background-color: #333; }
-    body.dark-mode .btn-central:hover { background-color: #ddd; }
-
-    .mensaje-exito {
-      display: none; 
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 5px;
-      font-weight: bold;
-      text-align: center;
-      transition: opacity 0.3s ease;
-    }
-
-    body.light-mode .mensaje-exito {
-      background-color: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-
-    body.dark-mode .mensaje-exito {
-      background-color: #1e4620;
-      color: #a3cfbb;
-      border: 1px solid #198754;
-    }
-  </style>
 </head>
 
 <body class="light-mode">
 
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
-  <header class="header-principal">
+   <header class="header-principal">
     <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">    
     <h1>TEKILA</h1>
   </header>
@@ -266,55 +20,51 @@
   <div class="redes-flotantes">
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram">
-      </a>
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook">
-      </a>
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok">
-      </a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok"></a>
     </div>
   </div>
 
   <nav>
-    <div>
-    <a href="C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
     </div>
     <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catalogo</a>
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catálogo</a>
     </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
-    </div>
-    <div class="dropdown">
-      <a href="C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
-    </div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
+        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
 
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
+    </div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
+    </div>
+        <div><a href="Comunidad.html">Comunidad</a></div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
+    </div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
+    </div>
   </nav>
 
   <div class="footer-container">
     <div class="caja-info">
       <section>
         <h2>Tus datos</h2>
-        <form id="miFormulario" onsubmit="enviarFormulario(event)">
+        <form id="miFormulario" onsubmit="enviarFormulario(event)" class="formulario-contacto">
           <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" required><br><br>
+          <input type="text" id="nombre" name="nombre" >
 
           <label for="correo">Correo electrónico:</label>
-          <input type="email" id="correo" name="correo" required><br><br>
+          <input type="text" id="correo" name="correo" >
 
           <input type="submit" value="Enviar">
         </form>
 
-        <div id="mensaje-exito" class="mensaje-exito">Enviado
-        </div>
-
+        <div id="mensaje-exito" class="mensaje-exito">Enviado correctamente</div>
       </section>
     </div>
   </div>
@@ -326,8 +76,8 @@
       <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
       Fracc. Bona Gens, C.P. 20256<br>
       Aguascalientes, Ags., México</p>
-      <p><strong>Horario:</strong> 8:00 a 14:00 hrs<br>
-        <p style="margin-top: 15px; font-size: 14px;">
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
+      <p style="margin-top: 15px; font-size: 14px;">
         <a href="Politicas.html" style="color: #ccc; text-decoration: none; border-bottom: 1px solid #ccc;">Políticas de Compra y Privacidad</a>
       </p>
     </div>

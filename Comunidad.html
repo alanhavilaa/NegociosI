@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comunidad - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .paginacion-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 30px; }
+    .btn-pagina { background-color: #333; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .btn-pagina:disabled { background-color: #999; cursor: not-allowed; }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+
+  <div class="redes-flotantes">
+    <h4>@tekila</h4>
+    <div class="contenedor-iconos">
+      <a href="#"><img src="Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="Imagenes/tiktok.png" alt="TikTok"></a>
+    </div>
+  </div>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="Catalogo.html">Catálogo</a>
+    <a href="Promociones.html">Promociones</a>
+    <a href="Nosotros.html">Nosotros</a>
+    <a href="Contacto.html">Contacto</a>
+    <a href="Comunidad.html">Comunidad</a>
+    <a href="Login.html">Iniciar sesión</a>
+    <a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
+  </nav>
+
+  <main style="max-width: 800px; margin: 40px auto; padding: 20px;">
+    <h2>DEJA TU COMENTARIO</h2>
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+      <input type="text" id="nombreComentario" placeholder="Tu nombre (opcional)">
+      <textarea id="textoComentario" placeholder="Escribe tu opinión..." style="height: 100px; padding: 10px; border: 1px solid #000;"></textarea>
+      <button class="btn-detalle" onclick="guardarComentario()">PUBLICAR</button>
+<div id="mensaje-exito" class="mensaje-exito">COMENTARIO PUBLICADO</div>
+    </div>
+
+    <h2 style="margin-top: 50px;">COMENTARIOS PÚBLICOS</h2>
+    <div id="contenedorTarjetas" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;"></div>
+
+    <div class="paginacion-container" id="controles-paginacion">
+      <button class="btn-pagina" id="btnAnterior" onclick="cambiarPagina(-1)">Anterior</button>
+      <span class="info-pagina" id="infoPagina">Página 1</span>
+      <button class="btn-pagina" id="btnSiguiente" onclick="cambiarPagina(1)">Siguiente</button>
+    </div>
+  </main>
+
+  <footer class="footer-container">
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
+      Fracc. Bona Gens, C.P. 20256<br>
+      Aguascalientes, Ags., México</p>
+    </div>
+  </footer>
+
+  <script>
+    let paginaActual = 1;
+    const comentariosPorPagina = 4;
+
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function renderizarTarjetas() {
+      const lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
+      const contenedor = document.getElementById('contenedorTarjetas');
+      contenedor.innerHTML = ""; 
+      
+      const totalPaginas = Math.ceil(lista.length / comentariosPorPagina);
+      if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+      if (paginaActual < 1) paginaActual = 1;
+
+      const inicio = (paginaActual - 1) * comentariosPorPagina;
+      const fin = inicio + comentariosPorPagina;
+      const paginaLista = lista.slice(inicio, fin);
+
+      paginaLista.forEach(c => {
+        contenedor.innerHTML += `
+          <div style="border: 1px solid #000; padding: 20px; width: 250px; background: #fff;">
+            <h4 style="margin: 0 0 10px 0; text-transform: uppercase;">${c.nombre}</h4>
+            <p style="font-size: 14px; margin-bottom: 15px;">"${c.texto}"</p>
+            <small style="color: #666;">${c.fecha}</small>
+          </div>
+        `;
+      });
+
+      document.getElementById('infoPagina').textContent = `Página ${paginaActual} de ${totalPaginas || 1}`;
+      document.getElementById('btnAnterior').disabled = (paginaActual === 1);
+      document.getElementById('btnSiguiente').disabled = (paginaActual >= totalPaginas);
+    }
+
+    function cambiarPagina(dir) {
+      paginaActual += dir;
+      renderizarTarjetas();
+    }
+
+    function guardarComentario() {
+  const nombre = document.getElementById('nombreComentario').value || "Anónimo";
+  const texto = document.getElementById('textoComentario').value;
+  const mensajeExito = document.getElementById('mensaje-exito'); 
+  
+
+  let lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
+  lista.push({ nombre, texto, fecha: new Date().toLocaleDateString() });
+  
+  localStorage.setItem('misComentarios', JSON.stringify(lista));
+  
+  document.getElementById('textoComentario').value = "";
+  document.getElementById('nombreComentario').value = "";
+  
+  mensajeExito.style.display = "block";
+  
+  setTimeout(() => {
+    mensajeExito.style.display = "none";
+  }, 3000);
+  
+  paginaActual = 1; 
+  renderizarTarjetas(); 
+}
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!localStorage.getItem('misComentarios')) {
+        localStorage.setItem('misComentarios', JSON.stringify([
+          { nombre: "Alan", texto: "¡Excelente calidad!", fecha: "14/07/2026" },
+          { nombre: "Anónimo", texto: "Envío muy rápido.", fecha: "14/07/2026" }
+        ]));
+      }
+      renderizarTarjetas();
+    });
+  </script>
+</body>
+</html>

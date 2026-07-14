@@ -8,107 +8,92 @@
 <body class="light-mode">
 
   <header class="header-principal">
-    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
     <h1>TEKILA</h1>
   </header>
 
-  <div class="redes-flotantes">
-    <h4>@tekila</h4>
-    <div class="contenedor-iconos">
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram">
-      </a>
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook">
-      </a>
-      <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok">
-      </a>
-    </div>
-  </div>
-
-  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
-
   <nav>
-    <div>
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
-    </div>
-    <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catálogo</a>
-    </div>
-    <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
-    </div>
-    <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
-    </div>
-    <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
-      
-    </div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
-
+    <a href="Inicio.html">Inicio</a>
+    <a href="Catalogo.html">Catálogo</a>
+    <a href="Promociones.html">Promociones</a>
+    <a href="Nosotros.html">Nosotros</a>
+    <a href="Contacto.html">Contacto</a>
+        <a href="Comunidad.html">Comunidad</a>
+    <a href="Login.html">Iniciar sesión</a>
+    <a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
   </nav>
   
-  <div class="footer-container" style="flex-direction: column; align-items: center; margin-top: 20px; margin-bottom: 20px;">
+  <div class="footer-container" style="flex-direction: column; align-items: center; margin: 20px 0;">
     <h1>BIENVENIDO ALAN</h1>
   </div>
   
-  <div class="footer-container" style="flex-direction: column; align-items: center; margin-top: 20px; margin-bottom: 20px;">
+  <main style="max-width: 800px; margin: 0 auto; padding: 20px;">
     <div class="caja-info">
       <h2>Mis Datos</h2>
       <p><strong>Nombre:</strong> Alan</p>
-      <p><strong>Dirección:</strong> Calle Palomitas 11</p>
       <p><strong>Correo electrónico:</strong> alna11@gmail.com</p>
-      <p><strong>Fecha de registro:</strong> 25/06/2026</p>
-      <p><strong>Año de nacimiento:</strong> 2005</p>
+      <p><strong>Direccion:</strong>Palomitas #11 Lomas de San Jorge</p>
+      <p><strong>Telefono:</strong> 4493756688</p>
+      <p><strong>Fecha de registro:</strong> 10 de junio 2026</p>
     </div>
-  </div>
 
-  <div class="footer-container" style="flex-direction: column; align-items: center; margin-top: 20px; margin-bottom: 20px;">
-    <div class="caja-info">
-      <h2>Mis compras</h2>
-      <p>Proximamente</p>
-    </div>
-  </div>
+   <div class="caja-info" style="margin-top: 20px;">
+  <h2>Mis comentarios realizados</h2>
+  <table class="tabla-comunidad" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="border: 1px solid #000;">
+        <th style="padding: 10px;">Nombre</th>
+        <th style="padding: 10px;">Comentario</th>
+        <th style="padding: 10px;">Fecha</th>
+      </tr>
+    </thead>
+    <tbody id="tablaPerfil"></tbody>
+  </table>
+</div>
 
-  <div id="mensaje-logout" style="display: none; text-align: center; font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; color: #d9534f;">
-    Sesión terminada
-  </div>
-
-  <div class="botones-container">
-    <button class="btn-detalle" onclick="cerrarSesion()">Cerrar sesión</button>
-  </div>
-   
-  <div class="footer-container">
+  <footer class="footer-container">
     <div class="caja-info">
       <p><strong>Teléfono:</strong> 4493332211</p>
-      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
-      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
-      Fracc. Bona Gens, C.P. 20256<br>
-      Aguascalientes, Ags., México</p>
-      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
-      <p style="margin-top: 15px; font-size: 14px;">
-        <a href="Politicas.html" style="color: #ccc; text-decoration: none; border-bottom: 1px solid #ccc;">Políticas de Compra y Privacidad</a>
-      </p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.</p>
     </div>
-  </div>
+  </footer>
 
   <script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
+    const tbody = document.getElementById('tablaPerfil');
+    lista.forEach(c => {
+      tbody.innerHTML += `
+        <tr style="border: 1px solid #000;">
+          <td style="padding: 10px;">${c.nombre}</td>
+          <td style="padding: 10px;">${c.texto}</td>
+          <td style="padding: 10px;">${c.fecha}</td>
+        </tr>`;
+    });
+  })
+
+
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      const lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
+      const tbody = document.getElementById('tablaPerfil');
+      
+      tbody.innerHTML = "";
+      lista.forEach(c => {
+        tbody.innerHTML += `
+          <tr style="border: 1px solid #000;">
+            <td style="padding: 10px;">${c.nombre}</td>
+            <td style="padding: 10px;">${c.texto}</td>
+            <td style="padding: 10px;">${c.fecha}</td>
+          </tr>`;
+      });
+    });
+
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
       document.body.classList.toggle("light-mode");
     }
-
-    function cerrarSesion() {
-      const mensaje = document.getElementById("mensaje-logout");
-      mensaje.style.display = "block";
-
-      setTimeout(() => {
-        window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/Login.html";
-      }, 1500);
-    }
   </script>
-
 </body>
 </html>

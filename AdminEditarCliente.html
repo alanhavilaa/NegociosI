@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Cliente - TEKILA ADMIN</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .admin-layout { display: flex; justify-content: center; margin: 50px auto; padding: 0 20px; }
+    .form-container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 100%; max-width: 500px; }
+    .dark-mode .form-container { background: #222; color: #fff; }
+    .formulario-grupo { margin-bottom: 20px; }
+    .formulario-grupo label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .formulario-grupo input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    .dark-mode .formulario-grupo input { background: #333; color: #fff; border-color: #555; }
+    .btn-guardar { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; color: white; font-weight: bold; background-color: #848484; margin-right: 10px; }
+    .btn-cancelar { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; color: white; font-weight: bold; background-color: #070707; }
+    #mensajeExito { display: none; background-color: #4CAF50; color: white; text-align: center; padding: 15px; margin-bottom: 20px; border-radius: 5px; font-weight: bold; }
+  </style>
+</head>
+<body class="light-mode">
+  <div class="admin-layout">
+    <div class="form-container">
+      <h2 style="margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px;">Editar Cliente</h2>
+      <div id="mensajeExito">CLIENTE ACTUALIZADO</div>
+      <form id="formEditar" onsubmit="guardarCambios(event)">
+        <input type="hidden" id="clienteId">
+        <div class="formulario-grupo">
+          <label>Nombre:</label>
+          <input type="text" id="nombre" >
+        </div>
+        <div class="formulario-grupo">
+          <label>Correo:</label>
+          <input type="text" id="correo" >
+        </div>
+        <div class="formulario-grupo">
+          <label>Teléfono:</label>
+          <input type="text" id="telefono" >
+        </div>
+        <div style="margin-top: 30px; text-align: right;">
+          <button type="button" class="btn-cancelar" onclick="window.location.href='AdminClientes.html'">Cancelar</button>
+          <button type="submit" class="btn-guardar">Guardar Cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const idEdicion = new URLSearchParams(window.location.search).get('id');
+    let clientes = JSON.parse(localStorage.getItem("clientesTEKILA")) || [];
+
+    window.onload = () => {
+      const cliente = clientes.find(c => String(c.id) === String(idEdicion));
+      if (cliente) {
+        document.getElementById('clienteId').value = cliente.id;
+        document.getElementById('nombre').value = cliente.nombre;
+        document.getElementById('correo').value = cliente.correo;
+        document.getElementById('telefono').value = cliente.telefono;
+      }
+    };
+
+    function guardarCambios(e) {
+      e.preventDefault();
+      const idForm = document.getElementById('clienteId').value;
+      const index = clientes.findIndex(c => String(c.id) === String(idForm));
+      
+      if (index !== -1) {
+        clientes[index].nombre = document.getElementById('nombre').value;
+        clientes[index].correo = document.getElementById('correo').value;
+        clientes[index].telefono = document.getElementById('telefono').value;
+        localStorage.setItem("clientesTEKILA", JSON.stringify(clientes));
+        
+        document.getElementById('formEditar').style.display = 'none';
+        document.getElementById('mensajeExito').style.display = 'block';
+        setTimeout(() => window.location.href = 'AdminClientes.html', 1500);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -2,16 +2,61 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Inicio</title>
+  <title>Inicio | TEKILA</title>
   <link rel="stylesheet" href="estilo.css">
+  <style>
+    .header-editorial {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 20px 20px;
+    }
+    .header-editorial img {
+      width: 40px;
+      margin-bottom: 15px;
+    }
+    .header-editorial h1 {
+      font-size: 4.5rem; 
+      margin: 0;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
 </head>
 <body class="light-mode">
 
-  <header class="header-principal">
-    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <header class="header-editorial">
+    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave">
     <h1>TEKILA</h1>
   </header>
   
+  <nav>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
+    </div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catálogo</a>
+    </div>
+        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
+
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
+    </div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
+    </div>
+    <div>    <a href="Comunidad.html">Comunidad</a></div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
+    </div>
+    <div class="dropdown">
+      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
+    </div>
+  </nav>
+
   <div class="redes-flotantes">
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
@@ -26,28 +71,6 @@
       </a>
     </div>
   </div>
-
-  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
-
-  <nav>
-    <div>
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
-    </div>
-    <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catalogo</a>
-    </div>
-    <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
-    </div>
-    <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
-    </div>
-    <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
-    </div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
-
-  </nav>
 
   <div id="cookie-banner">
     <p>Usamos cookies para mejorar tu experiencia, analizar el tráfico y mostrarte publicidad relevante. Puedes aceptar todas, rechazarlas o configurarlas a tu medida.</p>
@@ -93,10 +116,10 @@
     </div>
   </div>
 
-
   <div class="hero-section">
     <a href="C:/Users/eduar/Desktop/formulario.html" class="btn-central">Ver Productos</a>
   </div>
+  
   <a href="Escaparate.html" class="cuadro-exclusivo">
     <div class="exclusivo-tag">Exclusivo</div>
     <img src="C:\Users\eduar\Desktop\NegociosI\Escaparate\escaparate1.jpg" alt="Última Reserva">
@@ -169,7 +192,6 @@
         banner.style.display = "none";
       };
     });
-  </script>
   </script>
 
 </body>
