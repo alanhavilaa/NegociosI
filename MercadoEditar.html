@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Publicación - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body class="light-mode">
+  <header class="header-principal">
+    <img src="Imagenes/205164.png" alt="Logo" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+  
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="Catalogo.html">Catálogo</a>
+    <a href="Promociones.html">Promociones</a>
+    <a href="Nosotros.html">Nosotros</a>
+    <a href="Contacto.html">Contacto</a>
+    <a href="Comunidad.html">Comunidad</a>
+    <a href="Login.html">Iniciar sesión</a>
+    <a href="Carrito.html" style="font-weight: bold;">Carrito</a>
+  </nav>
+
+  <main style="max-width: 600px; margin: 40px auto; padding: 20px;">
+    <div class="caja-info" style="text-align: left;">
+      <h2>EDITAR PUBLICACIÓN</h2>
+      
+      <form id="formularioEditar" onsubmit="guardarEdicion(event)" class="formulario-contacto" style="max-width: 100%; gap: 5px;">
+        <input type="hidden" id="prodId">
+        
+        <label>Nombre:</label>
+        <input type="text" id="prodNombre" placeholder="Nombre del producto">
+        
+        <label>Precio:</label>
+        <input type="text" id="prodPrecio" placeholder="Precio">
+        
+        <label>Categoría:</label>
+        <select id="prodCategoria" style="width:100%; padding: 10px 15px; border: 1px solid #000; background: transparent; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; outline: none; margin-bottom: 15px;">
+          <option value="Reposado">Reposado</option>
+          <option value="Blanco">Blanco</option>
+          <option value="Añejo">Añejo</option>
+          <option value="Premium">Premium</option>
+        </select>
+
+        <label>URL Imagen:</label>
+        <input type="text" id="prodImagen" placeholder="URL de la imagen">
+
+        <label>Descripción:</label>
+        <textarea id="prodDescripcion" style="width:100%; padding:10px 15px; border:1px solid #000; background:transparent; font-family:'Montserrat', sans-serif; font-size:0.9rem; outline:none; resize:vertical; margin-bottom: 20px;" rows="4"></textarea>
+
+        <div style="display: flex; gap: 15px; width: 100%;">
+          <button type="submit" class="btn-detalle" style="flex:1;">GUARDAR CAMBIOS</button>
+          <button type="button" class="btn-detalle" style="flex:1;" onclick="window.location.href='MercadoGestion.html'">CANCELAR</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  
+  <script>
+    window.onload = function() {
+      const parametros = new URLSearchParams(window.location.search);
+      const idPub = parametros.get('id');
+      const lista = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+      const pubActual = lista.find(p => p.id == idPub);
+
+      if (pubActual) {
+        document.getElementById('prodId').value = pubActual.id;
+        document.getElementById('prodNombre').value = pubActual.nombre || '';
+        document.getElementById('prodPrecio').value = pubActual.precio || '';
+        document.getElementById('prodCategoria').value = pubActual.categoria || 'Reposado';
+        document.getElementById('prodImagen').value = pubActual.imagen || '';
+        document.getElementById('prodDescripcion').value = pubActual.descripcion || '';
+      }
+    };
+
+    function guardarEdicion(event) {
+      event.preventDefault(); 
+      const idForm = document.getElementById('prodId').value;
+      let lista = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+      const index = lista.findIndex(p => p.id == idForm);
+      
+      if(index !== -1) {
+        lista[index].nombre = document.getElementById('prodNombre').value;
+        lista[index].precio = document.getElementById('prodPrecio').value;
+        lista[index].categoria = document.getElementById('prodCategoria').value;
+        lista[index].imagen = document.getElementById('prodImagen').value;
+        lista[index].descripcion = document.getElementById('prodDescripcion').value;
+        
+        localStorage.setItem('mercadoTekila', JSON.stringify(lista));
+        window.location.href = 'MercadoGestion.html';
+      }
+    }
+  </script>
+</body>
+</html>

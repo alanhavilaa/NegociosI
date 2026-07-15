@@ -696,6 +696,9 @@ body.dark-mode .btn-save:hover { background-color: transparent; color: #ffffff; 
 
 
 .cuadro-exclusivo { position: fixed; bottom: 30px; left: 30px; background-color: #ffffff; display: flex; align-items: center; gap: 15px; padding: 15px; border-radius: 0; text-decoration: none; z-index: 998; transition: transform 0.3s ease; border: 1px solid #000000; }
+.cuadro-mercado{
+    left: 360px;   
+}
 body.dark-mode .cuadro-exclusivo { background-color: #121212; border-color: #ffffff; }
 .cuadro-exclusivo:hover { transform: translateY(-5px); }
 .cuadro-exclusivo img { width: 50px; height: 70px; border-radius: 0; object-fit: cover; }

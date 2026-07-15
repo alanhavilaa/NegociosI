@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mercado - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body class="light-mode">
+  <header class="header-principal">
+    <img src="Imagenes/205164.png" alt="Logo" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+  
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="Catalogo.html">Catálogo</a>
+    <a href="Promociones.html">Promociones</a>
+    <a href="Nosotros.html">Nosotros</a>
+    <a href="Contacto.html">Contacto</a>
+    <a href="Comunidad.html">Comunidad</a>
+    <a href="Login.html">Iniciar sesión</a>
+    <a href="Carrito.html" style="font-weight: bold;">Carrito</a>
+  </nav>
+
+  <main style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 30px; gap: 10px; flex-wrap: wrap; align-items: center;">
+      <h2>MERCADO COMUNITARIO</h2>
+      <div style="display: flex; gap: 10px;">
+        <button class="btn-detalle" onclick="window.location.href='MercadoGestion.html'">Ver Mis Publicaciones</button>
+        <button class="btn-detalle" onclick="window.location.href='MercadoPublicar.html'">Nueva Publicación</button>
+      </div>
+    </div>
+
+    <div class="catalogo-vertical" id="contenedorMercado" style="display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; flex-direction: row; margin-top: 20px;"></div>
+  </main>
+
+  <div id="mensaje-flotante" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #333; color: #fff; padding: 15px 25px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; font-weight: bold; border-left: 5px solid #5cb85c;"></div>
+
+  <script>
+    function inicializarProductosPorDefault() {
+      let pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+      
+      if (pubs.length === 0 || pubs.some(p => p.imagen.includes('.png'))) {
+        pubs = [
+          {
+            id: 1001,
+            nombre: "Botella Mundial",
+            precio: 450.00,
+            categoria: "Reposado",
+            imagen: "Imagenes/Mercado1.webp",
+            descripcion: "Botella conmemorativa del mundial.",
+            autor: "Dexter Morgan"
+          },
+          {
+            id: 1002,
+            nombre: "Jose Cuervo Tradicional",
+            precio: 820.00,
+            categoria: "Premium",
+            imagen: "Imagenes/Mercado2.webp",
+            descripcion: "Primera linea.",
+            autor: "Debra Morgan"
+          },
+          {
+            id: 1003,
+            nombre: "Silver Patron",
+            precio: 1100.00,
+            categoria: "Cristal",
+            imagen: "Imagenes/Mercado3.jpg",
+            descripcion: "Edición limitada que destaca por sus tonos de vainilla, miel y roble tostado.",
+            autor: "Arthur Mitchell"
+          },
+          {
+            id: 1004,
+            nombre: "Corralejo Azul",
+            precio: 3400.00,
+            categoria: "Reposado",
+            imagen: "Imagenes/Mercado4.jpg",
+            descripcion: "Licor ultra premium en una licorera de cerámica artesanal pintada a mano.",
+            autor: "James Doakes"
+          }
+        ];
+        localStorage.setItem('mercadoTekila', JSON.stringify(pubs));
+      }
+    }
+
+    function renderizarMercado() {
+      inicializarProductosPorDefault();
+      
+      const pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+      const contenedor = document.getElementById('contenedorMercado');
+      contenedor.innerHTML = "";
+      
+      pubs.forEach(p => {
+        const productoString = JSON.stringify(p).replace(/'/g, "&apos;");
+        contenedor.innerHTML += `
+          <div class="producto-card" style="border:1px solid #000000; padding:20px; width:280px;">
+            <img src="${p.imagen}" class="imagenproducto" style="width:100%; height:200px; object-fit:contain; margin-bottom: 15px;">
+            <h3>${p.nombre || 'Sin nombre'}</h3>
+            <p style="margin:5px 0; font-size: 0.85rem;"><strong>Categoría:</strong> ${p.categoria || 'Sin categoría'}</p>
+            <p style="margin:5px 0; font-size:1.1rem; font-weight: bold; text-transform: uppercase;"><strong>$${p.precio ? parseFloat(p.precio).toFixed(2) : '0.00'}</strong></p>
+            <p style="font-size:0.85rem; margin-bottom: 15px;">${p.descripcion || ''}</p>
+            <p style="font-size:0.75rem; color:#888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Vendedor: ${p.autor}</p>
+            <button class="btn-detalle" style="width:100%;" onclick='agregarAlCarrito(${productoString})'>AÑADIR AL CARRITO</button>
+          </div>
+        `;
+      });
+    }
+
+    // Corrección crítica: Se reemplaza 'text' por 'mensaje'
+    function mostrarNotificacion(texto) {
+      const mensaje = document.getElementById('mensaje-flotante');
+      mensaje.textContent = texto;
+      mensaje.style.display = 'block';
+      setTimeout(() => {
+        mensaje.style.display = 'none';
+      }, 3000);
+    }
+
+    function agregarAlCarrito(prod) {
+      let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
+      const index = carrito.findIndex(item => item.id === prod.id);
+      
+      if(index !== -1) {
+        carrito[index].cantidad += 1;
+      } else {
+        carrito.push({
+          id: prod.id,
+          nombre: prod.nombre || 'Producto Mercado',
+          precio: parseFloat(prod.precio) || 0,
+          imagen: prod.imagen || 'Imagenes/placeholder.png',
+          cantidad: 1
+        });
+      }
+      
+      localStorage.setItem('carritoTekila', JSON.stringify(carrito));
+      mostrarNotificacion("producto agregado");
+    }
+    
+    document.addEventListener("DOMContentLoaded", renderizarMercado);
+  </script>
+</body>
+</html>
