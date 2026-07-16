@@ -577,6 +577,20 @@ body.dark-mode .nosotros-container { border-color: #ffffff; }
   margin-right: 5px;
 }
 
+ #mensajeExito {
+      display: none;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .dark-mode #mensajeExito {
+      background-color: #45a049;
+    }
+
 
 #mensaje-exito, .mensaje-exito {
   display: none; 

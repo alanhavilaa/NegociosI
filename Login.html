@@ -29,10 +29,9 @@
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a></div>
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a></div>
-       <div> <a href="Comunidad.html">Comunidad</a></div>
+    <div> <a href="Comunidad.html">Comunidad</a></div>
     <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a></div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
-
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
   </nav>
 
   <div class="footer-container">
@@ -52,9 +51,9 @@
             <label for="acepto">Recordar Contraseña</label>
           </div>
           <br>
-                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-
-          <button type="submit" class="btn-detalle">ENTRAR</button><br><br></div>
+          <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <button type="submit" class="btn-detalle">ENTRAR</button><br><br>
+          </div>
           <br><br>
           <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
             <a href="C:/Users/eduar/Desktop/NegociosI/Registro.html" class="btn-detalle">Registrarme</a>
@@ -88,8 +87,19 @@
 
     function enviarFormulario(event) {
       event.preventDefault(); 
+      localStorage.setItem('sesionActiva', 'true');
       window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+        }
+      });
+    });
   </script>
 
 </body>

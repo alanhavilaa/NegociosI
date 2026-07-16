@@ -25,6 +25,8 @@
   <main style="max-width: 600px; margin: 40px auto; padding: 20px;">
     <div class="caja-info" style="text-align: left;">
       <h2>EDITAR PUBLICACIÓN</h2>
+            <div id="mensajeExito">PUBLICACIÓN ACTUALIZADA</div>
+
       
       <form id="formularioEditar" onsubmit="guardarEdicion(event)" class="formulario-contacto" style="max-width: 100%; gap: 5px;">
         <input type="hidden" id="prodId">
@@ -74,23 +76,28 @@
       }
     };
 
-    function guardarEdicion(event) {
-      event.preventDefault(); 
-      const idForm = document.getElementById('prodId').value;
-      let lista = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
-      const index = lista.findIndex(p => p.id == idForm);
-      
-      if(index !== -1) {
-        lista[index].nombre = document.getElementById('prodNombre').value;
-        lista[index].precio = document.getElementById('prodPrecio').value;
-        lista[index].categoria = document.getElementById('prodCategoria').value;
-        lista[index].imagen = document.getElementById('prodImagen').value;
-        lista[index].descripcion = document.getElementById('prodDescripcion').value;
-        
-        localStorage.setItem('mercadoTekila', JSON.stringify(lista));
-        window.location.href = 'MercadoGestion.html';
-      }
-    }
+ function guardarEdicion(event) {
+  event.preventDefault(); 
+  const idForm = document.getElementById('prodId').value;
+  let lista = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+  const index = lista.findIndex(p => p.id == idForm);
+  
+  if(index !== -1) {
+    lista[index].nombre = document.getElementById('prodNombre').value;
+    lista[index].precio = document.getElementById('prodPrecio').value;
+    lista[index].categoria = document.getElementById('prodCategoria').value;
+    lista[index].imagen = document.getElementById('prodImagen').value;
+    lista[index].descripcion = document.getElementById('prodDescripcion').value;
+    
+    localStorage.setItem('mercadoTekila', JSON.stringify(lista));
+    
+    document.getElementById('mensajeExito').style.display = 'block';
+    
+    setTimeout(() => {
+      window.location.href = 'MercadoGestion.html';
+    }, 2000);
+  }
+}
   </script>
 </body>
 </html>

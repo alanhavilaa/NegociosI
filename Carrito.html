@@ -252,14 +252,24 @@
       if (input.value.trim() !== '') {
         mostrarNotificacion("Promoción aplicada", "exito");
         input.value = '';
-      } else {
-        mostrarNotificacion("Por favor ingresa un código", "alerta");
-      }
+      } else{mostrarNotificacion("Promoción aplicada", "exito");}
+
     }
 
     window.onload = function() {
       renderizarCarrito();
     };
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const enlaces = document.querySelectorAll('nav a');
+    enlaces.forEach(link => {
+      if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+        link.textContent = "Perfil";
+        link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+      }
+    })});
+
+    
   </script>
 </body>
 </html>

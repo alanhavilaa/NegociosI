@@ -55,6 +55,8 @@
 </div>
 
   <div class="catalogo-vertical" id="catalogo-productos">
+
+    
     
     <div class="producto-card" data-etiquetas="reposado don-julio">
       <h3>Don Julio Reposado</h3>
@@ -117,6 +119,16 @@
     </div>
 
   </div> 
+
+   
+  <a href="Subasta.html" class="cuadro-exclusivo">
+    <div class="exclusivo-tag">Subasta</div>
+    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes\pedroinfante.jpg" alt="Botella Pedro Infante">
+    <div class="exclusivo-info">
+      <h4>Prodcto raro en subasta</h4>
+      <p>VER PRODUCTO</p>
+    </div>
+  </a>
    
   <div class="footer-container">
     <div class="caja-info">
@@ -172,6 +184,15 @@
       document.getElementById("buscador").value = etiqueta;
       filtrarYOrdenar(); 
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const enlaces = document.querySelectorAll('nav a');
+    enlaces.forEach(link => {
+      if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+        link.textContent = "Perfil";
+        link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+      }
+    })});
   </script>
 
 </body>

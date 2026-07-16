@@ -4,6 +4,60 @@
   <meta charset="UTF-8">
   <title>Mis Publicaciones - TEKILA</title>
   <link rel="stylesheet" href="estilo.css">
+  <style>
+    
+    .mensaje-flotante {
+      display: none; 
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-weight: bold;
+      animation: aparecer 0.3s ease-out;
+    }
+    .mensaje-flotante.exito {
+      border-left: 5px solid #5cb85c;
+    }
+    .mensaje-flotante.alerta {
+      border-left: 5px solid #d9534f;
+    }
+
+    .toast-btn-confirmar {
+      background: #d9534f;
+      color: white;
+      border: none;
+      padding: 4px 10px;
+      margin-left: 15px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    .toast-btn-confirmar:hover {
+      background: #c9302c;
+    }
+    .toast-btn-cancelar {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      padding: 3px 8px;
+      margin-left: 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .toast-btn-cancelar:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    @keyframes aparecer {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
 </head>
 <body class="light-mode">
   <header class="header-principal">
@@ -26,7 +80,7 @@
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; gap: 10px; flex-wrap: wrap;">
       <h2>MIS PUBLICACIONES</h2>
       <div style="display: flex; gap: 10px;">
-        <button class="btn-detalle"  onclick="window.location.href='Mercado.html'">Volver al Mercado</button>
+        <button class="btn-detalle" onclick="window.location.href='Mercado.html'">Volver al Mercado</button>
         <button class="btn-detalle" onclick="window.location.href='MercadoPublicar.html'">Nueva Publicación</button>
       </div>
     </div>
@@ -45,45 +99,86 @@
     </table>
   </main>
 
+  <div id="mensaje-flotante" class="mensaje-flotante"></div>
+
   <script>
+    let idProductoAEliminar = null;
+
     function renderizarMisPubs() {
-      let pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
-      let tbody = document.getElementById('listaMisPubs');
+      const pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+      const tbody = document.getElementById('listaMisPubs');
       tbody.innerHTML = "";
       
-      let misPubs = pubs.filter(p => p.autor === "Alan");
-
-      if(misPubs.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">No has publicado ningún producto aún.</td></tr>`;
+      const misPubs = pubs.filter(p => (p.autor || "").trim().toLowerCase() === "alan");
+      
+      if (!misPubs.length) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:30px;">No has publicado ningún producto aún.</td></tr>';
         return;
       }
-
+      
       misPubs.forEach(p => {
-        tbody.innerHTML += `
-          <tr>
-            <td><img src="${p.imagen || 'Imagenes/placeholder.png'}" style="width:50px; height:50px; object-fit:contain;"></td>
-            <td><strong>${p.nombre || 'Sin nombre'}</strong></td>
-            <td>$${p.precio ? parseFloat(p.precio).toFixed(2) : '0.00'}</td>
-            <td>${p.categoria || 'Sin categoría'}</td>
-            <td>
-              <div style="display:flex; gap:10px; justify-content: center;">
-                <button class="cookie-btn" onclick="window.location.href='MercadoEditar.html?id=${p.id}'">Editar</button>
-                <button class="btn-eliminar" style="padding: 5px 15px; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase;" onclick="eliminarMiPub(${p.id})">Borrar</button>
-              </div>
-            </td>
-          </tr>
-        `;
+        tbody.innerHTML += `<tr>
+          <td><img src="${p.imagen || 'Imagenes/placeholder.png'}" style="width:50px;height:50px;object-fit:contain;"></td>
+          <td><strong>${p.nombre}</strong></td>
+          <td>$${parseFloat(p.precio || 0).toFixed(2)}</td>
+          <td>${p.categoria}</td>
+          <td>
+            <div style="display:flex;gap:10px;justify-content:center;">
+              <button class="cookie-btn" onclick="window.location.href='MercadoEditar.html?id=${p.id}'">Editar</button>
+              <button class="btn-eliminar" style="padding:5px 15px;" onclick="solicitarEliminarToast('${p.id}')">Borrar</button>
+            </div>
+          </td>
+        </tr>`;
       });
     }
 
-    function eliminarMiPub(id) {
-      let pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
-      pubs = pubs.filter(p => p.id !== id);
-      localStorage.setItem('mercadoTekila', JSON.stringify(pubs));
-      renderizarMisPubs();
+    function solicitarEliminarToast(id) {
+      idProductoAEliminar = id;
+      const pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+      const prod = pubs.find(p => p.id == id);
+      const nombreProd = prod ? prod.nombre : 'este producto';
+
+      const toast = document.getElementById('mensaje-flotante');
+      toast.className = "mensaje-flotante alerta"; 
+      
+      toast.innerHTML = `
+        <span>¿ELIMINAR ${nombreProd.toUpperCase()}?</span>
+        <button class="toast-btn-confirmar" onclick="confirmarEliminacion()">Eliminar</button>
+        <button class="toast-btn-cancelar" onclick="cancelarEliminacion()">Cancelar</button>
+      `;
+      toast.style.display = 'block';
     }
 
-    document.addEventListener("DOMContentLoaded", renderizarMisPubs);
+    function confirmarEliminacion() {
+      if (idProductoAEliminar !== null) {
+        let pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+        pubs = pubs.filter(p => p.id != idProductoAEliminar);
+        localStorage.setItem('mercadoTekila', JSON.stringify(pubs));
+        
+        idProductoAEliminar = null;
+        renderizarMisPubs();
+        
+        mostrarNotificacionEstandar("PUBLICACIÓN ELIMINADA", "exito");
+      }
+    }
+
+    function cancelarEliminacion() {
+      const toast = document.getElementById('mensaje-flotante');
+      toast.style.display = 'none';
+      idProductoAEliminar = null;
+    }
+
+    function mostrarNotificacionEstandar(texto, tipoClase) {
+      const toast = document.getElementById('mensaje-flotante');
+      toast.textContent = texto;
+      toast.className = `mensaje-flotante ${tipoClase}`; 
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    }
+
+    document.addEventListener('DOMContentLoaded', renderizarMisPubs);
   </script>
 </body>
 </html>

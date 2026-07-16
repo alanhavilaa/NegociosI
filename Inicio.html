@@ -40,8 +40,7 @@
     <div class="dropdown">
       <a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catálogo</a>
     </div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
-
+    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
     <div class="dropdown">
       <a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
     </div>
@@ -117,12 +116,9 @@
   </div>
 
   <div class="hero-section">
-    <a href="C:/Users/eduar/Desktop/formulario.html" class="btn-central">Ver Productos</a>
+    <a href="Catalogo.html" class="btn-central">Ver Productos</a>
   </div>
 
-
-
-  
   <a href="Escaparate.html" class="cuadro-exclusivo">
     <div class="exclusivo-tag">Exclusivo</div>
     <img src="C:\Users\eduar\Desktop\NegociosI\Escaparate\escaparate1.jpg" alt="Última Reserva">
@@ -139,7 +135,7 @@
         <h4>Mercado</h4>
         <p>OFRECE PRODCUTOS</p>
     </div>
-</a>
+  </a>
 
   <div class="footer-container">
     <div class="caja-info">
@@ -203,6 +199,14 @@
         modal.style.display = "none";
         banner.style.display = "none";
       };
+
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+        }
+      });
     });
   </script>
 

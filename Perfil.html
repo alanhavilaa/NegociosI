@@ -18,7 +18,7 @@
     <a href="Promociones.html">Promociones</a>
     <a href="Nosotros.html">Nosotros</a>
     <a href="Contacto.html">Contacto</a>
-        <a href="Comunidad.html">Comunidad</a>
+    <a href="Comunidad.html">Comunidad</a>
     <a href="Login.html">Iniciar sesión</a>
     <a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
   </nav>
@@ -35,21 +35,25 @@
       <p><strong>Direccion:</strong>Palomitas #11 Lomas de San Jorge</p>
       <p><strong>Telefono:</strong> 4493756688</p>
       <p><strong>Fecha de registro:</strong> 10 de junio 2026</p>
+      
+      <br>
+      <button onclick="cerrarSesion()" class="btn-detalle" style="background-color: #1f1e1e; border: none; color: white;">Cerrar sesión</button>
     </div>
 
-   <div class="caja-info" style="margin-top: 20px;">
-  <h2>Mis comentarios realizados</h2>
-  <table class="tabla-comunidad" style="width: 100%; border-collapse: collapse;">
-    <thead>
-      <tr style="border: 1px solid #000;">
-        <th style="padding: 10px;">Nombre</th>
-        <th style="padding: 10px;">Comentario</th>
-        <th style="padding: 10px;">Fecha</th>
-      </tr>
-    </thead>
-    <tbody id="tablaPerfil"></tbody>
-  </table>
-</div>
+    <div class="caja-info" style="margin-top: 20px;">
+      <h2>Mis comentarios realizados</h2>
+      <table class="tabla-comunidad" style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="border: 1px solid #000;">
+            <th style="padding: 10px;">Nombre</th>
+            <th style="padding: 10px;">Comentario</th>
+            <th style="padding: 10px;">Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="tablaPerfil"></tbody>
+      </table>
+    </div>
+  </main>
 
   <footer class="footer-container">
     <div class="caja-info">
@@ -59,22 +63,6 @@
   </footer>
 
   <script>
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
-    const tbody = document.getElementById('tablaPerfil');
-    lista.forEach(c => {
-      tbody.innerHTML += `
-        <tr style="border: 1px solid #000;">
-          <td style="padding: 10px;">${c.nombre}</td>
-          <td style="padding: 10px;">${c.texto}</td>
-          <td style="padding: 10px;">${c.fecha}</td>
-        </tr>`;
-    });
-  })
-
-
-    
     document.addEventListener("DOMContentLoaded", () => {
       const lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
       const tbody = document.getElementById('tablaPerfil');
@@ -88,7 +76,20 @@
             <td style="padding: 10px;">${c.fecha}</td>
           </tr>`;
       });
+
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "Perfil.html";
+        }
+      });
     });
+
+    function cerrarSesion() {
+      localStorage.removeItem('sesionActiva');
+      window.location.href = "Login.html";
+    }
 
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
