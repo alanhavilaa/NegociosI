@@ -29,30 +29,30 @@
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
   <header class="header-editorial">
-    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave">
+    <img src="Imagenes/205164.png" alt="Logo Agave">
     <h1>TEKILA</h1>
   </header>
   
   <nav>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a>
+      <a href="Inicio.html">Inicio</a>
     </div>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catálogo</a>
+      <a href="Catalogo.html">Catálogo</a>
     </div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
+    <div class="dropdown"><a href="Promociones.html">Promociones</a></div>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a>
+      <a href="Nosotros.html">Nosotros</a>
     </div>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a>
+      <a href="Contacto.html">Contacto</a>
     </div>
     <div>    <a href="Comunidad.html">Comunidad</a></div>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a>
+      <a href="Login.html">Iniciar sesión</a>
     </div>
     <div class="dropdown">
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
+      <a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
     </div>
   </nav>
 
@@ -60,13 +60,13 @@
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
       <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram">
+        <img src="Imagenes/instagram.jpg" alt="Instagram">
       </a>
       <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook">
+        <img src="Imagenes/facebook.webp" alt="Facebook">
       </a>
       <a href="#">
-        <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok">
+        <img src="Imagenes/tiktok.png" alt="TikTok">
       </a>
     </div>
   </div>
@@ -121,7 +121,7 @@
 
   <a href="Escaparate.html" class="cuadro-exclusivo">
     <div class="exclusivo-tag">Exclusivo</div>
-    <img src="C:\Users\eduar\Desktop\NegociosI\Escaparate\escaparate1.jpg" alt="Última Reserva">
+    <img src="Escaparate\escaparate1.jpg" alt="Última Reserva">
     <div class="exclusivo-info">
       <h4>Don Julio Última Reserva</h4>
       <p>VER PRODUCTO</p>
@@ -130,7 +130,7 @@
 
   <a href="Mercado.html" class="cuadro-exclusivo cuadro-mercado">
     <div class="exclusivo-tag">Mercado</div>
-    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes\intercambio.png" alt="Mercado">
+    <img src="Imagenes\intercambio.png" alt="Mercado">
     <div class="exclusivo-info">
         <h4>Mercado</h4>
         <p>OFRECE PRODCUTOS</p>
@@ -204,7 +204,7 @@
       enlaces.forEach(link => {
         if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
           link.textContent = "Perfil";
-          link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+          link.href = "Perfil.html";
         }
       });
     });

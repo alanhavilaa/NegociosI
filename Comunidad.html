@@ -43,9 +43,9 @@
     <h2>DEJA TU COMENTARIO</h2>
     <div style="display: flex; flex-direction: column; gap: 15px;">
       <input type="text" id="nombreComentario" placeholder="Tu nombre (opcional)">
-      <textarea id="textoComentario" placeholder="Escribe tu opinión..." style="height: 100px; padding: 10px; border: 1px solid #000;"></textarea>
+      <textarea id="textoComentario" placeholder="Escribe tu opinión... (opcional)" style="height: 100px; padding: 10px; border: 1px solid #000;"></textarea>
       <button class="btn-detalle" onclick="guardarComentario()">PUBLICAR</button>
-<div id="mensaje-exito" class="mensaje-exito">COMENTARIO PUBLICADO</div>
+      <div id="mensaje-exito" class="mensaje-exito">COMENTARIO PUBLICADO</div>
     </div>
 
     <h2 style="margin-top: 50px;">COMENTARIOS PÚBLICOS</h2>
@@ -111,46 +111,54 @@
     }
 
     function guardarComentario() {
-  const nombre = document.getElementById('nombreComentario').value || "Anónimo";
-  const texto = document.getElementById('textoComentario').value;
-  const mensajeExito = document.getElementById('mensaje-exito'); 
-  
+      const nombre = document.getElementById('nombreComentario').value.trim() || "Anónimo";
+      const texto = document.getElementById('textoComentario').value.trim();
+      const mensajeExito = document.getElementById('mensaje-exito'); 
 
-  let lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
-  lista.push({ nombre, texto, fecha: new Date().toLocaleDateString() });
-  
-  localStorage.setItem('misComentarios', JSON.stringify(lista));
-  
-  document.getElementById('textoComentario').value = "";
-  document.getElementById('nombreComentario').value = "";
-  
-  mensajeExito.style.display = "block";
-  
-  setTimeout(() => {
-    mensajeExito.style.display = "none";
-  }, 3000);
-  
-  paginaActual = 1; 
-  renderizarTarjetas(); 
-}
+      const estaLogueado = localStorage.getItem('sesionActiva') === 'true';
+
+      let lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
+      lista.push({ 
+        nombre, 
+        texto, 
+        fecha: new Date().toLocaleDateString(),
+        esPropio: estaLogueado 
+      });
+      
+      localStorage.setItem('misComentarios', JSON.stringify(lista));
+      
+      document.getElementById('textoComentario').value = "";
+      document.getElementById('nombreComentario').value = "";
+      
+      mensajeExito.style.display = "block";
+      
+      setTimeout(() => {
+        mensajeExito.style.display = "none";
+      }, 3000);
+      
+      paginaActual = 1; 
+      renderizarTarjetas(); 
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       if (!localStorage.getItem('misComentarios')) {
         localStorage.setItem('misComentarios', JSON.stringify([
-          { nombre: "Alan", texto: "¡Excelente calidad!", fecha: "14/07/2026" },
-          { nombre: "Anónimo", texto: "Envío muy rápido.", fecha: "14/07/2026" }
+          { nombre: "Alan", texto: "¡Excelente calidad!", fecha: "14/07/2026", esPropio: false },
+          { nombre: "Anónimo", texto: "Envío muy rápido.", fecha: "14/07/2026", esPropio: false }
         ]));
       }
       renderizarTarjetas();
     });
 
-     document.addEventListener("DOMContentLoaded", () => {
-    const enlaces = document.querySelectorAll('nav a');
-    enlaces.forEach(link => {
-      if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
-        link.textContent = "Perfil";
-        link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
-      }
-    })});
+    document.addEventListener("DOMContentLoaded", () => {
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+        }
+      });
+    });
   </script>
 </body>
 </html>
