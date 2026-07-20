@@ -42,7 +42,7 @@
     
     <div class="producto-detalle-container">
       <div class="caja-info">
-        <p><strong>$1800.00</strong></p>
+        <p><strong>$1550.00</strong></p>
         <p>Destacado entre los tequilas de México surge Don Julio Reposado, con un perfil sedoso y cálido, con una esencia de fruta seca, nueces y manzana acaramelada, sus notas elegantes y suaves, con toques de chocolate obscuro, vainilla y canela, lo vuelven en la bebida ideal para disfrutarse solo o en las rocas y con platillos mexicanos.</p>
       </div>
     </div>
@@ -86,10 +86,7 @@
       const input = document.getElementById('cantidad');
       let valorActual = parseInt(input.value) || 1;
       let nuevoValor = valorActual + cambio;
-      
-      if (nuevoValor < 1) {
-        nuevoValor = 1;
-      }
+      if (nuevoValor < 1) nuevoValor = 1;
       input.value = nuevoValor;
     }
 
@@ -151,12 +148,15 @@
         const maximoMostrar = productosSimilares.slice(0, 3);
 
         maximoMostrar.forEach(prod => {
+          const rutaImagen = prod.imagen.startsWith('../') ? prod.imagen : `../${prod.imagen}`;
+          const urlAjustada = prod.url.includes('/') ? prod.url.split('/').pop() : prod.url;
+
           const tarjetaHTML = `
             <div class="producto-card">
               <h3>${prod.nombre}</h3>
-              <img src="../${prod.imagen}" alt="${prod.nombre}" class="imagenproducto" style="height: 350px;">
+              <img src="${rutaImagen}" alt="${prod.nombre}" class="imagenproducto" style="height: 350px;">
               <p>$${prod.precio.toFixed(2)}</p>
-              <a href="../${prod.url}" class="btn-detalle">VER DETALLE</a>
+              <a href="${urlAjustada}" class="btn-detalle">VER DETALLE</a>
             </div>
           `;
           contenedor.innerHTML += tarjetaHTML;

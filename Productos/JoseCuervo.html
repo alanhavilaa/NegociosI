@@ -86,10 +86,7 @@
       const input = document.getElementById('cantidad');
       let valorActual = parseInt(input.value) || 1;
       let nuevoValor = valorActual + cambio;
-      
-      if (nuevoValor < 1) {
-        nuevoValor = 1;
-      }
+      if (nuevoValor < 1) nuevoValor = 1;
       input.value = nuevoValor;
     }
 
@@ -151,12 +148,15 @@
         const maximoMostrar = productosSimilares.slice(0, 3);
 
         maximoMostrar.forEach(prod => {
+          const rutaImagen = prod.imagen.startsWith('../') ? prod.imagen : `../${prod.imagen}`;
+          const urlAjustada = prod.url.includes('/') ? prod.url.split('/').pop() : prod.url;
+
           const tarjetaHTML = `
             <div class="producto-card">
               <h3>${prod.nombre}</h3>
-              <img src="../${prod.imagen}" alt="${prod.nombre}" class="imagenproducto" style="height: 350px;">
+              <img src="${rutaImagen}" alt="${prod.nombre}" class="imagenproducto" style="height: 350px;">
               <p>$${prod.precio.toFixed(2)}</p>
-              <a href="../${prod.url}" class="btn-detalle">VER DETALLE</a>
+              <a href="${urlAjustada}" class="btn-detalle">VER DETALLE</a>
             </div>
           `;
           contenedor.innerHTML += tarjetaHTML;
