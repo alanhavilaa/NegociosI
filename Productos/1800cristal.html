@@ -3,41 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>1800 Cristal - TEKILA</title>
-  <link rel="stylesheet" href="file:///C:/Users/eduar/Desktop/NegociosI/estilo.css">
+  <link rel="stylesheet" href="../estilo.css">
 </head>
 <body class="light-mode">
 
    <header class="header-principal">
-    <img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <img src="../Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
     <h1>TEKILA</h1>
   </header>
 
   <div class="redes-flotantes">
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
-      <a href="#"><img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/instagram.jpg" alt="Instagram"></a>
-      <a href="#"><img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/facebook.webp" alt="Facebook"></a>
-      <a href="#"><img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/tiktok.png" alt="TikTok"></a>
+      <a href="#"><img src="../Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="../Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="../Imagenes/tiktok.png" alt="TikTok"></a>
     </div>
   </div>
 
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
   <nav>
-    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catálogo</a></div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a></div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
-
+    <div><a href="../Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="../Catalogo.html">Catálogo</a></div>
+    <div class="dropdown"><a href="../Promociones.html">Promociones</a></div>
+    <div class="dropdown"><a href="../Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="../Contacto.html">Contacto</a></div>
+    <div class="dropdown"><a href="../Comunidad.html">Comunidad</a></div>
+    <div class="dropdown"><a href="../Login.html">Iniciar sesión</a></div>
+    <div class="dropdown"><a href="../Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
   </nav>
   
   <main>
     <div class="producto-detalle-container">
       <h2>1800 Cristal</h2>
-      <img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/1800cristal.webp" alt="1800 Cristal" class="imagen-detalle">
+      <img src="../Imagenes/1800cristal.webp" alt="1800 Cristal" class="imagen-detalle">
     </div>
     
     <div class="producto-detalle-container">
@@ -52,18 +52,16 @@
       <input type="number" id="cantidad" class="input-cantidad" value="1" min="1" step="1" required readonly />
       <button class="btn-cantidad" onclick="modificarCantidad(1)">+</button>
     
-      <button class="btn-detalle" onclick="agregarAlCarrito()">Agregar al carrito</button>
-      <a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html" class="btn-detalle">Regresar al catálogo</a>
+      <button class="btn-detalle" style="transition: all 0.3s ease;" onclick="agregarAlCarrito(this)">Agregar al carrito</button>
+      <a href="../Catalogo.html" class="btn-detalle">Regresar al catálogo</a>
     </div>
 
     <div id="mensaje-exito" class="mensaje-exito"></div>
   </main>
    
-   <section class="seccion-relacionados">
+  <section class="seccion-relacionados">
     <h2>SIMILARES</h2>
-    <div class="catalogo-horizontal" id="contenedor-similares">
-      
-    </div>
+    <div class="catalogo-horizontal" id="contenedor-similares"></div>
   </section>
 
   <footer class="footer-container">
@@ -76,7 +74,7 @@
     </div>
   </footer>
 
-  <script src="file:///C:/Users/eduar/Desktop/NegociosI/productos.js"></script>
+  <script src="../productos.js"></script>
 
   <script>
     function toggleMode() {
@@ -95,19 +93,18 @@
       input.value = nuevoValor;
     }
 
-      function agregarAlCarrito() {
+    function agregarAlCarrito(boton) {
       const input = document.getElementById('cantidad');
-      const mensaje = document.getElementById('mensaje-exito');
       let cantidad = parseInt(input.value) || 1;
 
       const producto = {
         id: 4, 
         nombre: "1800 Cristal", 
         precio: 1550.00, 
-        imagen: "file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/1800cristal.webp" 
+        imagen: "Imagenes/1800cristal.webp",
+        cantidad: cantidad
       };
 
-      
       let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
 
       const productoExistente = carrito.find(item => item.id === producto.id);
@@ -119,56 +116,67 @@
 
       localStorage.setItem('carritoTekila', JSON.stringify(carrito));
 
+      const textoOriginal = boton.innerText;
+
       if (cantidad === 1) {
-        mensaje.textContent = "¡1 botella agregada al carrito!";
+        boton.innerText = "¡1 BOTELLA AGREGADA!";
       } else {
-        mensaje.textContent = `¡${cantidad} botellas agregadas al carrito!`;
+        boton.innerText = `¡${cantidad} BOTELLAS AGREGADAS!`;
       }
 
-      mensaje.style.display = 'block';
+      boton.style.backgroundColor = "#28a745";
+      boton.style.color = "white";
+      boton.style.borderColor = "#28a745";
+
       input.value = 1;
 
       setTimeout(() => {
-        mensaje.style.display = 'none';
-      }, 100);
+        boton.innerText = textoOriginal;
+        boton.style.backgroundColor = "";
+        boton.style.color = "";
+        boton.style.borderColor = "";
+      }, 2000);
     }
 
     function cargarSimilares(idProductoActual, etiquetasBuscadas) {
       const contenedor = document.getElementById('contenedor-similares');
       contenedor.innerHTML = ''; 
       
-      const productosSimilares = inventario.filter(producto => 
-        producto.id !== idProductoActual && 
-        producto.etiquetas.some(etiqueta => etiquetasBuscadas.includes(etiqueta))
-      );
+      if (typeof inventario !== 'undefined') {
+        const productosSimilares = inventario.filter(producto => 
+          producto.id !== idProductoActual && 
+          producto.etiquetas.some(etiqueta => etiquetasBuscadas.includes(etiqueta))
+        );
 
-      const maximoMostrar = productosSimilares.slice(0, 3);
+        const maximoMostrar = productosSimilares.slice(0, 3);
 
-      maximoMostrar.forEach(prod => {
-        const tarjetaHTML = `
-          <div class="producto-card">
-            <h3>${prod.nombre}</h3>
-            <img src="${prod.imagen}" alt="${prod.nombre}" class="imagenproducto" style="height: 350px;">
-            <p>$${prod.precio.toFixed(2)}</p>
-            <a href="${prod.url}" class="btn-detalle">VER DETALLE</a>
-          </div>
-        `;
-        contenedor.innerHTML += tarjetaHTML;
-      });
+        maximoMostrar.forEach(prod => {
+          const tarjetaHTML = `
+            <div class="producto-card">
+              <h3>${prod.nombre}</h3>
+              <img src="../${prod.imagen}" alt="${prod.nombre}" class="imagenproducto" style="height: 350px;">
+              <p>$${prod.precio.toFixed(2)}</p>
+              <a href="../${prod.url}" class="btn-detalle">VER DETALLE</a>
+            </div>
+          `;
+          contenedor.innerHTML += tarjetaHTML;
+        });
+      }
     }
 
     window.onload = function() {
       cargarSimilares(4, ['1800', 'cristalino', 'añejo']);
     };
 
-     document.addEventListener("DOMContentLoaded", () => {
-    const enlaces = document.querySelectorAll('nav a');
-    enlaces.forEach(link => {
-      if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
-        link.textContent = "Perfil";
-        link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
-      }
-    })});
+    document.addEventListener("DOMContentLoaded", () => {
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "../Perfil.html";
+        }
+      });
+    });
   </script>
 
 </body>
