@@ -50,7 +50,7 @@
 <body class="light-mode">
 
   <header class="header-principal">
-    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
     <h1>TEKILA</h1>
   </header>
 
@@ -59,7 +59,7 @@
   <nav>
     <div><a href="Inicio.html">Inicio</a></div>
     <div class="dropdown"><a href="Catalogo.html">Catálogo</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
+    <div class="dropdown"><a href="Promociones.html">Promociones</a></div>
     <div class="dropdown"><a href="Nosotros.html">Nosotros</a></div>
     <div class="dropdown"><a href="Contacto.html">Contacto</a></div>
     <div class="dropdown"><a href="Login.html">Iniciar sesión</a></div>
@@ -130,7 +130,7 @@
     enlaces.forEach(link => {
       if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
         link.textContent = "Perfil";
-        link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+        link.href = "Perfil.html";
       }
     })});
   </script>

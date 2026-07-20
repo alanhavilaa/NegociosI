@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Escaparate - Don Julio Última Reserva</title>
-  <link rel="stylesheet" href="file:///C:/Users/eduar/Desktop/NegociosI/estilo.css">
+  <link rel="stylesheet" href="estilo.css">
   <style>
     body {
       margin: 0 !important; 
@@ -117,39 +117,39 @@
 <body class="light-mode">
 
   <header class="header-principal">
-    <img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
     <h1>TEKILA</h1>
   </header>
 
   <div class="redes-flotantes">
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
-      <a href="#"><img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/instagram.jpg" alt="Instagram"></a>
-      <a href="#"><img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/facebook.webp" alt="Facebook"></a>
-      <a href="#"><img src="file:///C:/Users/eduar/Desktop/NegociosI/Imagenes/tiktok.png" alt="TikTok"></a>
+      <a href="#"><img src="Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="Imagenes/tiktok.png" alt="TikTok"></a>
     </div>
   </div>
 
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
   <nav>
-    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catálogo</a></div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a></div>
+    <div><a href="Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="Catalogo.html">Catálogo</a></div>
+        <div class="dropdown"><a href="Promociones.html">Promociones</a></div>
+    <div class="dropdown"><a href="Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="Contacto.html">Contacto</a></div>
         <a href="Comunidad.html">Comunidad</a>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
+    <div class="dropdown"><a href="Login.html">Iniciar sesión</a></div>
+    <div class="dropdown"><a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
   </nav>
   
   <main>
     <div class="escaparate-container">
       <div class="slider-escaparate">
-        <img src="file:///C:/Users/eduar/Desktop/NegociosI/Escaparate/escaparate1.jpg" class="slide active" alt="Don Julio 1">
-        <img src="file:///C:/Users/eduar/Desktop/NegociosI/Escaparate/escaparate2.webp" class="slide" alt="Don Julio 2">
-        <img src="file:///C:/Users/eduar/Desktop/NegociosI/Escaparate/escaparate3.jpeg" class="slide" alt="Don Julio 3">
-        <img src="file:///C:/Users/eduar/Desktop/NegociosI/Escaparate/escaparate4.jpg" class="slide" alt="Don Julio 4">
+        <img src="Escaparate/escaparate1.jpg" class="slide active" alt="Don Julio 1">
+        <img src="escaparate2.webp" class="slide" alt="Don Julio 2">
+        <img src="escaparate3.jpeg" class="slide" alt="Don Julio 3">
+        <img src="escaparate4.jpg" class="slide" alt="Don Julio 4">
       </div>
       
       <div class="escaparate-overlay"></div>
@@ -158,7 +158,7 @@
         <span class="etiqueta-premium">Edición Especial</span>
         <h2>Don Julio Última Reserva</h2>
         <p>El legado final. Un tequila Extra Añejo excepcional terminado en barricas de vino Madeira. Descubre sus profundas notas de roble tostado, caramelo y vainilla que coronan una vida de devoción.</p>
-        <a href="file:///C:/Users/eduar/Desktop/NegociosI/Productos/UltimaReserva.html" class="btn-escaparate">Comprar Ahora</a>
+        <a href="Productos/UltimaReserva.html" class="btn-escaparate">Comprar Ahora</a>
       </div>
     </div>
   </main>
@@ -220,7 +220,7 @@
     enlaces.forEach(link => {
       if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
         link.textContent = "Perfil";
-        link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+        link.href = "Perfil.html";
       }
     })});
   </script>

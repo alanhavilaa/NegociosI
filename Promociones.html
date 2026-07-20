@@ -25,14 +25,14 @@
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
   <nav>
-    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
+    <div><a href="Inicio.html">Inicio</a></div>
     <div class="dropdown"><a href="Catalogo.html">Catálogo</a></div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
+        <div class="dropdown"><a href="Promociones.html">Promociones</a></div>
     <div class="dropdown"><a href="Nosotros.html">Nosotros</a></div>
     <div class="dropdown"><a href="Contacto.html">Contacto</a></div>
         <a href="Comunidad.html">Comunidad</a>
     <div class="dropdown"><a href="Login.html">Iniciar sesión</a></div>
-        <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
+        <div class="dropdown"><a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
 
   </nav>
         
@@ -155,7 +155,7 @@
     enlaces.forEach(link => {
       if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
         link.textContent = "Perfil";
-        link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+        link.href = "Perfil.html";
       }
     })});
   </script>

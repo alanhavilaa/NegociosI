@@ -10,28 +10,28 @@
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
   <header class="header-principal">
-    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">    
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">    
     <h1>TEKILA</h1>
   </header>
 
   <div class="redes-flotantes">
     <h4>@tekila</h4>
     <div class="contenedor-iconos">
-      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/instagram.jpg" alt="Instagram"></a>
-      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/facebook.webp" alt="Facebook"></a>
-      <a href="#"><img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/tiktok.png" alt="TikTok"></a>
+      <a href="#"><img src="Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="Imagenes/tiktok.png" alt="TikTok"></a>
     </div>
   </div>
 
   <nav>
-    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Catalogo.html">Catalogo</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Promociones.html">Promociones</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Nosotros.html">Nosotros</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Contacto.html">Contacto</a></div>
+    <div><a href="Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="Catalogo.html">Catalogo</a></div>
+    <div class="dropdown"><a href="Promociones.html">Promociones</a></div>
+    <div class="dropdown"><a href="Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="Contacto.html">Contacto</a></div>
     <div> <a href="Comunidad.html">Comunidad</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Login.html">Iniciar sesión</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
+    <div class="dropdown"><a href="Login.html">Iniciar sesión</a></div>
+    <div class="dropdown"><a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a></div>
   </nav>
 
   <div class="footer-container">
@@ -57,7 +57,7 @@
           <br><br>
           <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
             <a href="C:/Users/eduar/Desktop/NegociosI/Registro.html" class="btn-detalle">Registrarme</a>
-            <a href="file:///C:/Users/eduar/Desktop/NegociosI/RecuperarContrasena.html" class="btn-detalle">Recuperar Contraseña</a>
+            <a href="RecuperarContrasena.html" class="btn-detalle">Recuperar Contraseña</a>
           </div>
 
         </form>
@@ -88,7 +88,7 @@
     function enviarFormulario(event) {
       event.preventDefault(); 
       localStorage.setItem('sesionActiva', 'true');
-      window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+      window.location.href = "Perfil.html";
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -96,7 +96,7 @@
       enlaces.forEach(link => {
         if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
           link.textContent = "Perfil";
-          link.href = "file:///C:/Users/eduar/Desktop/NegociosI/Perfil.html";
+          link.href = "Perfil.html";
         }
       });
     });

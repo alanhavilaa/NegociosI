@@ -26,57 +26,16 @@
     .form-row .form-group { flex: 1; min-width: 200px; }
     
     .modal-botones { display: flex; gap: 10px; margin-top: 30px; }
-    .btn-detalle { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; color: white; font-weight: bold; background-color: #333; font-size: 14px; }
+    .btn-detalle { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; color: white; font-weight: bold; background-color: #333; font-size: 14px; transition: all 0.3s ease; }
     .btn-detalle:hover { background-color: #555; }
     .btn-cancelar { background-color: #888; }
     .btn-cancelar:hover { background-color: #666; }
-
-    .toast-exito {
-      display: none;
-      position: fixed;
-      top: 20px;
-      right: -400px; 
-      z-index: 2000;
-      background-color: #fff;
-      color: #333;
-      width: 320px;
-      padding: 15px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-      border-left: 5px solid #28a745; 
-      transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .toast-exito.mostrar {
-      display: flex;
-      right: 20px; 
-    }
-
-    .dark-mode .toast-exito {
-      background-color: #2a2a2a;
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-
-    .toast-exito h4 {
-      margin: 0;
-      color: #28a745;
-      font-size: 16px;
-    }
-
-    .toast-exito p {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.4;
-    }
   </style>
 </head>
 <body class="light-mode">
 
   <header class="header-principal">
-    <img src="C:\Users\eduar\Desktop\NegociosI\Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
     <h1>TEKILA</h1>
     <h2>ADMIN</h2>
   </header>
@@ -84,20 +43,20 @@
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
   <nav>
-    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html">Cerrar sesión</a></div>
+    <div><a href="Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="LoginAdmin.html">Cerrar sesión</a></div>
   </nav>
   
   <div class="admin-layout">
     <aside class="admin-sidebar">
       <h3>Panel Admin</h3>
       <ul>
-          <li><a href="PerfilAdmin.html">Dashboard</a></li>
+        <li><a href="PerfilAdmin.html">Dashboard</a></li>
         <li><a href="AdminProductos.html">Productos</a></li>
         <li><a href="AdminPedidos.html">Pedidos</a></li>
-        <li><a href="AdminPromociones.html"class="activo">Promociones</a></li>
+        <li><a href="AdminPromociones.html" class="activo">Promociones</a></li>
         <li><a href="AdminClientes.html">Clientes</a></li>
-        <li><a href="AdminReportes.html" >Reportes</a></li>
+        <li><a href="AdminReportes.html">Reportes</a></li>
       </ul>
       <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
       <button class="btn-detalle" style="width: 100%; background-color: #0e0e0e;" onclick="cerrarSesion()">Cerrar sesión</button>
@@ -111,13 +70,13 @@
           
           <div class="form-group">
             <label>Nombre de la Promoción:</label>
-            <input type="text" id="promoNombre" >
+            <input type="text" id="promoNombre">
           </div>
           
           <div class="form-row">
             <div class="form-group">
               <label>% Descuento :</label>
-              <input type="number" id="promoDescuento" min="1" max="100" >
+              <input type="number" id="promoDescuento" min="1" max="100">
             </div>
             <div class="form-group">
               <label>Producto a aplicar:</label>
@@ -130,11 +89,11 @@
           <div class="form-row">
             <div class="form-group">
               <label>Fecha de Inicio:</label>
-              <input type="date" id="promoInicio" >
+              <input type="date" id="promoInicio">
             </div>
             <div class="form-group">
               <label>Fecha de Fin:</label>
-              <input type="date" id="promoFin" >
+              <input type="date" id="promoFin">
             </div>
           </div>
 
@@ -144,7 +103,7 @@
           </div>
 
           <div class="modal-botones">
-            <button type="submit" class="btn-detalle">Guardar Promoción</button>
+            <button type="submit" id="btnGuardarPromo" class="btn-detalle">Guardar Promoción</button>
             <button type="button" class="btn-detalle btn-cancelar" onclick="window.location.href='AdminPromociones.html'">Cancelar y volver</button>
           </div>
         </form>
@@ -153,13 +112,6 @@
     </main>
   </div>
 
-  <div id="toastExito" class="toast-exito">
-    <div>
-      <h4>PROMOCIÓN CREADA</h4>
-      <p id="textoExito"></p>
-    </div>
-  </div>
-  
   <script>
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
@@ -167,7 +119,7 @@
     }
 
     function cerrarSesion() { 
-        window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html"; 
+      window.location.href = "LoginAdmin.html"; 
     }
 
     window.onload = function() {
@@ -218,12 +170,15 @@
       promocionesGuardadas.push(nuevaPromocion);
       localStorage.setItem('promocionesAdmin', JSON.stringify(promocionesGuardadas));
       
-      document.getElementById('textoExito').innerHTML = `<strong>${nombre}</strong> del ${descuento}% para: ${productoNombre}.`;
-      document.getElementById('toastExito').classList.add('mostrar');
-      
+      const btnGuardar = document.getElementById('btnGuardarPromo');
+      btnGuardar.innerText = "PROMOCIÓN CREADA";
+      btnGuardar.style.backgroundColor = "#28a745";
+      btnGuardar.style.borderColor = "#28a745";
+      btnGuardar.disabled = true;
+
       setTimeout(() => {
         window.location.href = 'AdminPromociones.html';
-      }, 2000);
+      }, 1500);
     }
   </script>
 </body>

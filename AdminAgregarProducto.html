@@ -84,8 +84,8 @@
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
   <nav>
-    <div><a href="file:///C:/Users/eduar/Desktop/NegociosI/Inicio.html">Inicio</a></div>
-    <div class="dropdown"><a href="file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html">Cerrar sesión</a></div>
+    <div><a href="Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="LoginAdmin.html">Cerrar sesión</a></div>
   </nav>
   
   <div class="admin-layout">
@@ -114,29 +114,29 @@
 
           <div class="form-group">
             <label>ID:</label>
-            <input type="text" id="prodId" required>
+            <input type="text" id="prodId">
           </div>
           
           <div class="form-group">
             <label>Nombre del Producto:</label>
-            <input type="text" id="prodNombre"  required>
+            <input type="text" id="prodNombre" >
           </div>
           
           <div class="form-group">
             <div class="form-group">
               <label>Precio:</label>
-              <input type="number" id="prodPrecio"  min="0"  required>
+              <input type="number" id="prodPrecio"  min="0" >
             </div>
             <div class="form-group">
               <label>existencia:</label>
-              <input type="number" id="prodStock" min="0" placeholder="Unidades" required>
+              <input type="number" id="prodStock" min="0" placeholder="Unidades" >
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>Categoría:</label>
-              <select id="prodCategoria" required>
+              <select id="prodCategoria" >
                 <option value="Reposado">Reposado</option>
                 <option value="Blanco">Blanco</option>
                 <option value="Añejo">Añejo</option>
@@ -145,7 +145,7 @@
             </div>
             <div class="form-group">
               <label>Estado:</label>
-              <select id="prodEstado" required>
+              <select id="prodEstado">
                 <option value="Activo">Disponible</option>
                 <option value="Inactivo">Agotado</option>
               </select>
@@ -154,7 +154,7 @@
 
           <div class="form-group">
             <label>Imagen:</label>
-            <input type="text" id="prodImagen" required>
+            <input type="text" id="prodImagen" >
           </div>
 
           <div class="form-group">
@@ -178,7 +178,7 @@
     }
 
     function cerrarSesion() {
-      window.location.href = "file:///C:/Users/eduar/Desktop/NegociosI/LoginAdmin.html";
+      window.location.href = "LoginAdmin.html";
     }
 
     function guardarNuevoProducto(event) {
