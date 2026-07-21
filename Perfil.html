@@ -42,6 +42,98 @@
     .card-contenido {
       flex: 1;
     }
+
+    .btn-accion {
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      border: none;
+      cursor: pointer;
+      margin: 2px;
+      border-radius: 3px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .btn-editar {
+      background-color: #c9c7c7;
+      color: white;
+    }
+    .btn-eliminar {
+      background-color: #767575;
+      color: white;
+    }
+    .btn-guardar-inline {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      border-radius: 3px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .btn-cancelar-inline {
+      background-color: #666;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-left: 3px;
+    }
+
+    .mensaje-flotante {
+      display: none; 
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-weight: bold;
+      animation: aparecer 0.3s ease-out;
+    }
+    .mensaje-flotante.exito {
+      border-left: 5px solid #5cb85c;
+    }
+    .mensaje-flotante.alerta {
+      border-left: 5px solid #d9534f;
+    }
+
+    .toast-btn-confirmar {
+      background: #d9534f;
+      color: white;
+      border: none;
+      padding: 4px 10px;
+      margin-left: 15px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    .toast-btn-confirmar:hover {
+      background: #c9302c;
+    }
+    .toast-btn-cancelar {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      padding: 3px 8px;
+      margin-left: 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .toast-btn-cancelar:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    @keyframes aparecer {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
   </style>
 </head>
 <body class="light-mode">
@@ -70,6 +162,7 @@
     
     <div class="grid-perfil">
       
+      <!-- MIS DATOS -->
       <div class="caja-info card-perfil" style="text-align: left;">
         <div class="card-contenido">
           <h2 style="text-align: center;">Mis Datos</h2>
@@ -84,6 +177,7 @@
         </div>
       </div>
 
+      <!-- MIS PUBLICACIONES -->
       <div class="caja-info card-perfil">
         <div class="card-contenido">
           <h2>Mis publicaciones en el Mercado</h2>
@@ -110,9 +204,9 @@
           <table>
             <thead>
               <tr>
-                <th>Nombre</th>
                 <th>Comentario</th>
                 <th>Fecha</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody id="tablaPerfil"></tbody>
@@ -123,6 +217,7 @@
         </div>
       </div>
 
+      <!-- MIS RESEÑAS -->
       <div class="caja-info card-perfil">
         <div class="card-contenido">
           <h2>Mis Reseñas de Productos</h2>
@@ -132,6 +227,7 @@
                 <th>Producto</th>
                 <th>Calificación</th>
                 <th>Reseña</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody id="tablaResenas"></tbody>
@@ -142,6 +238,7 @@
         </div>
       </div>
 
+      <!-- MIS COMPRAS -->
       <div class="caja-info card-perfil">
         <div class="card-contenido">
           <h2>Mis Compras Realizadas</h2>
@@ -165,6 +262,8 @@
 
   </main>
 
+  <div id="mensaje-flotante" class="mensaje-flotante"></div>
+
   <footer class="footer-container" style="margin-top: 40px;">
     <div class="caja-info">
       <p><strong>Teléfono:</strong> 4493332211</p>
@@ -173,6 +272,9 @@
   </footer>
 
   <script>
+    let elementoAEliminar = null; 
+    let tipoAEliminar = null;     
+
     function cargarProductosDefectoMercado() {
       let pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
       const existeMisProductos = pubs.some(p => (p.autor || "").toLowerCase() === "alan");
@@ -249,6 +351,173 @@
       }
     }
 
+
+    function renderizarComentarios() {
+      const listaComentarios = JSON.parse(localStorage.getItem('misComentarios')) || [];
+      const tbodyComentarios = document.getElementById('tablaPerfil');
+      tbodyComentarios.innerHTML = "";
+
+      let contadorPropios = 0;
+
+      listaComentarios.forEach((c, index) => {
+        if (c.esPropio === true) {
+          contadorPropios++;
+          tbodyComentarios.innerHTML += `
+            <tr>
+              <td id="celda-comentario-${index}">${c.texto}</td>
+              <td>${c.fecha}</td>
+              <td id="acciones-comentario-${index}">
+                <button class="btn-accion btn-editar" onclick="activarEdicionComentario(${index})">EDITAR</button>
+                <button class="btn-accion btn-eliminar" onclick="solicitarEliminarToast(${index}, 'comentario')">BORRAR</button>
+              </td>
+            </tr>`;
+        }
+      });
+
+      if (contadorPropios === 0) {
+        tbodyComentarios.innerHTML = `<tr><td colspan="3">Sin comentarios.</td></tr>`;
+      }
+    }
+
+    function renderizarResenas() {
+      const listaResenas = JSON.parse(localStorage.getItem('misResenasTekila')) || [];
+      const tbodyResenas = document.getElementById('tablaResenas');
+      tbodyResenas.innerHTML = "";
+
+      if (listaResenas.length === 0) {
+        tbodyResenas.innerHTML = `<tr><td colspan="4">Sin reseñas.</td></tr>`;
+      } else {
+        listaResenas.forEach((r, index) => {
+          tbodyResenas.innerHTML += `
+            <tr>
+              <td><strong>${r.producto}</strong></td>
+              <td style="color: black;">${r.estrellas}</td>
+              <td id="celda-resena-${index}">${r.opinion}</td>
+              <td id="acciones-resena-${index}">
+                <button class="btn-accion btn-editar" onclick="activarEdicionResena(${index})">EDITAR</button>
+                <button class="btn-accion btn-eliminar" onclick="solicitarEliminarToast(${index}, 'resena')">BORRAR</button>
+              </td>
+            </tr>`;
+        });
+      }
+    }
+
+
+    function activarEdicionComentario(index) {
+      let lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
+      const celdaTexto = document.getElementById(`celda-comentario-${index}`);
+      const celdaAcciones = document.getElementById(`acciones-comentario-${index}`);
+
+      celdaTexto.innerHTML = `<textarea id="input-comentario-${index}" style="width:100%; box-sizing:border-box; border:1px solid #000; padding:4px; font-family:inherit; resize:vertical;" rows="2">${lista[index].texto}</textarea>`;
+      
+      celdaAcciones.innerHTML = `
+        <button class="btn-guardar-inline" onclick="guardarComentarioInline(this, ${index})">GUARDAR</button>
+        <button class="btn-cancelar-inline" onclick="renderizarComentarios()">CANCELAR</button>
+      `;
+    }
+
+    function guardarComentarioInline(boton, index) {
+      const nuevoTexto = document.getElementById(`input-comentario-${index}`).value.trim();
+      if (!nuevoTexto) return;
+
+      let lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
+      lista[index].texto = nuevoTexto;
+      localStorage.setItem('misComentarios', JSON.stringify(lista));
+
+      boton.innerText = "ACTUALIZADO";
+      boton.style.backgroundColor = "#28a745";
+
+      setTimeout(() => {
+        renderizarComentarios();
+      }, 1200);
+    }
+
+    function activarEdicionResena(index) {
+      let lista = JSON.parse(localStorage.getItem('misResenasTekila')) || [];
+      const celdaTexto = document.getElementById(`celda-resena-${index}`);
+      const celdaAcciones = document.getElementById(`acciones-resena-${index}`);
+
+      celdaTexto.innerHTML = `<textarea id="input-resena-${index}" style="width:100%; box-sizing:border-box; border:1px solid #000; padding:4px; font-family:inherit; resize:vertical;" rows="2">${lista[index].opinion}</textarea>`;
+      
+      celdaAcciones.innerHTML = `
+        <button class="btn-guardar-inline" onclick="guardarResenaInline(this, ${index})">GUARDAR</button>
+        <button class="btn-cancelar-inline" onclick="renderizarResenas()">CANCELAR</button>
+      `;
+    }
+
+    function guardarResenaInline(boton, index) {
+      const nuevaOpinion = document.getElementById(`input-resena-${index}`).value.trim();
+      if (!nuevaOpinion) return;
+
+      let lista = JSON.parse(localStorage.getItem('misResenasTekila')) || [];
+      lista[index].opinion = nuevaOpinion;
+      localStorage.setItem('misResenasTekila', JSON.stringify(lista));
+
+      boton.innerText = "ACTUALIZADO";
+      boton.style.backgroundColor = "#28a745";
+
+      setTimeout(() => {
+        renderizarResenas();
+      }, 1200);
+    }
+
+
+    function solicitarEliminarToast(index, tipo) {
+      elementoAEliminar = index;
+      tipoAEliminar = tipo;
+
+      const toast = document.getElementById('mensaje-flotante');
+      toast.className = "mensaje-flotante alerta"; 
+      
+      const etiqueta = tipo === 'comentario' ? 'ESTE COMENTARIO' : 'ESTA RESEÑA';
+
+      toast.innerHTML = `
+        <span>¿ELIMINAR ${etiqueta}?</span>
+        <button class="toast-btn-confirmar" onclick="confirmarEliminacion()">Eliminar</button>
+        <button class="toast-btn-cancelar" onclick="cancelarEliminacion()">Cancelar</button>
+      `;
+      toast.style.display = 'block';
+    }
+
+    function confirmarEliminacion() {
+      if (elementoAEliminar !== null && tipoAEliminar !== null) {
+        if (tipoAEliminar === 'comentario') {
+          let lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
+          lista.splice(elementoAEliminar, 1);
+          localStorage.setItem('misComentarios', JSON.stringify(lista));
+          renderizarComentarios();
+          mostrarNotificacionEstandar("COMENTARIO ELIMINADO", "exito");
+        } else if (tipoAEliminar === 'resena') {
+          let lista = JSON.parse(localStorage.getItem('misResenasTekila')) || [];
+          lista.splice(elementoAEliminar, 1);
+          localStorage.setItem('misResenasTekila', JSON.stringify(lista));
+          renderizarResenas();
+          mostrarNotificacionEstandar("RESEÑA ELIMINADA", "exito");
+        }
+        
+        elementoAEliminar = null;
+        tipoAEliminar = null;
+      }
+    }
+
+    function cancelarEliminacion() {
+      const toast = document.getElementById('mensaje-flotante');
+      toast.style.display = 'none';
+      elementoAEliminar = null;
+      tipoAEliminar = null;
+    }
+
+    function mostrarNotificacionEstandar(texto, tipoClase) {
+      const toast = document.getElementById('mensaje-flotante');
+      toast.textContent = texto;
+      toast.className = `mensaje-flotante ${tipoClase}`; 
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    }
+
+
     document.addEventListener("DOMContentLoaded", () => {
       cargarProductosDefectoMercado();
       inicializarComentariosPropio();
@@ -274,35 +543,8 @@
         });
       }
 
-      const listaComentarios = JSON.parse(localStorage.getItem('misComentarios')) || [];
-      const tbodyComentarios = document.getElementById('tablaPerfil');
-      tbodyComentarios.innerHTML = "";
-      const misComentariosLogueados = listaComentarios.filter(c => c.esPropio === true);
-
-      if (misComentariosLogueados.length === 0) {
-        tbodyComentarios.innerHTML = `<tr><td colspan="3">Sin comentarios.</td></tr>`;
-      } else {
-        misComentariosLogueados.forEach(c => {
-          tbodyComentarios.innerHTML += `
-            <tr>
-              <td>${c.nombre}</td>
-              <td>${c.texto}</td>
-              <td>${c.fecha}</td>
-            </tr>`;
-        });
-      }
-
-      const listaResenas = JSON.parse(localStorage.getItem('misResenasTekila')) || [];
-      const tbodyResenas = document.getElementById('tablaResenas');
-      tbodyResenas.innerHTML = "";
-      listaResenas.forEach(r => {
-        tbodyResenas.innerHTML += `
-          <tr>
-            <td><strong>${r.producto}</strong></td>
-            <td style="color: black;">${r.estrellas}</td>
-            <td>${r.opinion}</td>
-          </tr>`;
-      });
+      renderizarComentarios();
+      renderizarResenas();
 
       const listaCompras = JSON.parse(localStorage.getItem('misComprasTekila')) || [];
       const tbodyCompras = document.getElementById('tablaCompras');
@@ -333,11 +575,6 @@
       setTimeout(() => {
         window.location.href = "Login.html";
       }, 1200);
-    }
-
-    function toggleMode() {
-      document.body.classList.toggle("dark-mode");
-      document.body.classList.toggle("light-mode");
     }
   </script>
 </body>
