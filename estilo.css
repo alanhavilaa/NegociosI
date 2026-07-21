@@ -822,3 +822,64 @@ body.dark-mode .exclusivo-info p { color: #ffffff; }
   font-style: normal;
   text-transform: uppercase;
 }
+
+
+.mensaje-flotante {
+  display: none; 
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  font-weight: bold;
+  animation: aparecer 0.3s ease-out;
+}
+
+.mensaje-flotante.exito {
+  border-left: 5px solid #5cb85c;
+}
+
+.mensaje-flotante.alerta {
+  border-left: 5px solid #d9534f;
+}
+
+@keyframes aparecer {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+.contador-container {
+  background-color: #1f1e1e;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.dark-mode .contador-container {
+  background-color: #333333;
+  border: 1px solid #555;
+}
+
+.tiempo-texto {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #f0ad4e;
+  margin-top: 5px;
+}
+
+.btn-cerrando-sesion {
+  background-color: #d9534f !important;
+  color: #ffffff !important;
+  border-color: #d9534f !important;
+  transition: all 0.3s ease;
+}

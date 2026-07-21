@@ -4,6 +4,29 @@
   <meta charset="UTF-8">
   <title>Mercado - TEKILA</title>
   <link rel="stylesheet" href="estilo.css">
+  <style>
+    .paginacion-container { 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      gap: 15px; 
+      margin-top: 30px; 
+      width: 100%;
+    }
+    .btn-pagina { 
+      background-color: #333; 
+      color: white; 
+      border: none; 
+      padding: 8px 15px; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      font-weight: bold; 
+    }
+    .btn-pagina:disabled { 
+      background-color: #999; 
+      cursor: not-allowed; 
+    }
+  </style>
 </head>
 <body class="light-mode">
   <header class="header-principal">
@@ -32,53 +55,120 @@
     </div>
 
     <div class="catalogo-vertical" id="contenedorMercado" style="display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; flex-direction: row; margin-top: 20px;"></div>
+
+    <div class="paginacion-container" id="controles-paginacion">
+      <button class="btn-pagina" id="btnAnterior" onclick="cambiarPagina(-1)">Anterior</button>
+      <span class="info-pagina" id="infoPagina">Página 1</span>
+      <button class="btn-pagina" id="btnSiguiente" onclick="cambiarPagina(1)">Siguiente</button>
+    </div>
+
+  <div class="footer-container">
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
+      Fracc. Bona Gens, C.P. 20256<br>
+      Aguascalientes, Ags., México</p>
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
+      <p style="margin-top: 15px; font-size: 14px;">
+        <a href="Politicas.html" style="color: #ccc; text-decoration: none; border-bottom: 1px solid #ccc;">Políticas de Compra y Privacidad</a>
+      </p>
+    </div>
+  </div>
+
   </main>
 
   <script>
+    let paginaActual = 1;
+    const productosPorPagina = 6;
+
     function inicializarProductosPorDefault() {
       let pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
-      
-      if (pubs.length === 0 || pubs.some(p => p.imagen.includes('.png'))) {
-        pubs = [
-          {
-            id: 1001,
-            nombre: "Botella Mundial",
-            precio: 450.00,
-            categoria: "Reposado",
-            imagen: "Imagenes/Mercado1.webp",
-            descripcion: "Botella conmemorativa del mundial.",
-            autor: "Dexter Morgan"
-          },
-          {
-            id: 1002,
-            nombre: "Jose Cuervo Tradicional",
-            precio: 820.00,
-            categoria: "Premium",
-            imagen: "Imagenes/Mercado2.webp",
-            descripcion: "Primera linea.",
-            autor: "Debra Morgan"
-          },
-          {
-            id: 1003,
-            nombre: "Silver Patron",
-            precio: 1100.00,
-            categoria: "Cristal",
-            imagen: "Imagenes/Mercado3.jpg",
-            descripcion: "Edición limitada que destaca por sus tonos de vainilla, miel y roble tostado.",
-            autor: "Arthur Mitchell"
-          },
-          {
-            id: 1004,
-            nombre: "Corralejo Azul",
-            precio: 3400.00,
-            categoria: "Reposado",
-            imagen: "Imagenes/Mercado4.jpg",
-            descripcion: "Licor ultra premium en una licorera de cerámica artesanal pintada a mano.",
-            autor: "James Doakes"
-          }
-        ];
-        localStorage.setItem('mercadoTekila', JSON.stringify(pubs));
-      }
+
+      const productosComunidad = [
+        {
+          id: 1001,
+          nombre: "Botella Mundial",
+          precio: 450.00,
+          categoria: "Reposado",
+          imagen: "Imagenes/Mercado1.webp",
+          descripcion: "Botella conmemorativa del mundial.",
+          autor: "Dexter Morgan"
+        },
+        {
+          id: 1002,
+          nombre: "Jose Cuervo Tradicional",
+          precio: 820.00,
+          categoria: "Premium",
+          imagen: "Imagenes/Mercado2.webp",
+          descripcion: "Primera linea.",
+          autor: "Debra Morgan"
+        },
+        {
+          id: 1003,
+          nombre: "Silver Patron",
+          precio: 1100.00,
+          categoria: "Cristal",
+          imagen: "Imagenes/Mercado3.jpg",
+          descripcion: "Edición limitada que destaca por sus tonos de vainilla, miel y roble tostado.",
+          autor: "Arthur Mitchell"
+        },
+        {
+          id: 1004,
+          nombre: "Corralejo Azul",
+          precio: 3400.00,
+          categoria: "Reposado",
+          imagen: "Imagenes/Mercado4.jpg",
+          descripcion: "Licor ultra premium en una licorera de cerámica artesanal pintada a mano.",
+          autor: "James Doakes"
+        }
+      ];
+
+      const misProductos = [
+        {
+          id: 2001,
+          nombre: "Don Julio Blanco",
+          precio: 980.00,
+          categoria: "Blanco",
+          imagen: "Imagenes/donjulioblanco.webp",
+          descripcion: "Botella suave de notas cítricas.",
+          autor: "Alan"
+        },
+        {
+          id: 2002,
+          nombre: "Don Julio 70",
+          precio: 1250.00,
+          categoria: "Cristal",
+          imagen: "Imagenes/donjulio70.jpg",
+          descripcion: "Añejo cristalino con notas de miel y roble.",
+          autor: "Alan"
+        },
+        {
+          id: 2003,
+          nombre: "Pueblo Viejo Canela",
+          precio: 350.00,
+          categoria: "Reposado",
+          imagen: "Imagenes/puebloviejocanela.webp",
+          descripcion: "Edición especial infusionada con toque de canela.",
+          autor: "Alan"
+        }
+      ];
+
+      let listaActualizada = [...pubs];
+
+      productosComunidad.forEach(prod => {
+        if (!listaActualizada.some(p => p.id === prod.id)) {
+          listaActualizada.push(prod);
+        }
+      });
+
+      misProductos.forEach(prod => {
+        if (!listaActualizada.some(p => p.id === prod.id)) {
+          listaActualizada.push(prod);
+        }
+      });
+
+      localStorage.setItem('mercadoTekila', JSON.stringify(listaActualizada));
     }
 
     function renderizarMercado() {
@@ -88,7 +178,15 @@
       const contenedor = document.getElementById('contenedorMercado');
       contenedor.innerHTML = "";
       
-      pubs.forEach(p => {
+      const totalPaginas = Math.ceil(pubs.length / productosPorPagina);
+      if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+      if (paginaActual < 1) paginaActual = 1;
+
+      const inicio = (paginaActual - 1) * productosPorPagina;
+      const fin = inicio + productosPorPagina;
+      const paginaLista = pubs.slice(inicio, fin);
+
+      paginaLista.forEach(p => {
         const productoString = JSON.stringify(p).replace(/'/g, "&apos;");
         contenedor.innerHTML += `
           <div class="producto-card" style="border:1px solid #000000; padding:20px; width:280px;">
@@ -102,6 +200,15 @@
           </div>
         `;
       });
+
+      document.getElementById('infoPagina').textContent = `Página ${paginaActual} de ${totalPaginas || 1}`;
+      document.getElementById('btnAnterior').disabled = (paginaActual === 1);
+      document.getElementById('btnSiguiente').disabled = (paginaActual >= totalPaginas || totalPaginas === 0);
+    }
+
+    function cambiarPagina(dir) {
+      paginaActual += dir;
+      renderizarMercado();
     }
 
     function agregarAlCarrito(boton, prod) {

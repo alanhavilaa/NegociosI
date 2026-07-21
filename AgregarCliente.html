@@ -51,10 +51,7 @@
 
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
-  <nav>
-    <div><a href="Inicio.html">Inicio</a></div>
-    <div class="dropdown"><a href="LoginAdmin.html">Cerrar sesión</a></div>
-  </nav>
+  
 
 
   <div class="admin-layout">
@@ -62,7 +59,6 @@
       <h2 style="margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px;">Nuevo Cliente</h2>
       
       <div id="mensajeExito">CLIENTE AGREGADO</div>
-      <div id="mensajeError">Por favor, llena los campos obligatorios</div>
       
       <form id="formAgregarCliente" onsubmit="guardarNuevoCliente(event)">
         <div class="formulario-grupo">
@@ -96,11 +92,7 @@
       const correo = document.getElementById('correo').value;
       const telefono = document.getElementById('telefono').value;
 
-      if(nombre.trim() === "" || correo.trim() === "") {
-        document.getElementById('mensajeError').style.display = 'block';
-        setTimeout(() => { document.getElementById('mensajeError').style.display = 'none'; }, 3000);
-        return;
-      }
+      
 
       let clientes = JSON.parse(localStorage.getItem("clientesTEKILA")) || [];
       const fechaHoy = new Date().toISOString().split('T')[0];
@@ -118,7 +110,6 @@
       localStorage.setItem("clientesTEKILA", JSON.stringify(clientes));
 
       document.getElementById('formAgregarCliente').style.display = 'none';
-      document.getElementById('mensajeError').style.display = 'none';
       document.getElementById('mensajeExito').style.display = 'block';
 
       setTimeout(() => {

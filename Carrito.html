@@ -93,6 +93,50 @@
       border-left: 5px solid #d9534f;
     }
 
+    .toast-confirmacion {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      z-index: 2000;
+      border-left: 5px solid #f0ad4e;
+      animation: aparecer 0.3s ease-out;
+      max-width: 320px;
+    }
+    .toast-confirmacion p {
+      margin: 0 0 15px 0;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .toast-botones {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .btn-confirmar-si {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-confirmar-no {
+      background-color: #666;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
     @keyframes aparecer {
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -137,7 +181,7 @@
         <h3>Total a Pagar: $<span id="total-carrito">0.00</span></h3>
         
         <div class="acciones-carrito">
-          <button class="btn-detalle" style="background-color: #555;" onclick="vaciarCarrito()">Vaciar Carrito</button>
+          <button class="btn-detalle" style="background-color: #555;" onclick="solicitarVaciarCarrito()">Vaciar Carrito</button>
           <button class="btn-detalle" onclick="procesarCompra()">Proceder al Pago</button>
         </div>
       </div>
@@ -147,7 +191,17 @@
 
   <div id="mensaje-flotante" class="mensaje-flotante"></div>
 
+  <div id="toast-confirmacion" class="toast-confirmacion">
+    <p id="texto-confirmacion">¿Estás seguro?</p>
+    <div class="toast-botones">
+      <button class="btn-confirmar-no" onclick="CerrarConfirmacion()">Cancelar</button>
+      <button class="btn-confirmar-si" id="btn-ejecutar-accion">Confirmar</button>
+    </div>
+  </div>
+
   <script>
+    let accionPendiente = null;
+
     function renderizarCarrito() {
       const contenedor = document.getElementById('contenedor-carrito');
       let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
@@ -183,7 +237,7 @@
             <div style="text-align: right; margin-right: 20px;">
               <p><strong>Importe: $${subtotalProducto.toFixed(2)}</strong></p>
             </div>
-            <button class="btn-eliminar" onclick="eliminarProducto(${index})">Quitar todo</button>
+            <button class="btn-eliminar" onclick="solicitarEliminarProducto(${index})">Quitar todo</button>
           </div>
         `;
         contenedor.innerHTML += itemHTML;
@@ -211,13 +265,41 @@
         mostrarNotificacion(cambio < 0 ? "Producto eliminado" : "Producto agregado", "alerta");
       }
     }
+    function solicitarEliminarProducto(index) {
+      mostrarConfirmacionToast("¿Quitar todos los elementos de este producto?", () => {
+        let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
+        carrito.splice(index, 1); 
+        localStorage.setItem('carritoTekila', JSON.stringify(carrito));
+        renderizarCarrito(); 
+        mostrarNotificacion("Producto eliminado", "alerta"); 
+      });
+    }
 
-    function eliminarProducto(index) {
-      let carrito = JSON.parse(localStorage.getItem('carritoTekila')) || [];
-      carrito.splice(index, 1); 
-      localStorage.setItem('carritoTekila', JSON.stringify(carrito));
-      renderizarCarrito(); 
-      mostrarNotificacion("Producto eliminado", "alerta"); 
+    function solicitarVaciarCarrito() {
+      mostrarConfirmacionToast("¿Deseas vaciar completamente el carrito?", () => {
+        localStorage.removeItem('carritoTekila');
+        renderizarCarrito();
+        mostrarNotificacion("Vació Carrito", "alerta");
+      });
+    }
+
+    function mostrarConfirmacionToast(mensaje, funcionAccion) {
+      document.getElementById('texto-confirmacion').innerText = mensaje;
+      document.getElementById('toast-confirmacion').style.display = 'block';
+      
+      accionPendiente = funcionAccion;
+    }
+
+    document.getElementById('btn-ejecutar-accion').onclick = function() {
+      if (accionPendiente) {
+        accionPendiente();
+        accionPendiente = null;
+      }
+      CerrarConfirmacion();
+    };
+
+    function CerrarConfirmacion() {
+      document.getElementById('toast-confirmacion').style.display = 'none';
     }
 
     function mostrarNotificacion(texto, tipoClase) {
@@ -228,12 +310,6 @@
       setTimeout(() => {
         mensaje.style.display = 'none';
       }, 3000);
-    }
-
-    function vaciarCarrito() {
-      localStorage.removeItem('carritoTekila');
-      renderizarCarrito();
-      mostrarNotificacion("Vació Carrito", "alerta");
     }
 
     function procesarCompra() {
@@ -252,8 +328,9 @@
       if (input.value.trim() !== '') {
         mostrarNotificacion("Promoción aplicada", "exito");
         input.value = '';
-      } else{mostrarNotificacion("Promoción aplicada", "exito");}
-
+      } else {
+        mostrarNotificacion("Promoción aplicada", "exito");
+      }
     }
 
     window.onload = function() {
@@ -261,15 +338,14 @@
     };
 
     document.addEventListener("DOMContentLoaded", () => {
-    const enlaces = document.querySelectorAll('nav a');
-    enlaces.forEach(link => {
-      if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
-        link.textContent = "Perfil";
-        link.href = "Perfil.html";
-      }
-    })});
-
-    
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "Perfil.html";
+        }
+      });
+    });
   </script>
 </body>
 </html>

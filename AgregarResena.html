@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar Reseña - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .calificacion-estrellas {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #ccc;
+    }
+    .estrella.activa {
+      color: #181818;
+    }
+
+    .mensaje-flotante {
+      display: none; 
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-weight: bold;
+      animation: aparecer 0.3s ease-out;
+    }
+    .mensaje-flotante.exito {
+      border-left: 5px solid #5cb85c;
+    }
+    .mensaje-flotante.alerta {
+      border-left: 5px solid #d9534f;
+    }
+
+    @keyframes aparecer {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="Catalogo.html">Catálogo</a>
+    <a href="Promociones.html">Promociones</a>
+    <a href="Nosotros.html">Nosotros</a>
+    <a href="Contacto.html">Contacto</a>
+    <a href="Comunidad.html">Comunidad</a>
+    <a href="Login.html">Iniciar sesión</a>
+    <a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
+  </nav>
+
+  <main style="max-width: 600px; margin: 40px auto; padding: 20px;">
+    <div class="caja-info" style="text-align: left;">
+      <h2 style="text-align: center;">NUEVA RESEÑA</h2>
+
+      <div class="formulario-contacto" style="max-width: 100%; gap: 10px;">
+        <label><strong>Producto:</strong></label>
+        <select id="selectProducto" style="width:100%; padding: 10px 15px; border: 1px solid #000; background: transparent; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; outline: none; margin-bottom: 15px;">
+          <option value="Don Julio Blanco">Don Julio Blanco</option>
+          <option value="Don Julio 70">Don Julio 70</option>
+          <option value="Pueblo Viejo Canela">Pueblo Viejo Canela</option>
+          <option value="1800 Cristalino">1800 Cristalino</option>
+          <option value="Jose Cuervo Tradicional">Jose Cuervo Tradicional</option>
+          <option value="Campo Azul">Campo Azul</option>
+          <option value="Patrón Silver">Patrón Silver</option>
+          <option value="Corralejo">Corralejo</option>
+        </select>
+
+        <label><strong>Calificación:</strong></label>
+        <div class="calificacion-estrellas" id="contenedorEstrellas">
+          <span class="estrella activa" onclick="seleccionarEstrellas(1)">★</span>
+          <span class="estrella activa" onclick="seleccionarEstrellas(2)">★</span>
+          <span class="estrella activa" onclick="seleccionarEstrellas(3)">★</span>
+          <span class="estrella activa" onclick="seleccionarEstrellas(4)">★</span>
+          <span class="estrella activa" onclick="seleccionarEstrellas(5)">★</span>
+        </div>
+
+        <label><strong>Tu Opinión:</strong></label>
+        <textarea id="textoOpinion" placeholder="Escribe lo que te pareció el producto..." style="width:100%; margin-bottom:20px; padding:10px 15px; border:1px solid #000; background:transparent; font-family:'Montserrat', sans-serif; font-size:0.9rem; outline:none; resize:vertical;" rows="4"></textarea>
+        
+        <div style="display:flex; gap:15px; width: 100%;">
+          <button class="btn-detalle" style="flex:1; transition: all 0.3s ease;" onclick="guardarResena(this)">PUBLICAR RESEÑA</button>
+          <button class="btn-detalle" style="flex:1; background-color: #666;" onclick="window.location.href='Perfil.html'">CANCELAR</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="mensaje-flotante" class="mensaje-flotante"></div>
+
+  <footer class="footer-container">
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.</p>
+    </div>
+  </footer>
+
+  <script>
+    let puntuacion = 5;
+
+    function seleccionarEstrellas(cant) {
+      puntuacion = cant;
+      const estrellas = document.querySelectorAll('#contenedorEstrellas .estrella');
+      estrellas.forEach((est, index) => {
+        if (index < cant) {
+          est.classList.add('activa');
+        } else {
+          est.classList.remove('activa');
+        }
+      });
+    }
+
+    function mostrarNotificacion(texto, tipoClase) {
+      const mensaje = document.getElementById('mensaje-flotante');
+      mensaje.textContent = texto;
+      mensaje.className = `mensaje-flotante ${tipoClase}`; 
+      mensaje.style.display = 'block';
+      setTimeout(() => {
+        mensaje.style.display = 'none';
+      }, 3000);
+    }
+
+    function guardarResena(boton) {
+      const producto = document.getElementById('selectProducto').value;
+      const opinion = document.getElementById('textoOpinion').value.trim();
+
+      
+
+      let estrellasString = "★".repeat(puntuacion) + "☆".repeat(5 - puntuacion);
+
+      const nuevaResena = {
+        producto: producto,
+        estrellas: estrellasString,
+        opinion: opinion
+      };
+
+      let listaResenas = JSON.parse(localStorage.getItem('misResenasTekila')) || [];
+      listaResenas.unshift(nuevaResena);
+      localStorage.setItem('misResenasTekila', JSON.stringify(listaResenas));
+
+      boton.innerText = "¡PUBLICADO!";
+      boton.style.backgroundColor = "#28a745";
+      boton.style.borderColor = "#28a745";
+      boton.style.color = "white";
+
+
+      setTimeout(() => {
+        window.location.href = 'Perfil.html';
+      }, 1500);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "Perfil.html";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -118,7 +118,7 @@
       const estaLogueado = localStorage.getItem('sesionActiva') === 'true';
 
       let lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
-      lista.push({ 
+      lista.unshift({ 
         nombre, 
         texto, 
         fecha: new Date().toLocaleDateString(),
@@ -141,12 +141,27 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      if (!localStorage.getItem('misComentarios')) {
-        localStorage.setItem('misComentarios', JSON.stringify([
-          { nombre: "Alan", texto: "¡Excelente calidad!", fecha: "14/07/2026", esPropio: false },
-          { nombre: "Anónimo", texto: "Envío muy rápido.", fecha: "14/07/2026", esPropio: false }
-        ]));
+      const comentariosBase = [
+        { nombre: "Alan", texto: "¡Excelente tequila, llegó súper rápido!", fecha: "15/07/2026", esPropio: true },
+        { nombre: "Alan", texto: "Recomiendo mucho el Don Julio 70", fecha: "18/07/2026", esPropio: true },
+        { nombre: "Jules Winnfield", texto: "¡Mmm, este sí que es un trago sabroso!", fecha: "14/07/2026", esPropio: false },
+        { nombre: "Mia Wallace", texto: "Dije tres sorbos, pero con esta calidad me tomo cuatro.", fecha: "15/07/2026", esPropio: false }
+      ];
+
+      let listaGuardada = JSON.parse(localStorage.getItem('misComentarios')) || [];
+
+      if (listaGuardada.length === 0) {
+        localStorage.setItem('misComentarios', JSON.stringify(comentariosBase));
+      } else {
+        comentariosBase.forEach(base => {
+          const yaExiste = listaGuardada.some(c => c.texto === base.texto);
+          if (!yaExiste) {
+            listaGuardada.push(base);
+          }
+        });
+        localStorage.setItem('misComentarios', JSON.stringify(listaGuardada));
       }
+      
       renderizarTarjetas();
     });
 

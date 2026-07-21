@@ -4,6 +4,53 @@
   <meta charset="UTF-8">
   <title>Subasta - Botella P.I. - TEKILA</title>
   <link rel="stylesheet" href="estilo.css">
+  <style>
+    .contador-container {
+      background-color: #1f1e1e;
+      color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 300px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .dark-mode .contador-container {
+      background-color: #333333;
+      border: 1px solid #555;
+    }
+
+    .tiempo-texto {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #f0ad4e;
+      margin-top: 5px;
+    }
+
+    .mensaje-flotante {
+      display: none; 
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-weight: bold;
+      animation: aparecer 0.3s ease-out;
+    }
+    .mensaje-flotante.exito { border-left: 5px solid #5cb85c; }
+    .mensaje-flotante.alerta { border-left: 5px solid #d9534f; }
+
+    @keyframes aparecer {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
 </head>
 <body class="light-mode">
 
@@ -29,7 +76,7 @@
     <a href="Promociones.html">Promociones</a>
     <a href="Nosotros.html">Nosotros</a>
     <a href="Contacto.html">Contacto</a>
-        <a href="Comunidad.html">Comunidad</a>
+    <a href="Comunidad.html">Comunidad</a>
     <a href="Login.html">Iniciar sesión</a>
     <a href="Carrito.html" style="font-weight: bold;">🛒 Carrito</a>
   </nav>
@@ -39,18 +86,24 @@
       <h2>Botella Pedro Infante Original</h2>
       <img src="Imagenes/pedroinfante.jpg" alt="PedroInfante" class="imagen-detalle">
     </div>
+
+    <!-- RELOJ DE 5 MINUTOS -->
+    <div class="contador-container">
+      <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Tiempo restante de subasta:</span>
+      <div id="reloj" class="tiempo-texto">05:00</div>
+    </div>
     
     <div class="producto-detalle-container">
       <div class="caja-info">
         <p><strong>Puja inicial: $4000</strong></p>
-        <p>Tequila completamente sellado, botella producida en primera linea, completamente original.</p>
+        <p>Tequila completamente sellado, botella producida en primera línea, completamente original.</p>
       </div>
     </div>
 
     <div class="seccion-oferta" style="text-align: center; margin: 20px;">
       <input type="text" id="nombreInput" placeholder="NOMBRE">
       <input type="number" id="pujaInput" placeholder="OFERTA $">
-      <button class="btn-detalle" onclick="guardarPuja()">MANDAR OFERTA</button>
+      <button id="btnPuja" class="btn-detalle" style="transition: all 0.3s ease;" onclick="guardarPuja(this)">MANDAR OFERTA</button>
     </div>
 
     <table class="tabla-subasta" style="width: 80%; margin: 20px auto; border-collapse: collapse;">
@@ -64,6 +117,8 @@
     </table>
   </main>
 
+  <div id="mensaje-flotante" class="mensaje-flotante"></div>
+
   <footer class="footer-container">
     <div class="caja-info">
       <p><strong>Teléfono:</strong> 4493332211</p>
@@ -72,24 +127,83 @@
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", renderizar);
+    let tiempoRestante = 300; 
+    let temporizadorInterval;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderizar();
+      iniciarReloj();
+    });
 
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
       document.body.classList.toggle("light-mode");
     }
 
-    function guardarPuja() {
-      const nombre = document.getElementById('nombreInput').value;
-      const puja = document.getElementById('pujaInput').value;
+    function mostrarNotificacion(texto, tipoClase) {
+      const mensaje = document.getElementById('mensaje-flotante');
+      mensaje.textContent = texto;
+      mensaje.className = `mensaje-flotante ${tipoClase}`; 
+      mensaje.style.display = 'block';
+      setTimeout(() => {
+        mensaje.style.display = 'none';
+      }, 3000);
+    }
 
+    function iniciarReloj() {
+      const displayReloj = document.getElementById('reloj');
+
+      temporizadorInterval = setInterval(() => {
+        let minutos = Math.floor(tiempoRestante / 60);
+        let segundos = tiempoRestante % 60;
+
+        minutos = minutos < 10 ? "0" + minutos : minutos;
+        segundos = segundos < 10 ? "0" + segundos : segundos;
+
+        displayReloj.textContent = `${minutos}:${segundos}`;
+
+        if (tiempoRestante <= 0) {
+          clearInterval(temporizadorInterval);
+          displayReloj.textContent = "FINALIZADA";
+          displayReloj.style.color = "#d9534f";
+
+          const btn = document.getElementById('btnPuja');
+          btn.disabled = true;
+          btn.innerText = "SUBASTA CERRADA";
+          btn.style.backgroundColor = "#999";
+          btn.style.cursor = "not-allowed";
+
+          mostrarNotificacion("LA SUBASTA HA FINALIZADO", "alerta");
+        } else {
+          tiempoRestante--;
+        }
+      }, 1000);
+    }
+
+    function guardarPuja(boton) {
+      const nombre = document.getElementById('nombreInput').value.trim() || "Anónimo";
+      const puja = document.getElementById('pujaInput').value.trim() || "0";
 
       let lista = JSON.parse(localStorage.getItem('pujasTekila')) || [];
-      lista.push({ nombre: nombre, puja: puja });
+      lista.push({ nombre: nombre, puja: parseFloat(puja) || 0 });
       localStorage.setItem('pujasTekila', JSON.stringify(lista));
       
       document.getElementById('nombreInput').value = "";
       document.getElementById('pujaInput').value = "";
+
+      const textoOriginal = boton.innerText;
+      boton.innerText = "¡OFERTA ENVIADA!";
+      boton.style.backgroundColor = "#28a745";
+      boton.style.color = "white";
+
+      mostrarNotificacion("OFERTA REGISTRADA CORRECTAMENTE", "exito");
+
+      setTimeout(() => {
+        boton.innerText = textoOriginal;
+        boton.style.backgroundColor = "";
+        boton.style.color = "";
+      }, 2000);
+
       renderizar();
     }
 
@@ -102,20 +216,21 @@
 
       lista.forEach(item => {
         tbody.innerHTML += `<tr>
-          <td style="padding:8px; border-bottom:1px solid #ddd;">${item.nombre}</td>
-          <td style="padding:8px; border-bottom:1px solid #ddd;">$${item.puja}</td>
+          <td style="padding:8px; border-bottom:1px solid #ddd; text-align: center;">${item.nombre}</td>
+          <td style="padding:8px; border-bottom:1px solid #ddd; text-align: center;"><strong>$${parseFloat(item.puja || 0).toFixed(2)}</strong></td>
         </tr>`;
       });
     }
 
-     document.addEventListener("DOMContentLoaded", () => {
-    const enlaces = document.querySelectorAll('nav a');
-    enlaces.forEach(link => {
-      if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
-        link.textContent = "Perfil";
-        link.href = "Perfil.html";
-      }
-    })});
+    document.addEventListener("DOMContentLoaded", () => {
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "Perfil.html";
+        }
+      });
+    });
   </script>
 </body>
 </html>

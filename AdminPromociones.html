@@ -91,10 +91,6 @@
 
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
-  <nav>
-    <div><a href="Inicio.html">Inicio</a></div>
-    <div class="dropdown"><a href="LoginAdmin.html">Cerrar sesión</a></div>
-  </nav>
   
   <div class="admin-layout">
     <aside class="admin-sidebar">
@@ -109,6 +105,7 @@
       </ul>
       <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
       <button class="btn-detalle" style="width: 100%; background-color: #0e0e0e;" onclick="cerrarSesion()">Cerrar sesión</button>
+      <div id="mensaje-logout" style="display: none; text-align: center; margin-top: 10px; color: #d9534f; font-weight: bold;">Cerrando sesión...</div>
     </aside>
 
     <main class="admin-content">
@@ -151,7 +148,12 @@
     }
 
     function cerrarSesion() {
-      window.location.href = "LoginAdmin.html";
+      const mensaje = document.getElementById("mensaje-logout");
+      mensaje.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "LoginAdmin.html";
+      }, 1500);
     }
 
     let promocionesGuardadas = [];

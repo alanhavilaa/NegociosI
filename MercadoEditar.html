@@ -98,6 +98,16 @@
     }, 2000);
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "Perfil.html";
+        }
+      });
+    });
   </script>
 </body>
 </html>

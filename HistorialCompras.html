@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mis Compras - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .tarjeta-pedido {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background: rgba(0,0,0,0.02);
+    }
+    .header-pedido {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .ticket-detalle-compra {
+      background: #fff;
+      color: #000;
+      border: 1px dashed #333;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .ticket-linea {
+      display: flex;
+      justify-content: space-between;
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+
+  <div class="redes-flotantes">
+    <h4>@tekila</h4>
+    <div class="contenedor-iconos">
+      <a href="#"><img src="Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="Imagenes/tiktok.png" alt="TikTok"></a>
+    </div>
+  </div>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <div><a href="Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="Catalogo.html">Catálogo</a></div>
+    <div class="dropdown"><a href="Promociones.html">Promociones</a></div>
+    <div class="dropdown"><a href="Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="Contacto.html">Contacto</a></div>
+    <div class="dropdown"><a href="Comunidad.html">Comunidad</a></div>
+    <div class="dropdown"><a href="Login.html">Iniciar sesión</a></div>
+    <div class="dropdown"><a href="HistorialCompras.html" style="font-weight: bold;">Mis Compras</a></div>
+    <div class="dropdown"><a href="Carrito.html">🛒 Carrito</a></div>
+  </nav>
+
+  <main style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+    
+    <div class="caja-info">
+      <h2 style="text-align: center; margin-bottom: 25px;">Historial de Mis Compras</h2>
+      
+      <div id="contenedor-historial">
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-container">
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
+      Fracc. Bona Gens, C.P. 20256<br>
+      Aguascalientes, Ags., México</p>
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
+      <p style="margin-top: 15px; font-size: 14px;">
+        <a href="Politicas.html" style="color: #ccc; text-decoration: none; border-bottom: 1px solid #ccc;">Políticas de Compra y Privacidad</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function cargarHistorial() {
+      const contenedor = document.getElementById('contenedor-historial');
+      const historial = JSON.parse(localStorage.getItem('historialTekila')) || [];
+
+      if (historial.length === 0) {
+        contenedor.innerHTML = '<p style="text-align: center; padding: 20px; font-size: 1.1em;">Aún no has realizado compras simuladas. <br><br><a href="Catalogo.html" class="btn-detalle">Ir al Catálogo</a></p>';
+        return;
+      }
+
+      contenedor.innerHTML = '';
+      historial.forEach((pedido) => {
+        let itemsHtml = '';
+        if (pedido.items && pedido.items.length > 0) {
+          pedido.items.forEach(prod => {
+            itemsHtml += `
+              <div class="ticket-linea">
+                <span>${prod.cantidad}x ${prod.nombre}</span>
+                <span>$${((parseFloat(prod.precio) || 0) * prod.cantidad).toFixed(2)}</span>
+              </div>
+            `;
+          });
+        }
+
+        const card = `
+          <div class="tarjeta-pedido">
+            <div class="header-pedido">
+              <div>
+                <strong>Folio: ${pedido.folio}</strong><br>
+                <small style="color: #666;">${pedido.fecha}</small>
+              </div>
+              <div style="text-align: right;">
+                <strong style="color: green; font-size: 1.1em;">Total: $${(pedido.total || 0).toFixed(2)}</strong>
+              </div>
+            </div>
+            <p style="margin: 5px 0;"><strong>Cliente:</strong> ${pedido.cliente}</p>
+            <p style="margin: 5px 0;"><strong>Método de pago:</strong> ${pedido.metodo}</p>
+            <p style="margin: 5px 0;"><strong>Dirección de envío:</strong> ${pedido.direccion}</p>
+            
+            <div class="ticket-detalle-compra">
+              <p style="margin: 0 0 10px 0; font-weight: bold; text-align: center; border-bottom: 1px dashed #333; padding-bottom: 5px;">Comprobante de Compra</p>
+              ${itemsHtml}
+              <hr style="border: 0; border-top: 1px dashed #333; margin: 10px 0;">
+              <div class="ticket-linea">
+                <span>Subtotal:</span>
+                <span>$${(pedido.subtotal || 0).toFixed(2)}</span>
+              </div>
+              <div class="ticket-linea">
+                <span>IVA (16%):</span>
+                <span>$${(pedido.iva || 0).toFixed(2)}</span>
+              </div>
+              <div class="ticket-linea" style="font-weight: bold;">
+                <span>Total:</span>
+                <span>$${(pedido.total || 0).toFixed(2)}</span>
+              </div>
+            </div>
+          </div>
+        `;
+        contenedor.innerHTML += card;
+      });
+    }
+
+    window.onload = cargarHistorial;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "Perfil.html";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

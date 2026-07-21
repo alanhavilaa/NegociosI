@@ -4,6 +4,45 @@
   <meta charset="UTF-8">
   <title>Perfil - TEKILA</title>
   <link rel="stylesheet" href="estilo.css">
+  <style>
+    .grid-perfil {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    @media (min-width: 1024px) {
+      .grid-perfil {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card-perfil {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .card-perfil table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+      font-size: 0.85rem;
+    }
+
+    .card-perfil th, .card-perfil td {
+      padding: 8px 4px;
+      border: 1px solid #000;
+    }
+
+    .card-contenido {
+      flex: 1;
+    }
+  </style>
 </head>
 <body class="light-mode">
 
@@ -27,35 +66,106 @@
     <h1>BIENVENIDO ALAN</h1>
   </div>
   
-  <main style="max-width: 800px; margin: 0 auto; padding: 20px;">
-    <div class="caja-info">
-      <h2>Mis Datos</h2>
-      <p><strong>Nombre:</strong> Alan</p>
-      <p><strong>Correo electrónico:</strong> alna11@gmail.com</p>
-      <p><strong>Direccion:</strong>Palomitas #11 Lomas de San Jorge</p>
-      <p><strong>Telefono:</strong> 4493756688</p>
-      <p><strong>Fecha de registro:</strong> 10 de junio 2026</p>
+  <main style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    
+    <div class="grid-perfil">
       
-      <br>
-      <button onclick="cerrarSesion(this)" class="btn-detalle" style="background-color: #1f1e1e; border: none; color: white; transition: all 0.3s ease;">Cerrar sesión</button>
+      <div class="caja-info card-perfil" style="text-align: left;">
+        <div class="card-contenido">
+          <h2 style="text-align: center;">Mis Datos</h2>
+          <p><strong>Nombre:</strong> Alan</p>
+          <p><strong>Correo:</strong> alna11@gmail.com</p>
+          <p><strong>Dirección:</strong> Palomitas #11 Lomas de San Jorge</p>
+          <p><strong>Teléfono:</strong> 4493756688</p>
+          <p><strong>Registro:</strong> 10 de junio 2026</p>
+        </div>
+        <div style="margin-top: 20px; text-align: center;">
+          <button onclick="cerrarSesion(this)" class="btn-detalle" style="background-color: #1f1e1e; border: none; color: white; transition: all 0.3s ease; width: 100%;">Cerrar sesión</button>
+        </div>
+      </div>
+
+      <div class="caja-info card-perfil">
+        <div class="card-contenido">
+          <h2>Mis publicaciones en el Mercado</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Img</th>
+                <th>Producto</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody id="tablaMisPublicaciones"></tbody>
+          </table>
+        </div>
+        <div>
+          <button onclick="window.location.href='MercadoGestion.html'" class="btn-detalle" style="width: 100%;">VER MIS PUBLICACIONES</button>
+        </div>
+      </div>
+
+      <div class="caja-info card-perfil">
+        <div class="card-contenido">
+          <h2>Mis comentarios realizados</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Comentario</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody id="tablaPerfil"></tbody>
+          </table>
+        </div>
+        <div>
+          <button onclick="window.location.href='Comunidad.html'" class="btn-detalle" style="width: 100%;">AGREGAR NUEVO COMENTARIO</button>
+        </div>
+      </div>
+
+      <div class="caja-info card-perfil">
+        <div class="card-contenido">
+          <h2>Mis Reseñas de Productos</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Calificación</th>
+                <th>Reseña</th>
+              </tr>
+            </thead>
+            <tbody id="tablaResenas"></tbody>
+          </table>
+        </div>
+        <div>
+          <button onclick="window.location.href='AgregarResena.html'" class="btn-detalle" style="width: 100%;">RESEÑAR UN PRODUCTO</button>
+        </div>
+      </div>
+
+      <div class="caja-info card-perfil">
+        <div class="card-contenido">
+          <h2>Mis Compras Realizadas</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Producto</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="tablaCompras"></tbody>
+          </table>
+        </div>
+        <div>
+          <button onclick="window.location.href='Catalogo.html'" class="btn-detalle" style="width: 100%;">IR A COMPRAR</button>
+        </div>
+      </div>
+
     </div>
 
-    <div class="caja-info" style="margin-top: 20px;">
-      <h2>Mis comentarios realizados</h2>
-      <table class="tabla-comunidad" style="width: 100%; border-collapse: collapse;">
-        <thead>
-          <tr style="border: 1px solid #000;">
-            <th style="padding: 10px;">Nombre</th>
-            <th style="padding: 10px;">Comentario</th>
-            <th style="padding: 10px;">Fecha</th>
-          </tr>
-        </thead>
-        <tbody id="tablaPerfil"></tbody>
-      </table>
-    </div>
   </main>
 
-  <footer class="footer-container">
+  <footer class="footer-container" style="margin-top: 40px;">
     <div class="caja-info">
       <p><strong>Teléfono:</strong> 4493332211</p>
       <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.</p>
@@ -63,29 +173,148 @@
   </footer>
 
   <script>
+    function cargarProductosDefectoMercado() {
+      let pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+      const existeMisProductos = pubs.some(p => (p.autor || "").toLowerCase() === "alan");
+
+      if (!existeMisProductos) {
+        const misProductosDefault = [
+          {
+            id: 2001,
+            nombre: "Don Julio Blanco",
+            precio: 980.00,
+            categoria: "Blanco",
+            imagen: "Imagenes/donjulioblanco.jpg",
+            descripcion: "Botella suave de notas cítricas.",
+            autor: "Alan"
+          },
+          {
+            id: 2002,
+            nombre: "Don Julio 70",
+            precio: 1250.00,
+            categoria: "Cristal",
+            imagen: "Imagenes/donjulio70.jpg",
+            descripcion: "Añejo cristalino con notas de miel y roble.",
+            autor: "Alan"
+          },
+          {
+            id: 2003,
+            nombre: "Pueblo Viejo Canela",
+            precio: 350.00,
+            categoria: "Reposado",
+            imagen: "Imagenes/puebloviejocanela.jpg",
+            descripcion: "Edición especial infusionada con toque de canela.",
+            autor: "Alan"
+          }
+        ];
+        pubs = [...misProductosDefault, ...pubs];
+        localStorage.setItem('mercadoTekila', JSON.stringify(pubs));
+      }
+    }
+
+    function inicializarComentariosPropio() {
+      let comentarios = JSON.parse(localStorage.getItem('misComentarios')) || [];
+      let propios = comentarios.filter(c => c.esPropio === true);
+
+      if (propios.length === 0) {
+        const comentariosDefault = [
+          { nombre: "Alan", texto: "¡Excelente tequila, llegó súper rápido!", fecha: "15/07/2026", esPropio: true },
+          { nombre: "Alan", texto: "Recomiendo mucho el Don Julio 70.", fecha: "18/07/2026", esPropio: true },
+          { nombre: "Alan", texto: "Muy buena atención al cliente.", fecha: "19/07/2026", esPropio: true }
+        ];
+        comentarios = [...comentariosDefault, ...comentarios];
+        localStorage.setItem('misComentarios', JSON.stringify(comentarios));
+      }
+    }
+
+    function inicializarResenas() {
+      let resenas = JSON.parse(localStorage.getItem('misResenasTekila')) || [];
+      if (resenas.length === 0) {
+        resenas = [
+          { producto: "Don Julio 70", estrellas: "★★★★★", opinion: "Perfecto para ocasiones especiales." },
+          { producto: "1800 Cristalino", estrellas: "★★★★☆", opinion: "Muy suave al paladar." }
+        ];
+        localStorage.setItem('misResenasTekila', JSON.stringify(resenas));
+      }
+    }
+
+    function inicializarCompras() {
+      let compras = JSON.parse(localStorage.getItem('misComprasTekila')) || [];
+      if (compras.length === 0) {
+        compras = [
+          { fecha: "10/07/2026", producto: "1800 Cristal x1", total: "$1550.00" },
+          { fecha: "02/07/2026", producto: "Campo Azul x2", total: "$2400.00" }
+        ];
+        localStorage.setItem('misComprasTekila', JSON.stringify(compras));
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
-      const lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
-      const tbody = document.getElementById('tablaPerfil');
-      
-      tbody.innerHTML = "";
+      cargarProductosDefectoMercado();
+      inicializarComentariosPropio();
+      inicializarResenas();
+      inicializarCompras();
 
-      const misComentariosLogueados = lista.filter(c => c.esPropio === true);
+      const mercado = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
+      const tbodyPubs = document.getElementById('tablaMisPublicaciones');
+      tbodyPubs.innerHTML = "";
+      const misPubs = mercado.filter(p => (p.autor || "").trim().toLowerCase() === "alan");
 
-      if (misComentariosLogueados.length === 0) {
-        tbody.innerHTML = `
-          <tr style="border: 1px solid #000;">
-            <td colspan="3" style="padding: 10px; text-align: center;">No has publicado comentarios con tu sesión iniciada.</td>
-          </tr>`;
+      if (misPubs.length === 0) {
+        tbodyPubs.innerHTML = `<tr><td colspan="4">Sin publicaciones.</td></tr>`;
       } else {
-        misComentariosLogueados.forEach(c => {
-          tbody.innerHTML += `
-            <tr style="border: 1px solid #000;">
-              <td style="padding: 10px;">${c.nombre}</td>
-              <td style="padding: 10px;">${c.texto}</td>
-              <td style="padding: 10px;">${c.fecha}</td>
+        misPubs.forEach(p => {
+          tbodyPubs.innerHTML += `
+            <tr>
+              <td><img src="${p.imagen || 'Imagenes/placeholder.png'}" style="height:35px; width:auto;"></td>
+              <td><strong>${p.nombre}</strong></td>
+              <td>${p.categoria}</td>
+              <td>$${parseFloat(p.precio || 0).toFixed(2)}</td>
             </tr>`;
         });
       }
+
+      const listaComentarios = JSON.parse(localStorage.getItem('misComentarios')) || [];
+      const tbodyComentarios = document.getElementById('tablaPerfil');
+      tbodyComentarios.innerHTML = "";
+      const misComentariosLogueados = listaComentarios.filter(c => c.esPropio === true);
+
+      if (misComentariosLogueados.length === 0) {
+        tbodyComentarios.innerHTML = `<tr><td colspan="3">Sin comentarios.</td></tr>`;
+      } else {
+        misComentariosLogueados.forEach(c => {
+          tbodyComentarios.innerHTML += `
+            <tr>
+              <td>${c.nombre}</td>
+              <td>${c.texto}</td>
+              <td>${c.fecha}</td>
+            </tr>`;
+        });
+      }
+
+      const listaResenas = JSON.parse(localStorage.getItem('misResenasTekila')) || [];
+      const tbodyResenas = document.getElementById('tablaResenas');
+      tbodyResenas.innerHTML = "";
+      listaResenas.forEach(r => {
+        tbodyResenas.innerHTML += `
+          <tr>
+            <td><strong>${r.producto}</strong></td>
+            <td style="color: black;">${r.estrellas}</td>
+            <td>${r.opinion}</td>
+          </tr>`;
+      });
+
+      const listaCompras = JSON.parse(localStorage.getItem('misComprasTekila')) || [];
+      const tbodyCompras = document.getElementById('tablaCompras');
+      tbodyCompras.innerHTML = "";
+      listaCompras.forEach(m => {
+        tbodyCompras.innerHTML += `
+          <tr>
+            <td>${m.fecha}</td>
+            <td><strong>${m.producto}</strong></td>
+            <td>${m.total}</td>
+          </tr>`;
+      });
 
       const enlaces = document.querySelectorAll('nav a');
       enlaces.forEach(link => {
@@ -98,11 +327,9 @@
 
     function cerrarSesion(boton) {
       localStorage.removeItem('sesionActiva');
-
       boton.innerText = "SESIÓN CERRADA";
       boton.style.backgroundColor = "#d9534f";
       boton.style.color = "white";
-
       setTimeout(() => {
         window.location.href = "Login.html";
       }, 1200);

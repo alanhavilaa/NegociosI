@@ -56,24 +56,21 @@
 
   <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
 
-  <nav>
-    <div><a href="Inicio.html">Inicio</a></div>
-    <div class="dropdown"><a href="LoginAdmin.html">Cerrar sesión</a></div>
-  </nav>
   
   <div class="admin-layout">
     <aside class="admin-sidebar">
       <h3>Panel Admin</h3>
       <ul>
-           <li><a href="PerfilAdmin.html">Dashboard</a></li>
-        <li><a href="AdminProductos.html">Productos</a></li>
+        <li><a href="PerfilAdmin.html">Dashboard</a></li>
+        <li><a href="AdminProductos.html" class="activo">Productos</a></li>
         <li><a href="AdminPedidos.html">Pedidos</a></li>
         <li><a href="AdminPromociones.html">Promociones</a></li>
         <li><a href="AdminClientes.html">Clientes</a></li>
-        <li><a href="AdminReportes.html" class="activo">Reportes</a></li>
+        <li><a href="AdminReportes.html">Reportes</a></li>
       </ul>
       <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
       <button class="btn-detalle" style="width: 100%; background-color: #0e0e0e;" onclick="cerrarSesion()">Cerrar sesión</button>
+      <div id="mensaje-logout" style="display: none; text-align: center; margin-top: 10px; color: #d9534f; font-weight: bold;">Cerrando sesión...</div>
     </aside>
 
     <main class="admin-content">
@@ -87,24 +84,24 @@
           
           <div class="form-group">
             <label>Nombre del Producto:</label>
-            <input type="text" id="prodNombre" >
+            <input type="text" id="prodNombre">
           </div>
           
           <div class="form-row">
             <div class="form-group">
               <label>Precio ($):</label>
-              <input type="number" id="prodPrecio" step="0.01" min="0" >
+              <input type="number" id="prodPrecio" step="0.01" min="0">
             </div>
             <div class="form-group">
               <label>Existencia (Unidades):</label>
-              <input type="number" id="prodStock" min="0" >
+              <input type="number" id="prodStock" min="0">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>Categoría:</label>
-              <select id="prodCategoria" >
+              <select id="prodCategoria">
                 <option value="Reposado">Reposado</option>
                 <option value="Blanco">Blanco</option>
                 <option value="Añejo">Añejo</option>
@@ -113,7 +110,7 @@
             </div>
             <div class="form-group">
               <label>Estado:</label>
-              <select id="prodEstado" >
+              <select id="prodEstado">
                 <option value="Activo">Disponible</option>
                 <option value="Inactivo">Agotado</option>
               </select>
@@ -122,7 +119,7 @@
 
           <div class="form-group">
             <label>URL de la Imagen (Ruta local o URL):</label>
-            <input type="text" id="prodImagen" >
+            <input type="text" id="prodImagen">
           </div>
 
           <div class="form-group">
@@ -150,7 +147,14 @@
       document.body.classList.toggle("light-mode");
     }
 
-    function cerrarSesion() { window.location.href = "LoginAdmin.html"; }
+    function cerrarSesion() {
+      const mensaje = document.getElementById("mensaje-logout");
+      mensaje.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "LoginAdmin.html";
+      }, 1500);
+    }
 
     let inventarioGlobal = [];
 
