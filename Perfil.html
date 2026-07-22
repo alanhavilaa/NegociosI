@@ -198,6 +198,7 @@
         </div>
       </div>
 
+      <!-- MIS COMENTARIOS -->
       <div class="caja-info card-perfil">
         <div class="card-contenido">
           <h2>Mis comentarios realizados</h2>
@@ -254,7 +255,9 @@
           </table>
         </div>
         <div>
-          <button onclick="window.location.href='Catalogo.html'" class="btn-detalle" style="width: 100%;">IR A COMPRAR</button>
+          <button onclick="window.location.href='HistorialCompras.html'" class="btn-detalle" style="width: 100%;">VER HISTORIAL COMPLETO</button>
+        <br>
+        <button onclick="window.location.href='Facturacion.html'" class="btn-detalle" style="width: 100%;">GENERAR FACTURA</button>
         </div>
       </div>
 
@@ -275,6 +278,50 @@
     let elementoAEliminar = null; 
     let tipoAEliminar = null;     
 
+    const comprasDefault = [
+      {
+        folio: "TK-4112233",
+        fecha: "18/07/2026, 04:30 PM",
+        cliente: "Alan Eduardo Herrera",
+        direccion: "Av. Adolfo López Mateos #1801, Aguascalientes C.P. 20256",
+        metodo: "TARJETA",
+        items: [
+          { nombre: "Don Julio 70", cantidad: 1, precio: 1250.00 }
+        ],
+        subtotal: 1077.59,
+        iva: 172.41,
+        total: 1250.00
+      },
+      {
+        folio: "TK-9883120",
+        fecha: "10/07/2026, 11:15 AM",
+        cliente: "Alan Eduardo Herrera",
+        direccion: "Av. Adolfo López Mateos #1801, Aguascalientes C.P. 20256",
+        metodo: "E-WALLET",
+        items: [
+          { nombre: "1800 Cristalino", cantidad: 1, precio: 1550.00 },
+          { nombre: "Pueblo Viejo Canela", cantidad: 1, precio: 350.00 }
+        ],
+        subtotal: 1637.93,
+        iva: 262.07,
+        total: 1900.00
+      }
+    ];
+
+    function asegurarComprasDefault() {
+      let historial = JSON.parse(localStorage.getItem('historialTekila')) || [];
+
+      comprasDefault.forEach(def => {
+        const existe = historial.some(p => p.folio === def.folio);
+        if (!existe) {
+          historial.push(def);
+        }
+      });
+
+      localStorage.setItem('historialTekila', JSON.stringify(historial));
+      return historial;
+    }
+
     function cargarProductosDefectoMercado() {
       let pubs = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
       const existeMisProductos = pubs.some(p => (p.autor || "").toLowerCase() === "alan");
@@ -286,7 +333,7 @@
             nombre: "Don Julio Blanco",
             precio: 980.00,
             categoria: "Blanco",
-            imagen: "Imagenes/donjulioblanco.jpg",
+            imagen: "Imagenes/donjulioblanco.webp",
             descripcion: "Botella suave de notas cítricas.",
             autor: "Alan"
           },
@@ -304,7 +351,7 @@
             nombre: "Pueblo Viejo Canela",
             precio: 350.00,
             categoria: "Reposado",
-            imagen: "Imagenes/puebloviejocanela.jpg",
+            imagen: "Imagenes/puebloviejocanela.webp",
             descripcion: "Edición especial infusionada con toque de canela.",
             autor: "Alan"
           }
@@ -339,18 +386,6 @@
         localStorage.setItem('misResenasTekila', JSON.stringify(resenas));
       }
     }
-
-    function inicializarCompras() {
-      let compras = JSON.parse(localStorage.getItem('misComprasTekila')) || [];
-      if (compras.length === 0) {
-        compras = [
-          { fecha: "10/07/2026", producto: "1800 Cristal x1", total: "$1550.00" },
-          { fecha: "02/07/2026", producto: "Campo Azul x2", total: "$2400.00" }
-        ];
-        localStorage.setItem('misComprasTekila', JSON.stringify(compras));
-      }
-    }
-
 
     function renderizarComentarios() {
       const listaComentarios = JSON.parse(localStorage.getItem('misComentarios')) || [];
@@ -402,6 +437,31 @@
       }
     }
 
+    function renderizarUltimasCompras() {
+      const tbodyCompras = document.getElementById('tablaCompras');
+      tbodyCompras.innerHTML = "";
+
+      const historial = asegurarComprasDefault();
+
+      if (historial.length > 0) {
+        const ultimasTres = historial.slice(0, 3);
+
+        ultimasTres.forEach(m => {
+          let resumenProds = m.items && m.items.length > 0 
+            ? m.items.map(i => `${i.nombre} x${i.cantidad}`).join(', ') 
+            : 'Productos Tekila';
+
+          tbodyCompras.innerHTML += `
+            <tr>
+              <td>${m.fecha.split(',')[0]}</td>
+              <td><strong>${resumenProds}</strong></td>
+              <td>$${(m.total || 0).toFixed(2)}</td>
+            </tr>`;
+        });
+      } else {
+        tbodyCompras.innerHTML = `<tr><td colspan="3">Aún no has realizado compras.</td></tr>`;
+      }
+    }
 
     function activarEdicionComentario(index) {
       let lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
@@ -418,7 +478,6 @@
 
     function guardarComentarioInline(boton, index) {
       const nuevoTexto = document.getElementById(`input-comentario-${index}`).value.trim();
-      if (!nuevoTexto) return;
 
       let lista = JSON.parse(localStorage.getItem('misComentarios')) || [];
       lista[index].texto = nuevoTexto;
@@ -447,7 +506,6 @@
 
     function guardarResenaInline(boton, index) {
       const nuevaOpinion = document.getElementById(`input-resena-${index}`).value.trim();
-      if (!nuevaOpinion) return;
 
       let lista = JSON.parse(localStorage.getItem('misResenasTekila')) || [];
       lista[index].opinion = nuevaOpinion;
@@ -460,7 +518,6 @@
         renderizarResenas();
       }, 1200);
     }
-
 
     function solicitarEliminarToast(index, tipo) {
       elementoAEliminar = index;
@@ -517,12 +574,10 @@
       }, 3000);
     }
 
-
     document.addEventListener("DOMContentLoaded", () => {
       cargarProductosDefectoMercado();
       inicializarComentariosPropio();
       inicializarResenas();
-      inicializarCompras();
 
       const mercado = JSON.parse(localStorage.getItem('mercadoTekila')) || [];
       const tbodyPubs = document.getElementById('tablaMisPublicaciones');
@@ -545,18 +600,7 @@
 
       renderizarComentarios();
       renderizarResenas();
-
-      const listaCompras = JSON.parse(localStorage.getItem('misComprasTekila')) || [];
-      const tbodyCompras = document.getElementById('tablaCompras');
-      tbodyCompras.innerHTML = "";
-      listaCompras.forEach(m => {
-        tbodyCompras.innerHTML += `
-          <tr>
-            <td>${m.fecha}</td>
-            <td><strong>${m.producto}</strong></td>
-            <td>${m.total}</td>
-          </tr>`;
-      });
+      renderizarUltimasCompras();
 
       const enlaces = document.querySelectorAll('nav a');
       enlaces.forEach(link => {

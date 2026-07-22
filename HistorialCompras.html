@@ -62,7 +62,6 @@
     <div class="dropdown"><a href="Contacto.html">Contacto</a></div>
     <div class="dropdown"><a href="Comunidad.html">Comunidad</a></div>
     <div class="dropdown"><a href="Login.html">Iniciar sesión</a></div>
-    <div class="dropdown"><a href="HistorialCompras.html" style="font-weight: bold;">Mis Compras</a></div>
     <div class="dropdown"><a href="Carrito.html">🛒 Carrito</a></div>
   </nav>
 
@@ -97,14 +96,54 @@
       document.body.classList.toggle("light-mode");
     }
 
-    function cargarHistorial() {
-      const contenedor = document.getElementById('contenedor-historial');
-      const historial = JSON.parse(localStorage.getItem('historialTekila')) || [];
-
-      if (historial.length === 0) {
-        contenedor.innerHTML = '<p style="text-align: center; padding: 20px; font-size: 1.1em;">Aún no has realizado compras simuladas. <br><br><a href="Catalogo.html" class="btn-detalle">Ir al Catálogo</a></p>';
-        return;
+    const comprasDefault = [
+      {
+        folio: "TK-4112233",
+        fecha: "18/07/2026, 04:30 PM",
+        cliente: "Alan Eduardo Herrera",
+        direccion: "Av. Adolfo López Mateos #1801, Aguascalientes C.P. 20256",
+        metodo: "TARJETA",
+        items: [
+          { nombre: "Don Julio 70", cantidad: 1, precio: 1250.00 }
+        ],
+        subtotal: 1077.59,
+        iva: 172.41,
+        total: 1250.00
+      },
+      {
+        folio: "TK-9883120",
+        fecha: "10/07/2026, 11:15 AM",
+        cliente: "Alan Eduardo Herrera",
+        direccion: "Av. Adolfo López Mateos #1801, Aguascalientes C.P. 20256",
+        metodo: "E-WALLET",
+        items: [
+          { nombre: "1800 Cristalino", cantidad: 1, precio: 1550.00 },
+          { nombre: "Pueblo Viejo Canela", cantidad: 1, precio: 350.00 }
+        ],
+        subtotal: 1637.93,
+        iva: 262.07,
+        total: 1900.00
       }
+    ];
+
+    function asegurarComprasDefault() {
+      let historial = JSON.parse(localStorage.getItem('historialTekila')) || [];
+
+      comprasDefault.forEach(def => {
+        const existe = historial.some(p => p.folio === def.folio);
+        if (!existe) {
+          historial.push(def);
+        }
+      });
+
+      localStorage.setItem('historialTekila', JSON.stringify(historial));
+      return historial;
+    }
+
+    function cargarHistorial() {
+      const historial = asegurarComprasDefault();
+      const contenedor = document.getElementById('contenedor-historial');
+      const facturados = JSON.parse(localStorage.getItem('facturasRealizadasTekila')) || [];
 
       contenedor.innerHTML = '';
       historial.forEach((pedido) => {
@@ -118,6 +157,23 @@
               </div>
             `;
           });
+        }
+
+        const yaFacturado = facturados.includes(pedido.folio);
+
+        let botonAccion = '';
+        if (yaFacturado) {
+          botonAccion = `
+            <a href="TEKILAFACTURA.pdf" target="_blank" class="btn-detalle" style="background-color: #555; text-decoration: none; display: block; text-align: center;">
+              Ver Factura
+            </a>
+          `;
+        } else {
+          botonAccion = `
+            <a href="Facturacion.html?folio=${pedido.folio}" class="btn-detalle" style="background-color: #28a745; text-decoration: none; display: block; text-align: center;">
+              Facturar esta Compra
+            </a>
+          `;
         }
 
         const card = `
@@ -151,6 +207,10 @@
                 <span>Total:</span>
                 <span>$${(pedido.total || 0).toFixed(2)}</span>
               </div>
+            </div>
+
+            <div style="margin-top: 15px; text-align: center;">
+              ${botonAccion}
             </div>
           </div>
         `;

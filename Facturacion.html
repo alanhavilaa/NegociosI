@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Facturación - TEKILA</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .caja-facturacion {
+      background: rgba(0,0,0,0.03);
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .campo-form {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .campo-form label {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .campo-form input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <header class="header-principal">
+    <img src="Imagenes/205164.png" alt="Logo Agave" class="logo-pequeno">
+    <h1>TEKILA</h1>
+  </header>
+
+  <div class="redes-flotantes">
+    <h4>@tekila</h4>
+    <div class="contenedor-iconos">
+      <a href="#"><img src="Imagenes/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="Imagenes/facebook.webp" alt="Facebook"></a>
+      <a href="#"><img src="Imagenes/tiktok.png" alt="TikTok"></a>
+    </div>
+  </div>
+
+  <button class="toggle-button" onclick="toggleMode()">Modo Oscuro / Modo Claro</button>
+
+  <nav>
+    <div><a href="Inicio.html">Inicio</a></div>
+    <div class="dropdown"><a href="Catalogo.html">Catálogo</a></div>
+    <div class="dropdown"><a href="Promociones.html">Promociones</a></div>
+    <div class="dropdown"><a href="Nosotros.html">Nosotros</a></div>
+    <div class="dropdown"><a href="Contacto.html">Contacto</a></div>
+    <div class="dropdown"><a href="Comunidad.html">Comunidad</a></div>
+    <div class="dropdown"><a href="Login.html">Iniciar sesión</a></div>
+    <div class="dropdown"><a href="Carrito.html">🛒 Carrito</a></div>
+  </nav>
+
+  <main style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+    
+    <div class="caja-info">
+      <div class="caja-facturacion">
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 25px;">Solicitar Factura Electrónica</h2>
+        
+        <form id="form-factura" onsubmit="abrirFacturaNuevaPestana(event)">
+          <div class="campo-form">
+            <label>Número de Ticket</label>
+            <input type="text" id="fac-ticket" >
+          </div>
+
+          <div class="grid-2">
+            <div class="campo-form">
+              <label>RFC Cliente</label>
+              <input type="text" id="fac-rfc" >
+            </div>
+            <div class="campo-form">
+              <label>Nombre Completo / Razón Social</label>
+              <input type="text" id="fac-nombre" >
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 20px;">
+            <button type="submit" id="btn-descargar-fac" class="btn-detalle" style="padding: 12px 30px; font-size: 1.05em; transition: all 0.3s ease;">
+              Generar y Descargar Factura
+            </button>
+          </div>
+        </form>
+      </div>
+                <button onclick="window.location.href='HistorialCompras.html'" class="btn-detalle" style="width: 100%;">VER MIS COMPRAS</button>
+
+    </div>
+
+  </main>
+
+  <footer class="footer-container">
+    <div class="caja-info">
+      <p><strong>Teléfono:</strong> 4493332211</p>
+      <p><strong>Correo:</strong> tekilacomp@gmail.com</p>
+      <p><strong>Dirección:</strong> Av. Adolfo López Mateos #1801 Ote.<br>
+      Fracc. Bona Gens, C.P. 20256<br>
+      Aguascalientes, Ags., México</p>
+      <p><strong>Horario:</strong> 8:00 a 14:00 hrs</p>
+      <p style="margin-top: 15px; font-size: 14px;">
+        <a href="Politicas.html" style="color: #ccc; text-decoration: none; border-bottom: 1px solid #ccc;">Políticas de Compra y Privacidad</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    function abrirFacturaNuevaPestana(e) {
+      if (e) e.preventDefault();
+
+      const btn = document.getElementById('btn-descargar-fac');
+      const folioIngresado = document.getElementById('fac-ticket').value.trim() || "TK-4112233";
+
+      let facturados = JSON.parse(localStorage.getItem('facturasRealizadasTekila')) || [];
+      if (!facturados.includes(folioIngresado)) {
+        facturados.push(folioIngresado);
+        localStorage.setItem('facturasRealizadasTekila', JSON.stringify(facturados));
+      }
+      
+      btn.innerText = "REGISTRADO";
+      btn.style.backgroundColor = "#28a745";
+      btn.style.borderColor = "#28a745";
+      btn.style.color = "white";
+
+      setTimeout(() => {
+        window.open('TEKILAFACTURA.pdf', '_blank');
+
+        setTimeout(() => {
+          btn.innerText = "Generar y Descargar Factura";
+          btn.style.backgroundColor = "";
+          btn.style.borderColor = "";
+        }, 1500);
+
+      }, 600);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const folioParam = urlParams.get('folio');
+      if (folioParam) {
+        document.getElementById('fac-ticket').value = folioParam;
+      }
+
+      const enlaces = document.querySelectorAll('nav a');
+      enlaces.forEach(link => {
+        if (link.href.includes('Login.html') && localStorage.getItem('sesionActiva') === 'true') {
+          link.textContent = "Perfil";
+          link.href = "Perfil.html";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
